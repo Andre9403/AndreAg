@@ -84,24 +84,26 @@
       margin-bottom: 2px;
     }
 
-    /* PWA INSTALL BANNER & PROMPT */
+    /* PWA INSTALL BANNER & PROMPT (TOP SLIDE-DOWN NOTIFICATION) */
     .pwa-install-banner {
       position: fixed;
-      bottom: 84px;
+      top: 92px;
       left: 50%;
-      transform: translateX(-50%) translateY(120%);
-      width: calc(100% - 24px);
+      transform: translateX(-50%) translateY(-160%);
+      width: calc(100% - 20px);
       max-width: 456px;
-      background: linear-gradient(135deg, #132238 0%, #0d1726 100%);
+      background: linear-gradient(135deg, rgba(19, 34, 56, 0.98) 0%, rgba(10, 18, 32, 0.98) 100%);
       border: 1.5px solid var(--accent-cyan);
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 12px 14px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 210, 255, 0.25);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 210, 255, 0.25);
       z-index: 99990;
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       gap: 10px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .pwa-install-banner.show {
@@ -112,6 +114,25 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      position: relative;
+    }
+
+    .pwa-close-x-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      cursor: pointer;
+      padding: 2px 8px;
+      border-radius: 6px;
+      line-height: 1;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+
+    .pwa-close-x-btn:hover, .pwa-close-x-btn:active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
     }
 
     .pwa-banner-icon {
@@ -2659,6 +2680,7 @@
         <span class="pwa-banner-title">Pasang di Layar Utama HP</span>
         <span class="pwa-banner-desc" id="pwaBannerDesc">Akses cepat seperti aplikasi tanpa buka browser</span>
       </div>
+      <button class="pwa-close-x-btn" onclick="dismissPwaBanner()" title="Tutup">✕</button>
     </div>
     <div class="pwa-banner-actions">
       <button class="pwa-install-btn" id="pwaInstallActionBtn" onclick="performPwaInstall()">
