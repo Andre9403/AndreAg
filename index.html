@@ -84,120 +84,6 @@
       margin-bottom: 2px;
     }
 
-    /* PWA INSTALL BANNER & PROMPT (TOP SLIDE-DOWN NOTIFICATION) */
-    .pwa-install-banner {
-      position: fixed;
-      top: 92px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-160%);
-      width: calc(100% - 20px);
-      max-width: 456px;
-      background: linear-gradient(135deg, rgba(19, 34, 56, 0.98) 0%, rgba(10, 18, 32, 0.98) 100%);
-      border: 1.5px solid var(--accent-cyan);
-      border-radius: 14px;
-      padding: 12px 14px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 210, 255, 0.25);
-      z-index: 99990;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    .pwa-install-banner.show {
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .pwa-banner-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-    }
-
-    .pwa-close-x-btn {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.25rem;
-      cursor: pointer;
-      padding: 2px 8px;
-      border-radius: 6px;
-      line-height: 1;
-      transition: all 0.15s;
-      flex-shrink: 0;
-    }
-
-    .pwa-close-x-btn:hover, .pwa-close-x-btn:active {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .pwa-banner-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      flex-shrink: 0;
-      background: #0f192a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    }
-
-    .pwa-banner-text {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.25;
-    }
-
-    .pwa-banner-title {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .pwa-banner-desc {
-      font-size: 0.73rem;
-      color: var(--text-muted);
-    }
-
-    .pwa-banner-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .pwa-install-btn {
-      flex: 1;
-      padding: 8px 14px;
-      background: linear-gradient(135deg, #0084ff 0%, #00d2ff 100%);
-      border: none;
-      border-radius: 10px;
-      color: #000;
-      font-size: 0.8rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      box-shadow: 0 4px 12px rgba(0, 210, 255, 0.35);
-    }
-
-    .pwa-dismiss-btn {
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
     /* TOPBAR INSTALL BUTTON */
     .topbar-install-btn {
       padding: 5px 9px;
@@ -1612,7 +1498,7 @@
     // 1,279 COMPLETE POKEDEX DATA [ID, Name, Type1, Type2, Gen]
   const ALL_POKEMON_RAW = [[1,"Bulbasaur","Grass","Poison",1,1],[2,"Ivysaur","Grass","Poison",1,2],[3,"Venusaur","Grass","Poison",1,3],[3,"Mega Venusaur","Grass","Poison",1,10033],[3,"Gigantamax Venusaur","Grass","Poison",1,3],[4,"Charmander","Fire",null,1,4],[5,"Charmeleon","Fire",null,1,5],[6,"Charizard","Fire","Flying",1,6],[6,"Mega Charizard X","Fire","Dragon",1,10034],[6,"Mega Charizard Y","Fire","Flying",1,10035],[6,"Gigantamax Charizard","Fire","Flying",1,6],[7,"Squirtle","Water",null,1,7],[8,"Wartortle","Water",null,1,8],[9,"Blastoise","Water",null,1,9],[9,"Mega Blastoise","Water",null,1,10036],[9,"Gigantamax Blastoise","Water",null,1,9],[10,"Caterpie","Bug",null,1,10],[11,"Metapod","Bug",null,1,11],[12,"Butterfree","Bug","Flying",1,12],[12,"Gigantamax Butterfree","Bug","Flying",1,12],[13,"Weedle","Bug","Poison",1,13],[14,"Kakuna","Bug","Poison",1,14],[15,"Beedrill","Bug","Poison",1,15],[15,"Mega Beedrill","Bug","Poison",1,10090],[16,"Pidgey","Normal","Flying",1,16],[17,"Pidgeotto","Normal","Flying",1,17],[18,"Pidgeot","Normal","Flying",1,18],[18,"Mega Pidgeot","Normal","Flying",1,10073],[19,"Rattata","Normal",null,1,19],[19,"Alolan Rattata","Dark","Normal",1,10091],[20,"Raticate","Normal",null,1,20],[20,"Alolan Raticate","Dark","Normal",1,10092],[21,"Spearow","Normal","Flying",1,21],[22,"Fearow","Normal","Flying",1,22],[23,"Ekans","Poison",null,1,23],[24,"Arbok","Poison",null,1,24],[25,"Pikachu","Electric",null,1,25],[25,"Cosplay Pikachu","Electric",null,1,25],[25,"Pikachu in a cap","Electric",null,1,25],[25,"Partner Pikachu","Electric",null,1,25],[25,"Gigantamax Pikachu","Electric",null,1,25],[26,"Raichu","Electric",null,1,26],[26,"Alolan Raichu","Electric","Psychic",1,10100],[27,"Sandshrew","Ground",null,1,27],[27,"Alolan Sandshrew","Ice","Steel",1,10101],[28,"Sandslash","Ground",null,1,28],[28,"Alolan Sandslash","Ice","Steel",1,10102],[29,"Nidoran♀","Poison",null,1,29],[30,"Nidorina","Poison",null,1,30],[31,"Nidoqueen","Poison","Ground",1,31],[32,"Nidoran♂","Poison",null,1,32],[33,"Nidorino","Poison",null,1,33],[34,"Nidoking","Poison","Ground",1,34],[35,"Clefairy","Fairy",null,1,35],[36,"Clefable","Fairy",null,1,36],[37,"Vulpix","Fire",null,1,37],[37,"Alolan Vulpix","Ice",null,1,10103],[38,"Ninetales","Fire",null,1,38],[38,"Alolan Ninetales","Ice","Fairy",1,10104],[39,"Jigglypuff","Normal","Fairy",1,39],[40,"Wigglytuff","Normal","Fairy",1,40],[41,"Zubat","Poison","Flying",1,41],[42,"Golbat","Poison","Flying",1,42],[43,"Oddish","Grass","Poison",1,43],[44,"Gloom","Grass","Poison",1,44],[45,"Vileplume","Grass","Poison",1,45],[46,"Paras","Bug","Grass",1,46],[47,"Parasect","Bug","Grass",1,47],[48,"Venonat","Bug","Poison",1,48],[49,"Venomoth","Bug","Poison",1,49],[50,"Diglett","Ground",null,1,50],[50,"Alolan Diglett","Ground","Steel",1,10105],[51,"Dugtrio","Ground",null,1,51],[51,"Alolan Dugtrio","Ground","Steel",1,10106],[52,"Meowth","Normal",null,1,52],[52,"Alolan Meowth","Dark",null,1,10107],[52,"Galarian Meowth","Steel",null,1,10161],[52,"Gigantamax Meowth","Normal",null,1,52],[53,"Persian","Normal",null,1,53],[53,"Alolan Persian","Dark",null,1,10108],[54,"Psyduck","Water",null,1,54],[55,"Golduck","Water",null,1,55],[56,"Mankey","Fighting",null,1,56],[57,"Primeape","Fighting",null,1,57],[58,"Growlithe","Fire",null,1,58],[58,"Hisuian Growlithe","Fire","Rock",1,10229],[59,"Arcanine","Fire",null,1,59],[59,"Hisuian Arcanine","Fire","Rock",1,10230],[60,"Poliwag","Water",null,1,60],[61,"Poliwhirl","Water",null,1,61],[62,"Poliwrath","Water","Fighting",1,62],[63,"Abra","Psychic",null,1,63],[64,"Kadabra","Psychic",null,1,64],[65,"Alakazam","Psychic",null,1,65],[65,"Mega Alakazam","Psychic",null,1,10037],[66,"Machop","Fighting",null,1,66],[67,"Machoke","Fighting",null,1,67],[68,"Machamp","Fighting",null,1,68],[68,"Gigantamax Machamp","Fighting",null,1,68],[69,"Bellsprout","Grass","Poison",1,69],[70,"Weepinbell","Grass","Poison",1,70],[71,"Victreebel","Grass","Poison",1,71],[72,"Tentacool","Water","Poison",1,72],[73,"Tentacruel","Water","Poison",1,73],[74,"Geodude","Rock","Ground",1,74],[74,"Alolan Geodude","Rock","Electric",1,10109],[75,"Graveler","Rock","Ground",1,75],[75,"Alolan Graveler","Rock","Electric",1,10110],[76,"Golem","Rock","Ground",1,76],[76,"Alolan Golem","Rock","Electric",1,10111],[77,"Ponyta","Fire",null,1,77],[77,"Galarian Ponyta","Psychic",null,1,10162],[78,"Rapidash","Fire",null,1,78],[78,"Galarian Rapidash","Psychic","Fairy",1,10163],[79,"Slowpoke","Water","Psychic",1,79],[79,"Galarian Slowpoke","Psychic",null,1,10164],[80,"Slowbro","Water","Psychic",1,80],[80,"Galarian Slowbro","Poison","Psychic",1,10165],[80,"Mega Slowbro","Water","Psychic",1,10071],[81,"Magnemite","Electric","Steel",1,81],[82,"Magneton","Electric","Steel",1,82],[83,"Farfetch'd","Normal","Flying",1,83],[83,"Galarian Farfetch'd","Fighting",null,1,10166],[84,"Doduo","Normal","Flying",1,84],[85,"Dodrio","Normal","Flying",1,85],[86,"Seel","Water",null,1,86],[87,"Dewgong","Water","Ice",1,87],[88,"Grimer","Poison",null,1,88],[88,"Alolan Grimer","Poison","Dark",1,10112],[89,"Muk","Poison",null,1,89],[89,"Alolan Muk","Poison","Dark",1,10113],[90,"Shellder","Water",null,1,90],[91,"Cloyster","Water","Ice",1,91],[92,"Gastly","Ghost","Poison",1,92],[93,"Haunter","Ghost","Poison",1,93],[94,"Gengar","Ghost","Poison",1,94],[94,"Mega Gengar","Ghost","Poison",1,10038],[94,"Gigantamax Gengar","Ghost","Poison",1,94],[95,"Onix","Rock","Ground",1,95],[96,"Drowzee","Psychic",null,1,96],[97,"Hypno","Psychic",null,1,97],[98,"Krabby","Water",null,1,98],[99,"Kingler","Water",null,1,99],[99,"Gigantamax Kingler","Water",null,1,99],[100,"Voltorb","Electric",null,1,100],[100,"Hisuian Voltorb","Electric","Grass",1,10231],[101,"Electrode","Electric",null,1,101],[101,"Hisuian Electrode","Electric","Grass",1,10232],[102,"Exeggcute","Grass","Psychic",1,102],[103,"Exeggutor","Grass","Psychic",1,103],[103,"Alolan Exeggutor","Grass","Dragon",1,10114],[104,"Cubone","Ground",null,1,104],[105,"Marowak","Ground",null,1,105],[105,"Alolan Marowak","Fire","Ghost",1,10115],[106,"Hitmonlee","Fighting",null,1,106],[107,"Hitmonchan","Fighting",null,1,107],[108,"Lickitung","Normal",null,1,108],[109,"Koffing","Poison",null,1,109],[110,"Weezing","Poison",null,1,110],[110,"Galarian Weezing","Poison","Fairy",1,10167],[111,"Rhyhorn","Ground","Rock",1,111],[112,"Rhydon","Ground","Rock",1,112],[113,"Chansey","Normal",null,1,113],[114,"Tangela","Grass",null,1,114],[115,"Kangaskhan","Normal",null,1,115],[115,"Mega Kangaskhan","Normal",null,1,10039],[116,"Horsea","Water",null,1,116],[117,"Seadra","Water",null,1,117],[118,"Goldeen","Water",null,1,118],[119,"Seaking","Water",null,1,119],[120,"Staryu","Water",null,1,120],[121,"Starmie","Water","Psychic",1,121],[122,"Mr. Mime","Psychic","Fairy",1,122],[122,"Galarian Mr. Mime","Ice","Psychic",1,10168],[123,"Scyther","Bug","Flying",1,123],[124,"Jynx","Ice","Psychic",1,124],[125,"Electabuzz","Electric",null,1,125],[126,"Magmar","Fire",null,1,126],[127,"Pinsir","Bug",null,1,127],[127,"Mega Pinsir","Bug","Flying",1,10040],[128,"Tauros","Normal",null,1,128],[128,"Paldean Tauros (Combat Breed)","Normal",null,1,128],[128,"Paldean Tauros (Blaze Breed)","Normal",null,1,128],[128,"Paldean Tauros (Aqua Breed)","Normal",null,1,128],[129,"Magikarp","Water",null,1,129],[130,"Gyarados","Water","Flying",1,130],[130,"Mega Gyarados","Water","Dark",1,10041],[131,"Lapras","Water","Ice",1,131],[131,"Gigantamax Lapras","Water","Ice",1,131],[132,"Ditto","Normal",null,1,132],[133,"Eevee","Normal",null,1,133],[133,"Partner Eevee","Normal",null,1,133],[133,"Gigantamax Eevee","Normal",null,1,133],[134,"Vaporeon","Water",null,1,134],[135,"Jolteon","Electric",null,1,135],[136,"Flareon","Fire",null,1,136],[137,"Porygon","Normal",null,1,137],[138,"Omanyte","Rock","Water",1,138],[139,"Omastar","Rock","Water",1,139],[140,"Kabuto","Rock","Water",1,140],[141,"Kabutops","Rock","Water",1,141],[142,"Aerodactyl","Rock","Flying",1,142],[142,"Mega Aerodactyl","Rock","Flying",1,10042],[143,"Snorlax","Normal",null,1,143],[143,"Gigantamax Snorlax","Normal",null,1,143],[144,"Articuno","Ice","Flying",1,144],[144,"Galarian Articuno","Psychic","Flying",1,10169],[145,"Zapdos","Electric","Flying",1,145],[145,"Galarian Zapdos","Fighting","Flying",1,10170],[146,"Moltres","Fire","Flying",1,146],[146,"Galarian Moltres","Dark","Flying",1,10171],[147,"Dratini","Dragon",null,1,147],[148,"Dragonair","Dragon",null,1,148],[149,"Dragonite","Dragon","Flying",1,149],[150,"Mewtwo","Psychic",null,1,150],[150,"Mega Mewtwo X","Psychic","Fighting",1,10043],[150,"Mega Mewtwo Y","Psychic",null,1,10044],[151,"Mew","Psychic",null,1,151],[152,"Chikorita","Grass",null,2,152],[153,"Bayleef","Grass",null,2,153],[154,"Meganium","Grass",null,2,154],[155,"Cyndaquil","Fire",null,2,155],[156,"Quilava","Fire",null,2,156],[157,"Typhlosion","Fire",null,2,157],[157,"Hisuian Typhlosion","Fire","Ghost",2,10233],[158,"Totodile","Water",null,2,158],[159,"Croconaw","Water",null,2,159],[160,"Feraligatr","Water",null,2,160],[161,"Sentret","Normal",null,2,161],[162,"Furret","Normal",null,2,162],[163,"Hoothoot","Normal","Flying",2,163],[164,"Noctowl","Normal","Flying",2,164],[165,"Ledyba","Bug","Flying",2,165],[166,"Ledian","Bug","Flying",2,166],[167,"Spinarak","Bug","Poison",2,167],[168,"Ariados","Bug","Poison",2,168],[169,"Crobat","Poison","Flying",2,169],[170,"Chinchou","Water","Electric",2,170],[171,"Lanturn","Water","Electric",2,171],[172,"Pichu","Electric",null,2,172],[172,"Spiky-eared Pichu","Electric",null,2,172],[173,"Cleffa","Fairy",null,2,173],[174,"Igglybuff","Normal","Fairy",2,174],[175,"Togepi","Fairy",null,2,175],[176,"Togetic","Fairy","Flying",2,176],[177,"Natu","Psychic","Flying",2,177],[178,"Xatu","Psychic","Flying",2,178],[179,"Mareep","Electric",null,2,179],[180,"Flaaffy","Electric",null,2,180],[181,"Ampharos","Electric",null,2,181],[181,"Mega Ampharos","Electric","Dragon",2,10045],[182,"Bellossom","Grass",null,2,182],[183,"Marill","Water","Fairy",2,183],[184,"Azumarill","Water","Fairy",2,184],[185,"Sudowoodo","Rock",null,2,185],[186,"Politoed","Water",null,2,186],[187,"Hoppip","Grass","Flying",2,187],[188,"Skiploom","Grass","Flying",2,188],[189,"Jumpluff","Grass","Flying",2,189],[190,"Aipom","Normal",null,2,190],[191,"Sunkern","Grass",null,2,191],[192,"Sunflora","Grass",null,2,192],[193,"Yanma","Bug","Flying",2,193],[194,"Wooper","Water","Ground",2,194],[194,"Paldean Wooper","Poison","Ground",2,10253],[195,"Quagsire","Water","Ground",2,195],[196,"Espeon","Psychic",null,2,196],[197,"Umbreon","Dark",null,2,197],[198,"Murkrow","Dark","Flying",2,198],[199,"Slowking","Water","Psychic",2,199],[199,"Galarian Slowking","Poison","Psychic",2,10172],[200,"Misdreavus","Ghost",null,2,200],[201,"Unown","Psychic",null,2,201],[202,"Wobbuffet","Psychic",null,2,202],[203,"Girafarig","Normal","Psychic",2,203],[204,"Pineco","Bug",null,2,204],[205,"Forretress","Bug","Steel",2,205],[206,"Dunsparce","Normal",null,2,206],[207,"Gligar","Ground","Flying",2,207],[208,"Steelix","Steel","Ground",2,208],[208,"Mega Steelix","Steel","Ground",2,10072],[209,"Snubbull","Fairy",null,2,209],[210,"Granbull","Fairy",null,2,210],[211,"Qwilfish","Water","Poison",2,211],[211,"Hisuian Qwilfish","Dark","Poison",2,10234],[212,"Scizor","Bug","Steel",2,212],[212,"Mega Scizor","Bug","Steel",2,10046],[213,"Shuckle","Bug","Rock",2,213],[214,"Heracross","Bug","Fighting",2,214],[214,"Mega Heracross","Bug","Fighting",2,10047],[215,"Sneasel","Dark","Ice",2,215],[215,"Hisuian Sneasel","Fighting","Poison",2,10235],[216,"Teddiursa","Normal",null,2,216],[217,"Ursaring","Normal",null,2,217],[218,"Slugma","Fire",null,2,218],[219,"Magcargo","Fire","Rock",2,219],[220,"Swinub","Ice","Ground",2,220],[221,"Piloswine","Ice","Ground",2,221],[222,"Corsola","Water","Rock",2,222],[222,"Galarian Corsola","Ghost",null,2,10173],[223,"Remoraid","Water",null,2,223],[224,"Octillery","Water",null,2,224],[225,"Delibird","Ice","Flying",2,225],[226,"Mantine","Water","Flying",2,226],[227,"Skarmory","Steel","Flying",2,227],[228,"Houndour","Dark","Fire",2,228],[229,"Houndoom","Dark","Fire",2,229],[229,"Mega Houndoom","Dark","Fire",2,10048],[230,"Kingdra","Water","Dragon",2,230],[231,"Phanpy","Ground",null,2,231],[232,"Donphan","Ground",null,2,232],[233,"Porygon2","Normal",null,2,233],[234,"Stantler","Normal",null,2,234],[235,"Smeargle","Normal",null,2,235],[236,"Tyrogue","Fighting",null,2,236],[237,"Hitmontop","Fighting",null,2,237],[238,"Smoochum","Ice","Psychic",2,238],[239,"Elekid","Electric",null,2,239],[240,"Magby","Fire",null,2,240],[241,"Miltank","Normal",null,2,241],[242,"Blissey","Normal",null,2,242],[243,"Raikou","Electric",null,2,243],[244,"Entei","Fire",null,2,244],[245,"Suicune","Water",null,2,245],[246,"Larvitar","Rock","Ground",2,246],[247,"Pupitar","Rock","Ground",2,247],[248,"Tyranitar","Rock","Dark",2,248],[248,"Mega Tyranitar","Rock","Dark",2,10049],[249,"Lugia","Psychic","Flying",2,249],[250,"Ho-Oh","Fire","Flying",2,250],[251,"Celebi","Psychic","Grass",2,251],[252,"Treecko","Grass",null,3,252],[253,"Grovyle","Grass",null,3,253],[254,"Sceptile","Grass",null,3,254],[254,"Mega Sceptile","Grass","Dragon",3,10065],[255,"Torchic","Fire",null,3,255],[256,"Combusken","Fire","Fighting",3,256],[257,"Blaziken","Fire","Fighting",3,257],[257,"Mega Blaziken","Fire","Fighting",3,10050],[258,"Mudkip","Water",null,3,258],[259,"Marshtomp","Water","Ground",3,259],[260,"Swampert","Water","Ground",3,260],[260,"Mega Swampert","Water","Ground",3,10064],[261,"Poochyena","Dark",null,3,261],[262,"Mightyena","Dark",null,3,262],[263,"Zigzagoon","Normal",null,3,263],[263,"Galarian Zigzagoon","Dark","Normal",3,10174],[264,"Linoone","Normal",null,3,264],[264,"Galarian Linoone","Dark","Normal",3,10175],[265,"Wurmple","Bug",null,3,265],[266,"Silcoon","Bug",null,3,266],[267,"Beautifly","Bug","Flying",3,267],[268,"Cascoon","Bug",null,3,268],[269,"Dustox","Bug","Poison",3,269],[270,"Lotad","Water","Grass",3,270],[271,"Lombre","Water","Grass",3,271],[272,"Ludicolo","Water","Grass",3,272],[273,"Seedot","Grass",null,3,273],[274,"Nuzleaf","Grass","Dark",3,274],[275,"Shiftry","Grass","Dark",3,275],[276,"Taillow","Normal","Flying",3,276],[277,"Swellow","Normal","Flying",3,277],[278,"Wingull","Water","Flying",3,278],[279,"Pelipper","Water","Flying",3,279],[280,"Ralts","Psychic","Fairy",3,280],[281,"Kirlia","Psychic","Fairy",3,281],[282,"Gardevoir","Psychic","Fairy",3,282],[282,"Mega Gardevoir","Psychic","Fairy",3,10051],[283,"Surskit","Bug","Water",3,283],[284,"Masquerain","Bug","Flying",3,284],[285,"Shroomish","Grass",null,3,285],[286,"Breloom","Grass","Fighting",3,286],[287,"Slakoth","Normal",null,3,287],[288,"Vigoroth","Normal",null,3,288],[289,"Slaking","Normal",null,3,289],[290,"Nincada","Bug","Ground",3,290],[291,"Ninjask","Bug","Flying",3,291],[292,"Shedinja","Bug","Ghost",3,292],[293,"Whismur","Normal",null,3,293],[294,"Loudred","Normal",null,3,294],[295,"Exploud","Normal",null,3,295],[296,"Makuhita","Fighting",null,3,296],[297,"Hariyama","Fighting",null,3,297],[298,"Azurill","Normal","Fairy",3,298],[299,"Nosepass","Rock",null,3,299],[300,"Skitty","Normal",null,3,300],[301,"Delcatty","Normal",null,3,301],[302,"Sableye","Dark","Ghost",3,302],[302,"Mega Sableye","Dark","Ghost",3,10066],[303,"Mawile","Steel","Fairy",3,303],[303,"Mega Mawile","Steel","Fairy",3,10052],[304,"Aron","Steel","Rock",3,304],[305,"Lairon","Steel","Rock",3,305],[306,"Aggron","Steel","Rock",3,306],[306,"Mega Aggron","Steel",null,3,10053],[307,"Meditite","Fighting","Psychic",3,307],[308,"Medicham","Fighting","Psychic",3,308],[308,"Mega Medicham","Fighting","Psychic",3,10054],[309,"Electrike","Electric",null,3,309],[310,"Manectric","Electric",null,3,310],[310,"Mega Manectric","Electric",null,3,10055],[311,"Plusle","Electric",null,3,311],[312,"Minun","Electric",null,3,312],[313,"Volbeat","Bug",null,3,313],[314,"Illumise","Bug",null,3,314],[315,"Roselia","Grass","Poison",3,315],[316,"Gulpin","Poison",null,3,316],[317,"Swalot","Poison",null,3,317],[318,"Carvanha","Water","Dark",3,318],[319,"Sharpedo","Water","Dark",3,319],[319,"Mega Sharpedo","Water","Dark",3,10070],[320,"Wailmer","Water",null,3,320],[321,"Wailord","Water",null,3,321],[322,"Numel","Fire","Ground",3,322],[323,"Camerupt","Fire","Ground",3,323],[323,"Mega Camerupt","Fire","Ground",3,10087],[324,"Torkoal","Fire",null,3,324],[325,"Spoink","Psychic",null,3,325],[326,"Grumpig","Psychic",null,3,326],[327,"Spinda","Normal",null,3,327],[328,"Trapinch","Ground",null,3,328],[329,"Vibrava","Ground","Dragon",3,329],[330,"Flygon","Ground","Dragon",3,330],[331,"Cacnea","Grass",null,3,331],[332,"Cacturne","Grass","Dark",3,332],[333,"Swablu","Normal","Flying",3,333],[334,"Altaria","Dragon","Flying",3,334],[334,"Mega Altaria","Dragon","Fairy",3,10067],[335,"Zangoose","Normal",null,3,335],[336,"Seviper","Poison",null,3,336],[337,"Lunatone","Rock","Psychic",3,337],[338,"Solrock","Rock","Psychic",3,338],[339,"Barboach","Water","Ground",3,339],[340,"Whiscash","Water","Ground",3,340],[341,"Corphish","Water",null,3,341],[342,"Crawdaunt","Water","Dark",3,342],[343,"Baltoy","Ground","Psychic",3,343],[344,"Claydol","Ground","Psychic",3,344],[345,"Lileep","Rock","Grass",3,345],[346,"Cradily","Rock","Grass",3,346],[347,"Anorith","Rock","Bug",3,347],[348,"Armaldo","Rock","Bug",3,348],[349,"Feebas","Water",null,3,349],[350,"Milotic","Water",null,3,350],[351,"Castform (Normal)","Normal",null,3,351],[351,"Castform (Sunny Form)","Fire",null,3,10013],[351,"Castform (Rainy Form)","Water",null,3,10014],[351,"Castform (Snowy Form)","Ice",null,3,10015],[352,"Kecleon","Normal",null,3,352],[353,"Shuppet","Ghost",null,3,353],[354,"Banette","Ghost",null,3,354],[354,"Mega Banette","Ghost",null,3,10056],[355,"Duskull","Ghost",null,3,355],[356,"Dusclops","Ghost",null,3,356],[357,"Tropius","Grass","Flying",3,357],[358,"Chimecho","Psychic",null,3,358],[359,"Absol","Dark",null,3,359],[359,"Mega Absol","Dark",null,3,10057],[360,"Wynaut","Psychic",null,3,360],[361,"Snorunt","Ice",null,3,361],[362,"Glalie","Ice",null,3,362],[362,"Mega Glalie","Ice",null,3,10074],[363,"Spheal","Ice","Water",3,363],[364,"Sealeo","Ice","Water",3,364],[365,"Walrein","Ice","Water",3,365],[366,"Clamperl","Water",null,3,366],[367,"Huntail","Water",null,3,367],[368,"Gorebyss","Water",null,3,368],[369,"Relicanth","Water","Rock",3,369],[370,"Luvdisc","Water",null,3,370],[371,"Bagon","Dragon",null,3,371],[372,"Shelgon","Dragon",null,3,372],[373,"Salamence","Dragon","Flying",3,373],[373,"Mega Salamence","Dragon","Flying",3,10089],[374,"Beldum","Steel","Psychic",3,374],[375,"Metang","Steel","Psychic",3,375],[376,"Metagross","Steel","Psychic",3,376],[376,"Mega Metagross","Steel","Psychic",3,10076],[377,"Regirock","Rock",null,3,377],[378,"Regice","Ice",null,3,378],[379,"Registeel","Steel",null,3,379],[380,"Latias","Dragon","Psychic",3,380],[380,"Mega Latias","Dragon","Psychic",3,10062],[381,"Latios","Dragon","Psychic",3,381],[381,"Mega Latios","Dragon","Psychic",3,10063],[382,"Kyogre","Water",null,3,382],[382,"Primal Kyogre","Water",null,3,10077],[383,"Groudon","Ground",null,3,383],[383,"Primal Groudon","Ground","Fire",3,10078],[384,"Rayquaza","Dragon","Flying",3,384],[384,"Mega Rayquaza","Dragon","Flying",3,10079],[385,"Jirachi","Steel","Psychic",3,385],[386,"Deoxys (Normal Forme)","Psychic",null,3,386],[386,"Deoxys (Attack Forme)","Psychic",null,3,10001],[386,"Deoxys (Defense Forme)","Psychic",null,3,10002],[386,"Deoxys (Speed Forme)","Psychic",null,3,10003],[387,"Turtwig","Grass",null,4,387],[388,"Grotle","Grass",null,4,388],[389,"Torterra","Grass","Ground",4,389],[390,"Chimchar","Fire",null,4,390],[391,"Monferno","Fire","Fighting",4,391],[392,"Infernape","Fire","Fighting",4,392],[393,"Piplup","Water",null,4,393],[394,"Prinplup","Water",null,4,394],[395,"Empoleon","Water","Steel",4,395],[396,"Starly","Normal","Flying",4,396],[397,"Staravia","Normal","Flying",4,397],[398,"Staraptor","Normal","Flying",4,398],[399,"Bidoof","Normal",null,4,399],[400,"Bibarel","Normal","Water",4,400],[401,"Kricketot","Bug",null,4,401],[402,"Kricketune","Bug",null,4,402],[403,"Shinx","Electric",null,4,403],[404,"Luxio","Electric",null,4,404],[405,"Luxray","Electric",null,4,405],[406,"Budew","Grass","Poison",4,406],[407,"Roserade","Grass","Poison",4,407],[408,"Cranidos","Rock",null,4,408],[409,"Rampardos","Rock",null,4,409],[410,"Shieldon","Rock","Steel",4,410],[411,"Bastiodon","Rock","Steel",4,411],[412,"Burmy (Plant Cloak)","Bug",null,4,412],[412,"Burmy (Sandy Cloak)","Bug",null,4,412],[412,"Burmy (Trash Cloak)","Bug",null,4,412],[413,"Wormadam (Plant Cloak)","Bug","Grass",4,413],[413,"Wormadam (Sandy Cloak)","Bug","Ground",4,10004],[413,"Wormadam (Trash Cloak)","Bug","Steel",4,10005],[414,"Mothim","Bug","Flying",4,414],[415,"Combee","Bug","Flying",4,415],[416,"Vespiquen","Bug","Flying",4,416],[417,"Pachirisu","Electric",null,4,417],[418,"Buizel","Water",null,4,418],[419,"Floatzel","Water",null,4,419],[420,"Cherubi","Grass",null,4,420],[421,"Cherrim (Overcast Form)","Grass",null,4,421],[421,"Cherrim (Sunshine Form)","Grass",null,4,421],[422,"Shellos","Water",null,4,422],[423,"Gastrodon","Water","Ground",4,423],[424,"Ambipom","Normal",null,4,424],[425,"Drifloon","Ghost","Flying",4,425],[426,"Drifblim","Ghost","Flying",4,426],[427,"Buneary","Normal",null,4,427],[428,"Lopunny","Normal",null,4,428],[428,"Mega Lopunny","Normal","Fighting",4,10088],[429,"Mismagius","Ghost",null,4,429],[430,"Honchkrow","Dark","Flying",4,430],[431,"Glameow","Normal",null,4,431],[432,"Purugly","Normal",null,4,432],[433,"Chingling","Psychic",null,4,433],[434,"Stunky","Poison","Dark",4,434],[435,"Skuntank","Poison","Dark",4,435],[436,"Bronzor","Steel","Psychic",4,436],[437,"Bronzong","Steel","Psychic",4,437],[438,"Bonsly","Rock",null,4,438],[439,"Mime Jr.","Psychic","Fairy",4,439],[440,"Happiny","Normal",null,4,440],[441,"Chatot","Normal","Flying",4,441],[442,"Spiritomb","Ghost","Dark",4,442],[443,"Gible","Dragon","Ground",4,443],[444,"Gabite","Dragon","Ground",4,444],[445,"Garchomp","Dragon","Ground",4,445],[445,"Mega Garchomp","Dragon","Ground",4,10058],[446,"Munchlax","Normal",null,4,446],[447,"Riolu","Fighting",null,4,447],[448,"Lucario","Fighting","Steel",4,448],[448,"Mega Lucario","Fighting","Steel",4,10059],[449,"Hippopotas (Male)","Ground",null,4,449],[449,"Hippopotas (Female)","Ground",null,4,449],[450,"Hippowdon (Male)","Ground",null,4,450],[450,"Hippowdon (Female)","Ground",null,4,450],[451,"Skorupi","Poison","Bug",4,451],[452,"Drapion","Poison","Dark",4,452],[453,"Croagunk","Poison","Fighting",4,453],[454,"Toxicroak","Poison","Fighting",4,454],[455,"Carnivine","Grass",null,4,455],[456,"Finneon","Water",null,4,456],[457,"Lumineon","Water",null,4,457],[458,"Mantyke","Water","Flying",4,458],[459,"Snover","Grass","Ice",4,459],[460,"Abomasnow","Grass","Ice",4,460],[460,"Mega Abomasnow","Grass","Ice",4,10060],[461,"Weavile","Dark","Ice",4,461],[462,"Magnezone","Electric","Steel",4,462],[463,"Lickilicky","Normal",null,4,463],[464,"Rhyperior","Ground","Rock",4,464],[465,"Tangrowth","Grass",null,4,465],[466,"Electivire","Electric",null,4,466],[467,"Magmortar","Fire",null,4,467],[468,"Togekiss","Fairy","Flying",4,468],[469,"Yanmega","Bug","Flying",4,469],[470,"Leafeon","Grass",null,4,470],[471,"Glaceon","Ice",null,4,471],[472,"Gliscor","Ground","Flying",4,472],[473,"Mamoswine","Ice","Ground",4,473],[474,"Porygon-Z","Normal",null,4,474],[475,"Gallade","Psychic","Fighting",4,475],[475,"Mega Gallade","Psychic","Fighting",4,10068],[476,"Probopass","Rock","Steel",4,476],[477,"Dusknoir","Ghost",null,4,477],[478,"Froslass","Ice","Ghost",4,478],[479,"Rotom","Electric","Ghost",4,479],[479,"Heat Rotom","Electric","Fire",4,10008],[479,"Wash Rotom","Electric","Water",4,10009],[479,"Frost Rotom","Electric","Ice",4,10010],[479,"Fan Rotom","Electric","Flying",4,10011],[479,"Mow Rotom","Electric","Grass",4,10012],[480,"Uxie","Psychic",null,4,480],[481,"Mesprit","Psychic",null,4,481],[482,"Azelf","Psychic",null,4,482],[483,"Dialga","Steel","Dragon",4,483],[483,"Dialga (Origin Forme)","Steel","Dragon",4,10245],[484,"Palkia","Water","Dragon",4,484],[484,"Palkia (Origin Forme)","Water","Dragon",4,10246],[485,"Heatran","Fire","Steel",4,485],[486,"Regigigas","Normal",null,4,486],[487,"Giratina (Altered Forme)","Ghost","Dragon",4,487],[487,"Giratina (Origin Forme)","Ghost","Dragon",4,10007],[488,"Cresselia","Psychic",null,4,488],[489,"Phione","Water",null,4,489],[490,"Manaphy","Water",null,4,490],[491,"Darkrai","Dark",null,4,491],[492,"Shaymin (Land Forme)","Grass",null,4,492],[492,"Shaymin (Sky Forme)","Grass","Flying",4,10006],[493,"Arceus","Normal",null,4,493],[494,"Victini","Psychic","Fire",5,494],[495,"Snivy","Grass",null,5,495],[496,"Servine","Grass",null,5,496],[497,"Serperior","Grass",null,5,497],[498,"Tepig","Fire",null,5,498],[499,"Pignite","Fire","Fighting",5,499],[500,"Emboar","Fire","Fighting",5,500],[501,"Oshawott","Water",null,5,501],[502,"Dewott","Water",null,5,502],[503,"Samurott","Water",null,5,503],[503,"Hisuian Samurott","Water","Dark",5,10236],[504,"Patrat","Normal",null,5,504],[505,"Watchog","Normal",null,5,505],[506,"Lillipup","Normal",null,5,506],[507,"Herdier","Normal",null,5,507],[508,"Stoutland","Normal",null,5,508],[509,"Purrloin","Dark",null,5,509],[510,"Liepard","Dark",null,5,510],[511,"Pansage","Grass",null,5,511],[512,"Simisage","Grass",null,5,512],[513,"Pansear","Fire",null,5,513],[514,"Simisear","Fire",null,5,514],[515,"Panpour","Water",null,5,515],[516,"Simipour","Water",null,5,516],[517,"Munna","Psychic",null,5,517],[518,"Musharna","Psychic",null,5,518],[519,"Pidove","Normal","Flying",5,519],[520,"Tranquill","Normal","Flying",5,520],[521,"Unfezant","Normal","Flying",5,521],[522,"Blitzle","Electric",null,5,522],[523,"Zebstrika","Electric",null,5,523],[524,"Roggenrola","Rock",null,5,524],[525,"Boldore","Rock",null,5,525],[526,"Gigalith","Rock",null,5,526],[527,"Woobat","Psychic","Flying",5,527],[528,"Swoobat","Psychic","Flying",5,528],[529,"Drilbur","Ground",null,5,529],[530,"Excadrill","Ground","Steel",5,530],[531,"Audino","Normal",null,5,531],[531,"Mega Audino","Normal","Fairy",5,10069],[532,"Timburr","Fighting",null,5,532],[533,"Gurdurr","Fighting",null,5,533],[534,"Conkeldurr","Fighting",null,5,534],[535,"Tympole","Water",null,5,535],[536,"Palpitoad","Water","Ground",5,536],[537,"Seismitoad","Water","Ground",5,537],[538,"Throh","Fighting",null,5,538],[539,"Sawk","Fighting",null,5,539],[540,"Sewaddle","Bug","Grass",5,540],[541,"Swadloon","Bug","Grass",5,541],[542,"Leavanny","Bug","Grass",5,542],[543,"Venipede","Bug","Poison",5,543],[544,"Whirlipede","Bug","Poison",5,544],[545,"Scolipede","Bug","Poison",5,545],[546,"Cottonee","Grass","Fairy",5,546],[547,"Whimsicott","Grass","Fairy",5,547],[548,"Petilil","Grass",null,5,548],[549,"Lilligant","Grass",null,5,549],[549,"Hisuian Lilligant","Grass","Fighting",5,10237],[550,"Basculin (Red-Striped Form)","Water",null,5,550],[550,"Basculin (Blue-Striped Form)","Water",null,5,10016],[550,"Basculin (White-Striped Form)","Water",null,5,10247],[551,"Sandile","Ground","Dark",5,551],[552,"Krokorok","Ground","Dark",5,552],[553,"Krookodile","Ground","Dark",5,553],[554,"Darumaka","Fire",null,5,554],[554,"Galarian Darumaka","Ice",null,5,10176],[555,"Darmanitan (Standard Mode)","Fire",null,5,555],[555,"Darmanitan (Galarian Standard Mode)","Ice",null,5,555],[555,"Darmanitan (Zen Mode)","Fire","Psychic",5,555],[555,"Darmanitan (Galarian Zen Mode)","Ice","Fire",5,555],[556,"Maractus","Grass",null,5,556],[557,"Dwebble","Bug","Rock",5,557],[558,"Crustle","Bug","Rock",5,558],[559,"Scraggy","Dark","Fighting",5,559],[560,"Scrafty","Dark","Fighting",5,560],[561,"Sigilyph","Psychic","Flying",5,561],[562,"Yamask","Ghost",null,5,562],[562,"Galarian Yamask","Ground","Ghost",5,10179],[563,"Cofagrigus","Ghost",null,5,563],[564,"Tirtouga","Water","Rock",5,564],[565,"Carracosta","Water","Rock",5,565],[566,"Archen","Rock","Flying",5,566],[567,"Archeops","Rock","Flying",5,567],[568,"Trubbish","Poison",null,5,568],[569,"Garbodor","Poison",null,5,569],[569,"Gigantamax Garbodor","Poison",null,5,569],[570,"Zorua","Dark",null,5,570],[570,"Hisuian Zorua","Normal","Ghost",5,10238],[571,"Zoroark","Dark",null,5,571],[571,"Hisuian Zoroark","Normal","Ghost",5,10239],[572,"Minccino","Normal",null,5,572],[573,"Cinccino","Normal",null,5,573],[574,"Gothita","Psychic",null,5,574],[575,"Gothorita","Psychic",null,5,575],[576,"Gothitelle","Psychic",null,5,576],[577,"Solosis","Psychic",null,5,577],[578,"Duosion","Psychic",null,5,578],[579,"Reuniclus","Psychic",null,5,579],[580,"Ducklett","Water","Flying",5,580],[581,"Swanna","Water","Flying",5,581],[582,"Vanillite","Ice",null,5,582],[583,"Vanillish","Ice",null,5,583],[584,"Vanilluxe","Ice",null,5,584],[585,"Deerling (Spring Form)","Normal","Grass",5,585],[585,"Deerling (Summer Form)","Normal","Grass",5,585],[585,"Deerling (Autumn Form)","Normal","Grass",5,585],[585,"Deerling (Winter Form)","Normal","Grass",5,585],[586,"Sawsbuck (Spring Form)","Normal","Grass",5,586],[586,"Sawsbuck (Summer Form)","Normal","Grass",5,586],[586,"Sawsbuck (Autumn Form)","Normal","Grass",5,586],[586,"Sawsbuck (Winter Form)","Normal","Grass",5,586],[587,"Emolga","Electric","Flying",5,587],[588,"Karrablast","Bug",null,5,588],[589,"Escavalier","Bug","Steel",5,589],[590,"Foongus","Grass","Poison",5,590],[591,"Amoonguss","Grass","Poison",5,591],[592,"Frillish","Water","Ghost",5,592],[593,"Jellicent","Water","Ghost",5,593],[594,"Alomomola","Water",null,5,594],[595,"Joltik","Bug","Electric",5,595],[596,"Galvantula","Bug","Electric",5,596],[597,"Ferroseed","Grass","Steel",5,597],[598,"Ferrothorn","Grass","Steel",5,598],[599,"Klink","Steel",null,5,599],[600,"Klang","Steel",null,5,600],[601,"Klinklang","Steel",null,5,601],[602,"Tynamo","Electric",null,5,602],[603,"Eelektrik","Electric",null,5,603],[604,"Eelektross","Electric",null,5,604],[605,"Elgyem","Psychic",null,5,605],[606,"Beheeyem","Psychic",null,5,606],[607,"Litwick","Ghost","Fire",5,607],[608,"Lampent","Ghost","Fire",5,608],[609,"Chandelure","Ghost","Fire",5,609],[610,"Axew","Dragon",null,5,610],[611,"Fraxure","Dragon",null,5,611],[612,"Haxorus","Dragon",null,5,612],[613,"Cubchoo","Ice",null,5,613],[614,"Beartic","Ice",null,5,614],[615,"Cryogonal","Ice",null,5,615],[616,"Shelmet","Bug",null,5,616],[617,"Accelgor","Bug",null,5,617],[618,"Stunfisk","Ground","Electric",5,618],[618,"Galarian Stunfisk","Ground","Steel",5,10180],[619,"Mienfoo","Fighting",null,5,619],[620,"Mienshao","Fighting",null,5,620],[621,"Druddigon","Dragon",null,5,621],[622,"Golett","Ground","Ghost",5,622],[623,"Golurk","Ground","Ghost",5,623],[624,"Pawniard","Dark","Steel",5,624],[625,"Bisharp","Dark","Steel",5,625],[626,"Bouffalant","Normal",null,5,626],[627,"Rufflet","Normal","Flying",5,627],[628,"Braviary","Normal","Flying",5,628],[628,"Hisuian Braviary","Psychic","Flying",5,10240],[629,"Vullaby","Dark","Flying",5,629],[630,"Mandibuzz","Dark","Flying",5,630],[631,"Heatmor","Fire",null,5,631],[632,"Durant","Bug","Steel",5,632],[633,"Deino","Dark","Dragon",5,633],[634,"Zweilous","Dark","Dragon",5,634],[635,"Hydreigon","Dark","Dragon",5,635],[636,"Larvesta","Bug","Fire",5,636],[637,"Volcarona","Bug","Fire",5,637],[638,"Cobalion","Steel","Fighting",5,638],[639,"Terrakion","Rock","Fighting",5,639],[640,"Virizion","Grass","Fighting",5,640],[641,"Tornadus (Incarnate Forme)","Flying",null,5,641],[641,"Tornadus (Therian Forme)","Flying",null,5,10019],[642,"Thundurus (Incarnate Forme)","Electric","Flying",5,642],[642,"Thundurus (Therian Forme)","Electric","Flying",5,10020],[643,"Reshiram","Dragon","Fire",5,643],[644,"Zekrom","Dragon","Electric",5,644],[645,"Landorus (Incarnate Forme)","Ground","Flying",5,645],[645,"Landorus (Therian Forme)","Ground","Flying",5,10021],[646,"Kyurem","Dragon","Ice",5,646],[646,"White Kyurem","Dragon","Ice",5,646],[646,"Black Kyurem","Dragon","Ice",5,646],[647,"Keldeo (Ordinary Form)","Water","Fighting",5,647],[647,"Keldeo (Resolute Form)","Water","Fighting",5,10024],[648,"Meloetta (Aria Forme)","Normal","Psychic",5,648],[648,"Meloetta (Pirouette Forme)","Normal","Fighting",5,10018],[649,"Genesect","Bug","Steel",5,649],[649,"Douse Drive Genesect","Bug","Steel",5,649],[649,"Shock Drive Genesect","Bug","Steel",5,649],[649,"Burn Drive Genesect","Bug","Steel",5,649],[649,"Chill Drive Genesect","Bug","Steel",5,649],[650,"Chespin","Grass",null,6,650],[651,"Quilladin","Grass",null,6,651],[652,"Chesnaught","Grass","Fighting",6,652],[653,"Fennekin","Fire",null,6,653],[654,"Braixen","Fire",null,6,654],[655,"Delphox","Fire","Psychic",6,655],[656,"Froakie","Water",null,6,656],[657,"Frogadier","Water",null,6,657],[658,"Greninja","Water","Dark",6,658],[658,"Ash-Greninja","Water","Dark",6,658],[659,"Bunnelby","Normal",null,6,659],[660,"Diggersby","Normal","Ground",6,660],[661,"Fletchling","Normal","Flying",6,661],[662,"Fletchinder","Fire","Flying",6,662],[663,"Talonflame","Fire","Flying",6,663],[664,"Scatterbug","Bug",null,6,664],[665,"Spewpa","Bug",null,6,665],[666,"Vivillon","Bug","Flying",6,666],[667,"Litleo","Fire","Normal",6,667],[668,"Pyroar","Fire","Normal",6,668],[669,"Flabébé (Red Flower)","Fairy",null,6,669],[669,"Flabébé (Yellow Flower)","Fairy",null,6,669],[669,"Flabébé (Orange Flower)","Fairy",null,6,669],[669,"Flabébé (Blue Flower)","Fairy",null,6,669],[669,"Flabébé (White Flower)","Fairy",null,6,669],[670,"Floette (Red Flower)","Fairy",null,6,670],[670,"Floette (Yellow Flower)","Fairy",null,6,670],[670,"Floette (Orange Flower)","Fairy",null,6,670],[670,"Floette (Blue Flower)","Fairy",null,6,670],[670,"Floette (White Flower)","Fairy",null,6,670],[671,"Florges (Red Flower)","Fairy",null,6,671],[671,"Florges (Yellow Flower)","Fairy",null,6,671],[671,"Florges (Orange Flower)","Fairy",null,6,671],[671,"Florges (Blue Flower)","Fairy",null,6,671],[671,"Florges (White Flower)","Fairy",null,6,671],[672,"Skiddo","Grass",null,6,672],[673,"Gogoat","Grass",null,6,673],[674,"Pancham","Fighting",null,6,674],[675,"Pangoro","Fighting","Dark",6,675],[676,"Furfrou","Normal",null,6,676],[677,"Espurr","Psychic",null,6,677],[678,"Meowstic","Psychic",null,6,678],[679,"Honedge","Steel","Ghost",6,679],[680,"Doublade","Steel","Ghost",6,680],[681,"Aegislash (Shield Forme)","Steel","Ghost",6,681],[681,"Aegislash (Blade Forme)","Steel","Ghost",6,10026],[682,"Spritzee","Fairy",null,6,682],[683,"Aromatisse","Fairy",null,6,683],[684,"Swirlix","Fairy",null,6,684],[685,"Slurpuff","Fairy",null,6,685],[686,"Inkay","Dark","Psychic",6,686],[687,"Malamar","Dark","Psychic",6,687],[688,"Binacle","Rock","Water",6,688],[689,"Barbaracle","Rock","Water",6,689],[690,"Skrelp","Poison","Water",6,690],[691,"Dragalge","Poison","Dragon",6,691],[692,"Clauncher","Water",null,6,692],[693,"Clawitzer","Water",null,6,693],[694,"Helioptile","Electric","Normal",6,694],[695,"Heliolisk","Electric","Normal",6,695],[696,"Tyrunt","Rock","Dragon",6,696],[697,"Tyrantrum","Rock","Dragon",6,697],[698,"Amaura","Rock","Ice",6,698],[699,"Aurorus","Rock","Ice",6,699],[700,"Sylveon","Fairy",null,6,700],[701,"Hawlucha","Fighting","Flying",6,701],[702,"Dedenne","Electric","Fairy",6,702],[703,"Carbink","Rock","Fairy",6,703],[704,"Goomy","Dragon",null,6,704],[705,"Sliggoo","Dragon",null,6,705],[705,"Hisuian Sliggoo","Steel","Dragon",6,10241],[706,"Goodra","Dragon",null,6,706],[706,"Hisuian Goodra","Steel","Dragon",6,10242],[707,"Klefki","Steel","Fairy",6,707],[708,"Phantump","Ghost","Grass",6,708],[709,"Trevenant","Ghost","Grass",6,709],[710,"Pumpkaboo","Ghost","Grass",6,710],[711,"Gourgeist","Ghost","Grass",6,711],[712,"Bergmite","Ice",null,6,712],[713,"Avalugg","Ice",null,6,713],[713,"Hisuian Avalugg","Ice","Rock",6,10243],[714,"Noibat","Flying","Dragon",6,714],[715,"Noivern","Flying","Dragon",6,715],[716,"Xerneas (Active Mode)","Fairy",null,6,716],[716,"Xerneas (Neutral Mode)","Fairy",null,6,716],[717,"Yveltal","Dark","Flying",6,717],[718,"Zygarde (50% Forme)","Dragon","Ground",6,718],[718,"Zygarde (10% Forme)","Dragon","Ground",6,718],[718,"Zygarde (Complete Forme)","Dragon","Ground",6,10120],[719,"Diancie","Rock","Fairy",6,719],[719,"Mega Diancie","Rock","Fairy",6,10075],[720,"Hoopa Confined","Psychic","Ghost",6,720],[720,"Hoopa Unbound","Psychic","Dark",6,10086],[721,"Volcanion","Fire","Water",6,721],[722,"Rowlet","Grass","Flying",7,722],[723,"Dartrix","Grass","Flying",7,723],[724,"Decidueye","Grass","Ghost",7,724],[724,"Hisuian Decidueye","Grass","Fighting",7,10244],[725,"Litten","Fire",null,7,725],[726,"Torracat","Fire",null,7,726],[727,"Incineroar","Fire","Dark",7,727],[728,"Popplio","Water",null,7,728],[729,"Brionne","Water",null,7,729],[730,"Primarina","Water","Fairy",7,730],[731,"Pikipek","Normal","Flying",7,731],[732,"Trumbeak","Normal","Flying",7,732],[733,"Toucannon","Normal","Flying",7,733],[734,"Yungoos","Normal",null,7,734],[735,"Gumshoos","Normal",null,7,735],[736,"Grubbin","Bug",null,7,736],[737,"Charjabug","Bug","Electric",7,737],[738,"Vikavolt","Bug","Electric",7,738],[739,"Crabrawler","Fighting",null,7,739],[740,"Crabominable","Fighting","Ice",7,740],[741,"Oricorio (Baile Style)","Fire","Flying",7,741],[741,"Oricorio (Pom-Pom Style)","Electric","Flying",7,741],[741,"Oricorio (Pa'u Style)","Psychic","Flying",7,741],[741,"Oricorio (Sensu Style)","Ghost","Flying",7,741],[742,"Cutiefly","Bug","Fairy",7,742],[743,"Ribombee","Bug","Fairy",7,743],[744,"Rockruff","Rock",null,7,744],[745,"Lycanroc (Midday Form)","Rock",null,7,745],[745,"Lycanroc (Midnight Form)","Rock",null,7,10126],[745,"Lycanroc (Dusk Form)","Rock",null,7,10152],[746,"Wishiwashi (Solo Form)","Water",null,7,746],[746,"Wishiwashi (School Form)","Water",null,7,10127],[747,"Mareanie","Poison","Water",7,747],[748,"Toxapex","Poison","Water",7,748],[749,"Mudbray","Ground",null,7,749],[750,"Mudsdale","Ground",null,7,750],[751,"Dewpider","Water","Bug",7,751],[752,"Araquanid","Water","Bug",7,752],[753,"Fomantis","Grass",null,7,753],[754,"Lurantis","Grass",null,7,754],[755,"Morelull","Grass","Fairy",7,755],[756,"Shiinotic","Grass","Fairy",7,756],[757,"Salandit","Poison","Fire",7,757],[758,"Salazzle","Poison","Fire",7,758],[759,"Stufful","Normal","Fighting",7,759],[760,"Bewear","Normal","Fighting",7,760],[761,"Bounsweet","Grass",null,7,761],[762,"Steenee","Grass",null,7,762],[763,"Tsareena","Grass",null,7,763],[764,"Comfey","Fairy",null,7,764],[765,"Oranguru","Normal","Psychic",7,765],[766,"Passimian","Fighting",null,7,766],[767,"Wimpod","Bug","Water",7,767],[768,"Golisopod","Bug","Water",7,768],[769,"Sandygast","Ghost","Ground",7,769],[770,"Palossand","Ghost","Ground",7,770],[771,"Pyukumuku","Water",null,7,771],[772,"Type: Null","Normal",null,7,772],[773,"Silvally","Normal",null,7,773],[774,"Minior (Meteor Form)","Rock","Flying",7,774],[774,"Minior (Red Core)","Rock","Flying",7,774],[775,"Komala","Normal",null,7,775],[776,"Turtonator","Fire","Dragon",7,776],[777,"Togedemaru","Electric","Steel",7,777],[778,"Mimikyu (Disguised Form)","Ghost","Fairy",7,778],[778,"Mimikyu (Busted Form)","Ghost","Fairy",7,10143],[779,"Bruxish","Water","Psychic",7,779],[780,"Drampa","Normal","Dragon",7,780],[781,"Dhelmise","Ghost","Grass",7,781],[782,"Jangmo-o","Dragon",null,7,782],[783,"Hakamo-o","Dragon","Fighting",7,783],[784,"Kommo-o","Dragon","Fighting",7,784],[785,"Tapu Koko","Electric","Fairy",7,785],[786,"Tapu Lele","Psychic","Fairy",7,786],[787,"Tapu Bulu","Grass","Fairy",7,787],[788,"Tapu Fini","Water","Fairy",7,788],[789,"Cosmog","Psychic",null,7,789],[790,"Cosmoem","Psychic",null,7,790],[791,"Solgaleo","Psychic","Steel",7,791],[792,"Lunala","Psychic","Ghost",7,792],[793,"Nihilego","Rock","Poison",7,793],[794,"Buzzwole","Bug","Fighting",7,794],[795,"Pheromosa","Bug","Fighting",7,795],[796,"Xurkitree","Electric",null,7,796],[797,"Celesteela","Steel","Flying",7,797],[798,"Kartana","Grass","Steel",7,798],[799,"Guzzlord","Dark","Dragon",7,799],[800,"Necrozma","Psychic",null,7,800],[800,"Dusk Mane Necrozma","Psychic","Steel",7,800],[800,"Dawn Wings Necrozma","Psychic","Ghost",7,800],[800,"Ultra Necrozma","Psychic","Dragon",7,800],[801,"Magearna","Steel","Fairy",7,801],[801,"Original Color Magearna","Steel","Fairy",7,801],[802,"Marshadow","Fighting","Ghost",7,802],[803,"Poipole","Poison",null,7,803],[804,"Naganadel","Poison","Dragon",7,804],[805,"Stakataka","Rock","Steel",7,805],[806,"Blacephalon","Fire","Ghost",7,806],[807,"Zeraora","Electric",null,7,807],[808,"Meltan","Steel",null,7,808],[809,"Melmetal","Steel",null,7,809],[809,"Gigantamax Melmetal","Steel",null,7,809],[810,"Grookey","Grass",null,8,810],[811,"Thwackey","Grass",null,8,811],[812,"Rillaboom","Grass",null,8,812],[812,"Gigantamax Rillaboom","Grass",null,8,812],[813,"Scorbunny","Fire",null,8,813],[814,"Raboot","Fire",null,8,814],[815,"Cinderace","Fire",null,8,815],[815,"Gigantamax Cinderace","Fire",null,8,815],[816,"Sobble","Water",null,8,816],[817,"Drizzile","Water",null,8,817],[818,"Inteleon","Water",null,8,818],[818,"Gigantamax Inteleon","Water",null,8,818],[819,"Skwovet","Normal",null,8,819],[820,"Greedent","Normal",null,8,820],[821,"Rookidee","Flying",null,8,821],[822,"Corvisquire","Flying",null,8,822],[823,"Corviknight","Flying","Steel",8,823],[823,"Gigantamax Corviknight","Flying","Steel",8,823],[824,"Blipbug","Bug",null,8,824],[825,"Dottler","Bug","Psychic",8,825],[826,"Orbeetle","Bug","Psychic",8,826],[826,"Gigantamax Orbeetle","Bug","Psychic",8,826],[827,"Nickit","Dark",null,8,827],[828,"Thievul","Dark",null,8,828],[829,"Gossifleur","Grass",null,8,829],[830,"Eldegoss","Grass",null,8,830],[831,"Wooloo","Normal",null,8,831],[832,"Dubwool","Normal",null,8,832],[833,"Chewtle","Water",null,8,833],[834,"Drednaw","Water","Rock",8,834],[834,"Gigantamax Drednaw","Water","Rock",8,834],[835,"Yamper","Electric",null,8,835],[836,"Boltund","Electric",null,8,836],[837,"Rolycoly","Rock",null,8,837],[838,"Carkol","Rock","Fire",8,838],[839,"Coalossal","Rock","Fire",8,839],[839,"Gigantamax Coalossal","Rock","Fire",8,839],[840,"Applin","Grass","Dragon",8,840],[841,"Flapple","Grass","Dragon",8,841],[841,"Gigantamax Flapple","Grass","Dragon",8,841],[842,"Appletun","Grass","Dragon",8,842],[842,"Gigantamax Appletun","Grass","Dragon",8,842],[843,"Silicobra","Ground",null,8,843],[844,"Sandaconda","Ground",null,8,844],[844,"Gigantamax Sandaconda","Ground",null,8,844],[845,"Cramorant","Flying","Water",8,845],[845,"Cramorant (Gulping Form)","Flying","Water",8,10182],[845,"Cramorant (Gorging Form)","Flying","Water",8,10183],[846,"Arrokuda","Water",null,8,846],[847,"Barraskewda","Water",null,8,847],[848,"Toxel","Electric","Poison",8,848],[849,"Toxtricity (Amped Form)","Electric","Poison",8,849],[849,"Toxtricity (Low Key Form)","Electric","Poison",8,10184],[849,"Gigantamax Toxtricity","Electric","Poison",8,849],[850,"Sizzlipede","Fire","Bug",8,850],[851,"Centiskorch","Fire","Bug",8,851],[851,"Gigantamax Centiskorch","Fire","Bug",8,851],[852,"Clobbopus","Fighting",null,8,852],[853,"Grapploct","Fighting",null,8,853],[854,"Sinistea","Ghost",null,8,854],[854,"Sinistea (Phony Form)","Ghost",null,8,854],[854,"Sinistea (Antique Form)","Ghost",null,8,854],[855,"Polteageist","Ghost",null,8,855],[855,"Polteageist (Phony Form)","Ghost",null,8,855],[855,"Polteageist (Antique Form)","Ghost",null,8,855],[856,"Hatenna","Psychic",null,8,856],[857,"Hattrem","Psychic",null,8,857],[858,"Hatterene","Psychic","Fairy",8,858],[858,"Gigantamax Hatterene","Psychic","Fairy",8,858],[859,"Impidimp","Dark","Fairy",8,859],[860,"Morgrem","Dark","Fairy",8,860],[861,"Grimmsnarl","Dark","Fairy",8,861],[861,"Gigantamax Grimmsnarl","Dark","Fairy",8,861],[862,"Obstagoon","Dark","Normal",8,862],[863,"Perrserker","Steel",null,8,863],[864,"Cursola","Ghost",null,8,864],[865,"Sirfetch'd","Fighting",null,8,865],[866,"Mr. Rime","Ice","Psychic",8,866],[867,"Runerigus","Ground","Ghost",8,867],[868,"Milcery","Fairy",null,8,868],[869,"Alcremie","Fairy",null,8,869],[869,"Gigantamax Alcremie","Fairy",null,8,869],[870,"Falinks","Fighting",null,8,870],[871,"Pincurchin","Electric",null,8,871],[872,"Snom","Ice","Bug",8,872],[873,"Frosmoth","Ice","Bug",8,873],[874,"Stonjourner","Rock",null,8,874],[875,"Eiscue (Ice Face)","Ice",null,8,875],[875,"Eiscue (Noice Face)","Ice",null,8,875],[876,"Indeedee","Psychic","Normal",8,876],[877,"Morpeko (Full Belly Mode)","Electric","Dark",8,877],[877,"Morpeko (Hangry Mode)","Electric","Dark",8,877],[878,"Cufant","Steel",null,8,878],[879,"Copperajah","Steel",null,8,879],[879,"Gigantamax Copperajah","Steel",null,8,879],[880,"Dracozolt","Electric","Dragon",8,880],[881,"Arctozolt","Electric","Ice",8,881],[882,"Dracovish","Water","Dragon",8,882],[883,"Arctovish","Water","Ice",8,883],[884,"Duraludon","Steel","Dragon",8,884],[884,"Gigantamax Duraludon","Steel","Dragon",8,884],[885,"Dreepy","Dragon","Ghost",8,885],[886,"Drakloak","Dragon","Ghost",8,886],[887,"Dragapult","Dragon","Ghost",8,887],[888,"Zacian (Hero of Many Battles)","Fairy",null,8,888],[888,"Zacian (Crowned Sword)","Fairy","Steel",8,888],[889,"Zamazenta (Hero of Many Battles)","Fighting",null,8,889],[889,"Zamazenta (Crowned Shield)","Fighting","Steel",8,889],[890,"Eternatus","Poison","Dragon",8,890],[890,"Eternamax Eternatus","Poison","Dragon",8,890],[891,"Kubfu","Fighting",null,8,891],[892,"Urshifu (Single Strike Style)","Fighting","Dark",8,892],[892,"Urshifu (Rapid Strike Style)","Fighting","Water",8,892],[892,"Gigantamax Urshifu (Single Strike Style)","Fighting","Dark",8,892],[892,"Gigantamax Urshifu (Rapid Strike Style)","Fighting","Dark",8,892],[893,"Zarude","Dark","Grass",8,893],[893,"Dada Zarude","Dark","Grass",8,893],[894,"Regieleki","Electric",null,8,894],[895,"Regidrago","Dragon",null,8,895],[896,"Glastrier","Ice",null,8,896],[897,"Spectrier","Ghost",null,8,897],[898,"Calyrex","Psychic","Grass",8,898],[898,"Ice Rider Calyrex","Psychic","Ice",8,898],[898,"Shadow Rider Calyrex","Psychic","Ghost",8,898],[899,"Wyrdeer","Normal","Psychic",8,899],[900,"Kleavor","Bug","Rock",8,900],[901,"Ursaluna","Ground","Normal",8,901],[901,"Bloodmoon Ursaluna","Ground","Normal",8,901],[902,"Basculegion","Water","Ghost",8,902],[903,"Sneasler","Fighting","Poison",8,903],[904,"Overqwil","Dark","Poison",8,904],[905,"Enamorus (Incarnate Forme)","Fairy","Flying",8,905],[905,"Enamorus (Therian Forme)","Fairy","Flying",8,10249],[906,"Sprigatito","Grass",null,9,906],[907,"Floragato","Grass",null,9,907],[908,"Meowscarada","Grass","Dark",9,908],[909,"Fuecoco","Fire",null,9,909],[910,"Crocalor","Fire",null,9,910],[911,"Skeledirge","Fire","Ghost",9,911],[912,"Quaxly","Water",null,9,912],[913,"Quaxwell","Water",null,9,913],[914,"Quaquaval","Water","Fighting",9,914],[915,"Lechonk","Normal",null,9,915],[916,"Oinkologne","Normal",null,9,916],[917,"Tarountula","Bug",null,9,917],[918,"Spidops","Bug",null,9,918],[919,"Nymble","Bug",null,9,919],[920,"Lokix","Bug","Dark",9,920],[921,"Pawmi","Electric",null,9,921],[922,"Pawmo","Electric","Fighting",9,922],[923,"Pawmot","Electric","Fighting",9,923],[924,"Tandemaus","Normal",null,9,924],[925,"Maushold (Family of Four)","Normal",null,9,925],[925,"Maushold (Family of Three)","Normal",null,9,10257],[926,"Fidough","Fairy",null,9,926],[927,"Dachsbun","Fairy",null,9,927],[928,"Smoliv","Grass","Normal",9,928],[929,"Dolliv","Grass","Normal",9,929],[930,"Arboliva","Grass","Normal",9,930],[931,"Squawkabilly (Green Plumage)","Normal","Flying",9,931],[931,"Squawkabilly (Blue Plumage)","Normal","Flying",9,10260],[931,"Squawkabilly (Yellow Plumage)","Normal","Flying",9,10261],[931,"Squawkabilly (White Plumage)","Normal","Flying",9,10262],[932,"Nacli","Rock",null,9,932],[933,"Naclstack","Rock",null,9,933],[934,"Garganacl","Rock",null,9,934],[935,"Charcadet","Fire",null,9,935],[936,"Armarouge","Fire","Psychic",9,936],[937,"Ceruledge","Fire","Ghost",9,937],[938,"Tadbulb","Electric",null,9,938],[939,"Bellibolt","Electric",null,9,939],[940,"Wattrel","Electric","Flying",9,940],[941,"Kilowattrel","Electric","Flying",9,941],[942,"Maschiff","Dark",null,9,942],[943,"Mabosstiff","Dark",null,9,943],[944,"Shroodle","Poison","Normal",9,944],[945,"Grafaiai","Poison","Normal",9,945],[946,"Bramblin","Grass","Ghost",9,946],[947,"Brambleghast","Grass","Ghost",9,947],[948,"Toedscool","Ground","Grass",9,948],[949,"Toedscruel","Ground","Grass",9,949],[950,"Klawf","Rock",null,9,950],[951,"Capsakid","Grass",null,9,951],[952,"Scovillain","Grass","Fire",9,952],[953,"Rellor","Bug",null,9,953],[954,"Rabsca","Bug","Psychic",9,954],[955,"Flittle","Psychic",null,9,955],[956,"Espathra","Psychic",null,9,956],[957,"Tinkatink","Fairy","Steel",9,957],[958,"Tinkatuff","Fairy","Steel",9,958],[959,"Tinkaton","Fairy","Steel",9,959],[960,"Wiglett","Water",null,9,960],[961,"Wugtrio","Water",null,9,961],[962,"Bombirdier","Flying","Dark",9,962],[963,"Finizen","Water",null,9,963],[964,"Palafin (Zero Form)","Water",null,9,964],[964,"Palafin (Hero Form)","Water",null,9,10256],[965,"Varoom","Steel","Poison",9,965],[966,"Revavroom","Steel","Poison",9,966],[967,"Cyclizar","Dragon","Normal",9,967],[968,"Orthworm","Steel",null,9,968],[969,"Glimmet","Rock","Poison",9,969],[970,"Glimmora","Rock","Poison",9,970],[971,"Greavard","Ghost",null,9,971],[972,"Houndstone","Ghost",null,9,972],[973,"Flamigo","Flying","Fighting",9,973],[974,"Cetoddle","Ice",null,9,974],[975,"Cetitan","Ice",null,9,975],[976,"Veluza","Water","Psychic",9,976],[977,"Dondozo","Water",null,9,977],[978,"Tatsugiri (Curly Form)","Dragon","Water",9,978],[978,"Tatsugiri (Droopy Form)","Dragon","Water",9,10258],[978,"Tatsugiri (Stretchy Form)","Dragon","Water",9,10259],[979,"Annihilape","Fighting","Ghost",9,979],[980,"Clodsire","Poison","Ground",9,980],[981,"Farigiraf","Normal","Psychic",9,981],[982,"Dudunsparce (Two-Segment Form)","Normal",null,9,982],[982,"Dudunsparce (Three-Segment Form)","Normal",null,9,10255],[983,"Kingambit","Dark","Steel",9,983],[984,"Great Tusk","Ground","Fighting",9,984],[985,"Scream Tail","Fairy","Psychic",9,985],[986,"Brute Bonnet","Grass","Dark",9,986],[987,"Flutter Mane","Ghost","Fairy",9,987],[988,"Slither Wing","Bug","Fighting",9,988],[989,"Sandy Shocks","Electric","Ground",9,989],[990,"Iron Treads","Ground","Steel",9,990],[991,"Iron Bundle","Ice","Water",9,991],[992,"Iron Hands","Fighting","Electric",9,992],[993,"Iron Jugulis","Dark","Flying",9,993],[994,"Iron Moth","Fire","Poison",9,994],[995,"Iron Thorns","Rock","Electric",9,995],[996,"Frigibax","Dragon","Ice",9,996],[997,"Arctibax","Dragon","Ice",9,997],[998,"Baxcalibur","Dragon","Ice",9,998],[999,"Gimmighoul (Chest Form)","Ghost",null,9,999],[999,"Gimmighoul (Roaming Form)","Ghost",null,9,10263],[1000,"Gholdengo","Steel","Ghost",9,1000],[1001,"Wo-Chien","Dark","Grass",9,1001],[1002,"Chien-Pao","Dark","Ice",9,1002],[1003,"Ting-Lu","Dark","Ground",9,1003],[1004,"Chi-Yu","Dark","Fire",9,1004],[1005,"Roaring Moon","Dragon","Dark",9,1005],[1006,"Iron Valiant","Fairy","Fighting",9,1006],[1007,"Koraidon","Fighting","Dragon",9,1007],[1008,"Miraidon","Electric","Dragon",9,1008],[1009,"Walking Wake","Water","Dragon",9,1009],[1010,"Iron Leaves","Grass","Psychic",9,1010],[1011,"Dipplin","Grass","Dragon",9,1011],[1012,"Poltchageist","Grass","Ghost",9,1012],[1012,"Poltchageist (Counterfeit Form)","Grass","Ghost",9,1012],[1012,"Poltchageist (Artisan Form)","Grass","Ghost",9,1012],[1013,"Sinistcha","Grass","Ghost",9,1013],[1013,"Sinistcha (Unremarkable Form)","Grass","Ghost",9,1013],[1013,"Sinistcha (Masterpiece Form)","Grass","Ghost",9,1013],[1014,"Okidogi","Poison","Fighting",9,1014],[1015,"Munkidori","Poison","Psychic",9,1015],[1016,"Fezandipiti","Poison","Fairy",9,1016],[1017,"Ogerpon (Teal Mask)","Grass",null,9,1017],[1017,"Ogerpon (Wellspring Mask)","Grass","Water",9,10273],[1017,"Ogerpon (Hearthflame Mask)","Grass","Fire",9,10274],[1017,"Ogerpon (Cornerstone Mask)","Grass","Rock",9,10275],[1018,"Archaludon","Steel","Dragon",9,1018],[1019,"Hydrapple","Grass","Dragon",9,1019],[1020,"Gouging Fire","Fire","Dragon",9,1020],[1021,"Raging Bolt","Electric","Dragon",9,1021],[1022,"Iron Boulder","Rock","Psychic",9,1022],[1023,"Iron Crown","Steel","Psychic",9,1023],[1024,"Terapagos (Normal Form)","Normal",null,9,1024],[1024,"Terapagos (Terastal Form)","Normal",null,9,10276],[1024,"Terapagos (Stellar Form)","Normal",null,9,10277],[1025,"Pecharunt","Poison","Ghost",9,1025]];
 
-  const ALL_POKEMON = ALL_POKEMON_RAW.map(r => ({
+  const ALL_POKEMON = ALL_POKEMON_RAW.map((r, idx) => ({ uid: idx,
     id: r[0],
     name: r[1],
     t1: r[2],
@@ -1853,13 +1739,8 @@
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredInstallPrompt = e;
-    
-    // Check if dismissed recently
-    const dismissedTime = localStorage.getItem('pwa_dismissed_time');
-    const now = Date.now();
-    if (!dismissedTime || now - parseInt(dismissedTime, 10) > 3 * 24 * 3600 * 1000) {
-      showPwaBanner();
-    }
+    const topBtn = document.getElementById("topbarInstallBtn");
+    if (topBtn) topBtn.style.display = "inline-flex";
   });
 
   // Check iOS Safari
@@ -1870,60 +1751,30 @@
     return isIos && !isStandalone;
   }
 
-  function showPwaBanner() {
-    const banner = document.getElementById("pwaInstallBanner");
-    if (!banner) return;
-    
-    if (isIosSafari()) {
-      const desc = document.getElementById("pwaBannerDesc");
-      const btn = document.getElementById("pwaInstallActionBtn");
-      if (desc) desc.innerText = "Ketuk tombol Bagikan 📤 lalu pilih 'Tambah ke Layar Utama'";
-      if (btn) btn.innerHTML = "<span>Cara Pasang di iPhone</span>";
-    }
-
-    setTimeout(() => {
-      banner.classList.add("show");
-    }, 2000);
-  }
-
   function triggerPwaInstall() {
     if (deferredInstallPrompt) {
       deferredInstallPrompt.prompt();
       deferredInstallPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
           console.log('User installed the PWA');
+          const topBtn = document.getElementById("topbarInstallBtn");
+          if (topBtn) topBtn.style.display = "none";
         }
         deferredInstallPrompt = null;
-        dismissPwaBanner();
       });
     } else if (isIosSafari()) {
-      alert("Cara pasang di iPhone / iPad:\\n1. Ketuk ikon 'Bagikan' (kotak panah ke atas) di Safari bawah.\\n2. Gulir ke bawah lalu pilih 'Tambah ke Layar Utama' (Add to Home Screen).\\n3. Aplikasi akan langsung muncul di halaman utama HP kamu!");
+      alert("Cara Pasang Aplikasi di iPhone / iPad (Safari):\n1. Ketuk ikon Bagikan (kotak panah ke atas) di menu Safari bawah.\n2. Gulir ke bawah lalu pilih 'Tambah ke Layar Utama' (Add to Home Screen).\n3. Aplikasi langsung muncul di layar utama HP kamu!");
     } else {
-      // General instructions
-      const banner = document.getElementById("pwaInstallBanner");
-      if (banner) banner.classList.add("show");
-      alert("Untuk memasang ke Layar Utama HP:\\n- Di Chrome / Edge: Buka menu titik tiga (⋮) > pilih 'Tambahkan ke Layar Utama' (Install App).\\n- Di Safari iOS: Ketuk Bagikan 📤 > 'Tambah ke Layar Utama'.");
+      alert("Cara Pasang Aplikasi di HP:\n1. Buka menu browser kamu (titik tiga ⋮ di Chrome/Edge, atau ikon Bagikan 📤 di Safari).\n2. Pilih 'Tambahkan ke Layar Utama' atau 'Pasang Aplikasi' (Install App).\n3. Aplikasi akan langsung terpasang seperti aplikasi native!");
     }
   }
 
-  function performPwaInstall() {
-    if (deferredInstallPrompt) {
-      triggerPwaInstall();
-    } else if (isIosSafari()) {
-      alert("Di iPhone:\\nKetuk tombol Bagikan 📤 di Safari (bagian bawah tengah), lalu pilih 'Tambah ke Layar Utama' (Add to Home Screen).");
-      dismissPwaBanner();
-    } else {
-      alert("Buka menu browser kamu (⋮ atau 📤) lalu pilih 'Tambahkan ke Layar Utama' / 'Install App'.");
-      dismissPwaBanner();
-    }
-  }
-
-  function dismissPwaBanner() {
-    const banner = document.getElementById("pwaInstallBanner");
-    if (banner) {
-      banner.classList.remove("show");
-      localStorage.setItem('pwa_dismissed_time', Date.now().toString());
-    }
+  // Hide install button if already in standalone app mode
+  if (window.matchMedia('(display-mode: standalone)').matches || (window.navigator.standalone === true)) {
+    window.addEventListener('DOMContentLoaded', () => {
+      const topBtn = document.getElementById("topbarInstallBtn");
+      if (topBtn) topBtn.style.display = "none";
+    });
   }
 
   window.addEventListener("DOMContentLoaded", () => {
@@ -2027,10 +1878,11 @@
 
   function setDirectTypes(t1, t2) {
     currentType1 = t1;
-    currentType2 = t2 || null;
+    currentType2 = (t2 && t2 !== 'null') ? t2 : null;
     updateDefenderView();
-    // Switch to defender tab if not there
-    document.querySelector(".tab-btn").click();
+    // Switch to defender tab
+    const defBtn = document.getElementById("nav-btn-defender");
+    if (defBtn) switchTab('defenderTab', defBtn);
   }
 
   // PRESETS
@@ -2067,6 +1919,7 @@
     // Update active badges on picker grid
     TYPES.forEach(t => {
       const btn = document.getElementById(`btn-type-${t}`);
+      if (!btn) return;
       btn.classList.remove("active-primary", "active-secondary");
       const existingBadge = btn.querySelector(".badge-num");
       if (existingBadge) existingBadge.remove();
@@ -2456,16 +2309,38 @@
   }
 
   function selectSearchType(type) {
-    document.getElementById("pokemonSearch").value = type;
-    document.getElementById("searchDropdown").style.display = "none";
-    setDirectTypes(type, null);
+    const input = document.getElementById("pokemonSearch");
+    if (input) {
+      input.value = type;
+      input.blur();
+    }
+    const dropdown = document.getElementById("searchDropdown");
+    if (dropdown) dropdown.style.display = "none";
+    currentPokemonTarget = { name: "Tipe " + type, id: 0, imgId: 0 };
+    currentType1 = type;
+    currentType2 = null;
+    updateHeroPokemonAvatar();
+    updateDefenderView();
+    const defBtn = document.getElementById("nav-btn-defender");
+    if (defBtn) switchTab('defenderTab', defBtn);
   }
 
   let currentPokemonTarget = { name: "Swampert", id: 260, imgId: 260 };
 
+  function selectPokemonByUid(uid) {
+    const p = ALL_POKEMON[uid];
+    if (!p) return;
+    selectSearchPokemon(p.name, p.t1, p.t2, p.imgId || p.id);
+  }
+
   function selectSearchPokemon(name, t1, t2, customImgId) {
-    document.getElementById("pokemonSearch").value = name;
-    document.getElementById("searchDropdown").style.display = "none";
+    const input = document.getElementById("pokemonSearch");
+    if (input) {
+      input.value = name;
+      input.blur();
+    }
+    const dropdown = document.getElementById("searchDropdown");
+    if (dropdown) dropdown.style.display = "none";
     
     // Find Pokemon metadata if available
     const found = ALL_POKEMON.find(p => p.name.toLowerCase() === name.toLowerCase());
@@ -2483,8 +2358,11 @@
       };
     }
 
-    setDirectTypes(t1, t2);
+    currentType1 = t1;
+    currentType2 = (t2 && t2 !== 'null' && t2 !== 'undefined') ? t2 : null;
+
     updateHeroPokemonAvatar();
+    updateDefenderView();
 
     // Switch to defender tab via bottom nav
     const defBtn = document.getElementById("nav-btn-defender");
@@ -2498,30 +2376,33 @@
   function updateHeroPokemonAvatar() {
     const avatarImg = document.getElementById("heroPokeImg");
     const nameLabel = document.getElementById("heroPokeNameLabel");
-    if (!avatarImg || !nameLabel) return;
+    if (!nameLabel) return;
 
     if (currentPokemonTarget && currentPokemonTarget.name) {
       const idFormatted = currentPokemonTarget.id ? ' (#' + currentPokemonTarget.id.toString().padStart(4, '0') + ')' : '';
       nameLabel.innerText = currentPokemonTarget.name + idFormatted;
       
       const imgId = currentPokemonTarget.imgId || currentPokemonTarget.id;
-      if (imgId > 0) {
-        avatarImg.style.display = 'block';
-        avatarImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${imgId}.png`;
-        avatarImg.onerror = function() {
-          if (currentPokemonTarget.id && currentPokemonTarget.id !== imgId) {
-            this.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${currentPokemonTarget.id}.png`;
-            this.onerror = function() { this.style.display = 'none'; };
-          } else {
-            this.style.display = 'none';
-          }
-        };
-      } else {
-        avatarImg.style.display = 'none';
+      if (avatarImg) {
+        if (imgId > 0) {
+          avatarImg.style.display = 'block';
+          avatarImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${imgId}.png`;
+          avatarImg.alt = currentPokemonTarget.name;
+          avatarImg.onerror = function() {
+            if (currentPokemonTarget.id && currentPokemonTarget.id !== imgId) {
+              this.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${currentPokemonTarget.id}.png`;
+              this.onerror = function() { this.style.display = 'none'; };
+            } else {
+              this.style.display = 'none';
+            }
+          };
+        } else {
+          avatarImg.style.display = 'none';
+        }
       }
     } else {
       nameLabel.innerText = "Kombinasi Tipe Custom";
-      avatarImg.style.display = 'none';
+      if (avatarImg) avatarImg.style.display = 'none';
     }
   }
 
@@ -2662,35 +2543,6 @@
   }
 </script>
 
-
-  <!-- PWA INSTALL PROMPT BANNER -->
-  <div id="pwaInstallBanner" class="pwa-install-banner">
-    <div class="pwa-banner-header">
-      <div class="pwa-banner-icon">
-        <svg width="26" height="26" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="46" stroke="#ffffff" stroke-width="8" fill="#141f32"/>
-          <path d="M 4 50 A 46 46 0 0 1 96 50 Z" fill="#ef4444"/>
-          <path d="M 4 50 A 46 46 0 0 0 96 50 Z" fill="#ffffff"/>
-          <line x1="4" y1="50" x2="96" y2="50" stroke="#141f32" stroke-width="8"/>
-          <circle cx="50" cy="50" r="16" fill="#141f32"/>
-          <circle cx="50" cy="50" r="10" fill="#ffffff"/>
-        </svg>
-      </div>
-      <div class="pwa-banner-text">
-        <span class="pwa-banner-title">Pasang di Layar Utama HP</span>
-        <span class="pwa-banner-desc" id="pwaBannerDesc">Akses cepat seperti aplikasi tanpa buka browser</span>
-      </div>
-      <button class="pwa-close-x-btn" onclick="dismissPwaBanner()" title="Tutup">✕</button>
-    </div>
-    <div class="pwa-banner-actions">
-      <button class="pwa-install-btn" id="pwaInstallActionBtn" onclick="performPwaInstall()">
-        <span>📲 Pasang Sekarang</span>
-      </button>
-      <button class="pwa-dismiss-btn" onclick="dismissPwaBanner()">
-        Nanti
-      </button>
-    </div>
-  </div>
 
   <!-- FLOATING SCROLL TO TOP BUTTON -->
 <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()" title="Kembali ke atas">
