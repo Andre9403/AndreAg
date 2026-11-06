@@ -7,6 +7,10 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="PoGO Guide">
   <title>Pokémon GO Type Effectiveness & Counter Guide</title>
   <style>
     :root {
@@ -49,6 +53,144 @@
       --type-steel: #60a1b8;
       --type-dark: #50413f;
       --type-fairy: #ef70ef;
+    }
+
+    
+    /* OFFICIAL POKEMON TYPE SVG ICONS */
+    .type-icon-svg {
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      display: inline-block;
+      fill: currentColor;
+    }
+
+    .type-pill .type-icon-svg {
+      width: 13px;
+      height: 13px;
+      margin-right: 3px;
+    }
+
+    .type-pill.lg .type-icon-svg {
+      width: 17px;
+      height: 17px;
+      margin-right: 5px;
+    }
+
+    .type-btn .type-icon-svg {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 2px;
+    }
+
+    /* PWA INSTALL BANNER & PROMPT */
+    .pwa-install-banner {
+      position: fixed;
+      bottom: 84px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      width: calc(100% - 24px);
+      max-width: 456px;
+      background: linear-gradient(135deg, #132238 0%, #0d1726 100%);
+      border: 1.5px solid var(--accent-cyan);
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 210, 255, 0.25);
+      z-index: 99990;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pwa-install-banner.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .pwa-banner-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pwa-banner-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      background: #0f192a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .pwa-banner-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .pwa-banner-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .pwa-banner-desc {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
+    .pwa-banner-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pwa-install-btn {
+      flex: 1;
+      padding: 8px 14px;
+      background: linear-gradient(135deg, #0084ff 0%, #00d2ff 100%);
+      border: none;
+      border-radius: 10px;
+      color: #000;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 210, 255, 0.35);
+    }
+
+    .pwa-dismiss-btn {
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* TOPBAR INSTALL BUTTON */
+    .topbar-install-btn {
+      padding: 5px 9px;
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.2) 0%, rgba(0, 132, 255, 0.2) 100%);
+      border: 1px solid var(--accent-cyan);
+      border-radius: 20px;
+      color: #00d2ff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
     }
 
     /* Type Specific Colors */
@@ -891,9 +1033,14 @@
           <span class="brand-tag">TYPE GUIDE & POKÉDEX</span>
         </div>
       </div>
-      <button class="topbar-info-btn" onclick="switchTab('mechanicsTab', null)">
-        ℹ️ Mekanik
-      </button>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <button id="topbarInstallBtn" class="topbar-install-btn" onclick="triggerPwaInstall()">
+          📲 Install App
+        </button>
+        <button class="topbar-info-btn" onclick="switchTab('mechanicsTab', null)">
+          ℹ️ Info
+        </button>
+      </div>
     </div>
 
     <!-- MOBILE SEARCH BAR -->
@@ -1292,6 +1439,36 @@
 
 <script>
   // 18 POKEMON TYPES WITH INDONESIAN NAMES & ALIASES
+  
+  // AUTHENTIC POKEMON TYPE VECTOR SVG ICONS
+  const TYPE_ICONS = {
+    Normal: '<svg class="type-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="12" r="3.5"/></svg>',
+    Fire: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.5 6.5 5 10 5 14a7 7 0 0 0 14 0c0-4-3.5-7.5-7-12zm0 15a3 3 0 0 1-3-3c0-1.5 1.5-3 3-4.5 1.5 1.5 3 3 3 4.5a3 3 0 0 1-3 3z"/></svg>',
+    Water: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M12 2.5L6.5 9a7.8 7.8 0 1 0 11 0L12 2.5zm0 14.5a4 4 0 0 1-4-4c0-1.5 1.5-3 4-4.8 2.5 1.8 4 3.3 4 4.8a4 4 0 0 1-4 4z"/></svg>',
+    Grass: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M17 3C8 4.5 4 10.5 4 17c5 0 10-3 12-8.5C18 13 14 19 8 21c9 0 13-8 13-15 0-1-.5-2-1-3h-3z"/><path d="M4 17c3-3 8-5 13-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+    Electric: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M13 2L3 14h7v8l11-13h-8l3-7z"/></svg>',
+    Ice: '<svg class="type-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5M12 6l2-2M12 6l-2-2M12 18l2 2M12 18l-2 2M6 12l-2-2M6 12l-2 2M18 12l2-2M18 12l2 2"/></svg>',
+    Fighting: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M18 7a2 2 0 0 0-2-2h-1V3.5a1.5 1.5 0 0 0-3 0V5h-1V3.5a1.5 1.5 0 0 0-3 0V5H7a2 2 0 0 0-2 2v5a7 7 0 0 0 7 7h1a7 7 0 0 0 7-7V7z"/></svg>',
+    Poison: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.5 2.5 5.5 3 8v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3c.5-2.5 3-4.5 3-8a6 6 0 0 0-6-6zm-2 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>',
+    Ground: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M2 20h20v-3H2v3zm2-5h16v-3H4v3zm3-5h10V7H7v3zm3-5h4V2h-4v3z"/></svg>',
+    Flying: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M2 13c5-6 12-8 20-8-1 4-3 9-8 12-3 2-7 3-12-4z"/><path d="M6 17c4-2 7-4 10-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+    Psychic: '<svg class="type-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7zm11 5a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg>',
+    Bug: '<svg class="type-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><path d="M8 9h8a4 4 0 0 1 4 4v2h-2v5h-2v-5H8v5H6v-5H4v-2a4 4 0 0 1 4-4z"/><path d="M9 3L6 1M15 3l3-2" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>',
+    Rock: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M6 3l12 2 4 8-6 8-10-1-4-8z"/></svg>',
+    Ghost: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9c0 5 4 11 4 11l2-2 3 2 3-2 3 2 2-2s1-3 1-5a9 9 0 0 0-9-9zm-3 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm6 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>',
+    Dragon: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M3 17c3-1 6-4 7-7 2 4 5 6 9 7-2 3-5 5-9 5s-5-3-7-5z"/><path d="M12 3c-2 3-1 6 0 8 1-2 2-5 0-8z"/></svg>',
+    Steel: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5.5-3.8 10.7-8 12-4.2-1.3-8-6.5-8-12V6l8-4zm0 4a6 6 0 0 0-6 6c0 3 2 5.5 5 5.9V14h2v3.9c3-.4 5-2.9 5-5.9a6 6 0 0 0-6-6z"/></svg>',
+    Dark: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-5.4-5.4c0-1.81.89-3.42 2.26-4.4A9.15 9.15 0 0 0 12 3z"/></svg>',
+    Fairy: '<svg class="type-icon-svg" viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/><circle cx="19" cy="4" r="1.5"/><circle cx="5" cy="19" r="1.5"/></svg>'
+  };
+
+  function renderTypePillHtml(type, size = "") {
+    if (!type) return "";
+    const icon = TYPE_ICONS[type] || "";
+    const cls = size ? "type-pill " + size : "type-pill";
+    return '<span class="' + cls + ' bg-' + type.toLowerCase() + '">' + icon + '<span>' + type + '</span></span>';
+  }
+
   const TYPES_DATA = [
     { name: "Normal", idName: "Normal", aliases: ["normal"] },
     { name: "Fire", idName: "Api", aliases: ["api", "fire"] },
@@ -1638,6 +1815,96 @@
   let currentAttackerType = "Fire";
 
   // INITIALIZATION
+  
+  // PWA & INSTALL TO HOME SCREEN SYSTEM
+  let deferredInstallPrompt = null;
+
+  // Register Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then((reg) => console.log('Service Worker registered:', reg.scope))
+        .catch((err) => console.warn('Service Worker registration skipped:', err));
+    });
+  }
+
+  // Detect Android / Chrome PWA install prompt
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    
+    // Check if dismissed recently
+    const dismissedTime = localStorage.getItem('pwa_dismissed_time');
+    const now = Date.now();
+    if (!dismissedTime || now - parseInt(dismissedTime, 10) > 3 * 24 * 3600 * 1000) {
+      showPwaBanner();
+    }
+  });
+
+  // Check iOS Safari
+  function isIosSafari() {
+    const ua = window.navigator.userAgent.toLowerCase();
+    const isIos = /iphone|ipad|ipod/.test(ua);
+    const isStandalone = ('standalone' in window.navigator) && window.navigator.standalone;
+    return isIos && !isStandalone;
+  }
+
+  function showPwaBanner() {
+    const banner = document.getElementById("pwaInstallBanner");
+    if (!banner) return;
+    
+    if (isIosSafari()) {
+      const desc = document.getElementById("pwaBannerDesc");
+      const btn = document.getElementById("pwaInstallActionBtn");
+      if (desc) desc.innerText = "Ketuk tombol Bagikan 📤 lalu pilih 'Tambah ke Layar Utama'";
+      if (btn) btn.innerHTML = "<span>Cara Pasang di iPhone</span>";
+    }
+
+    setTimeout(() => {
+      banner.classList.add("show");
+    }, 2000);
+  }
+
+  function triggerPwaInstall() {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      deferredInstallPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User installed the PWA');
+        }
+        deferredInstallPrompt = null;
+        dismissPwaBanner();
+      });
+    } else if (isIosSafari()) {
+      alert("Cara pasang di iPhone / iPad:\\n1. Ketuk ikon 'Bagikan' (kotak panah ke atas) di Safari bawah.\\n2. Gulir ke bawah lalu pilih 'Tambah ke Layar Utama' (Add to Home Screen).\\n3. Aplikasi akan langsung muncul di halaman utama HP kamu!");
+    } else {
+      // General instructions
+      const banner = document.getElementById("pwaInstallBanner");
+      if (banner) banner.classList.add("show");
+      alert("Untuk memasang ke Layar Utama HP:\\n- Di Chrome / Edge: Buka menu titik tiga (⋮) > pilih 'Tambahkan ke Layar Utama' (Install App).\\n- Di Safari iOS: Ketuk Bagikan 📤 > 'Tambah ke Layar Utama'.");
+    }
+  }
+
+  function performPwaInstall() {
+    if (deferredInstallPrompt) {
+      triggerPwaInstall();
+    } else if (isIosSafari()) {
+      alert("Di iPhone:\\nKetuk tombol Bagikan 📤 di Safari (bagian bawah tengah), lalu pilih 'Tambah ke Layar Utama' (Add to Home Screen).");
+      dismissPwaBanner();
+    } else {
+      alert("Buka menu browser kamu (⋮ atau 📤) lalu pilih 'Tambahkan ke Layar Utama' / 'Install App'.");
+      dismissPwaBanner();
+    }
+  }
+
+  function dismissPwaBanner() {
+    const banner = document.getElementById("pwaInstallBanner");
+    if (banner) {
+      banner.classList.remove("show");
+      localStorage.setItem('pwa_dismissed_time', Date.now().toString());
+    }
+  }
+
   window.addEventListener("DOMContentLoaded", () => {
     initTypeGrid();
     initPresets();
@@ -1690,10 +1957,12 @@
       const btn = document.createElement("button");
       btn.className = `type-btn bg-${type.toLowerCase()}`;
       btn.id = `btn-type-${type}`;
+      const iconSvg = TYPE_ICONS[type] || "";
       btn.innerHTML = `
         <div style="display:flex; flex-direction:column; align-items:center; line-height:1.2;">
-          <span style="font-weight:800;">${type}</span>
-          <span style="font-size:0.68rem; opacity:0.85; text-transform:none; font-weight:600;">(${tObj.idName})</span>
+          ${iconSvg}
+          <span style="font-weight:800; font-size:0.75rem;">${type}</span>
+          <span style="font-size:0.65rem; opacity:0.85; text-transform:none; font-weight:600;">(${tObj.idName})</span>
         </div>
       `;
       btn.onclick = () => onTypeSelected(type);
@@ -1765,11 +2034,11 @@
   function updateDefenderView() {
     // Update Hero badges
     const h1 = document.getElementById("heroType1Display");
-    h1.innerHTML = `<span class="type-pill lg bg-${currentType1.toLowerCase()}">${currentType1}</span>`;
+    h1.innerHTML = renderTypePillHtml(currentType1, 'lg');
 
     const h2 = document.getElementById("heroType2Display");
     if (currentType2) {
-      h2.innerHTML = `<span class="type-pill lg bg-${currentType2.toLowerCase()}">${currentType2}</span>`;
+      h2.innerHTML = renderTypePillHtml(currentType2, 'lg');
     } else {
       h2.innerHTML = `<span class="type-pill lg bg-none">- Tidak Ada (Single Type) -</span>`;
     }
@@ -1857,10 +2126,9 @@
     }
 
     list.forEach(item => {
-      const span = document.createElement("span");
-      span.className = `type-pill bg-${item.type.toLowerCase()}`;
-      span.innerHTML = `<span>${item.type}</span>`;
-      el.appendChild(span);
+      const div = document.createElement("div");
+      div.innerHTML = renderTypePillHtml(item.type);
+      el.appendChild(div.firstElementChild);
     });
   }
 
@@ -1874,10 +2142,12 @@
       const btn = document.createElement("button");
       btn.className = `type-btn bg-${type.toLowerCase()}`;
       btn.id = `btn-att-${type}`;
+      const iconSvg = TYPE_ICONS[type] || "";
       btn.innerHTML = `
         <div style="display:flex; flex-direction:column; align-items:center; line-height:1.2;">
-          <span style="font-weight:800;">${type}</span>
-          <span style="font-size:0.68rem; opacity:0.85; text-transform:none; font-weight:600;">(${tObj.idName})</span>
+          ${iconSvg}
+          <span style="font-weight:800; font-size:0.75rem;">${type}</span>
+          <span style="font-size:0.65rem; opacity:0.85; text-transform:none; font-weight:600;">(${tObj.idName})</span>
         </div>
       `;
       btn.onclick = () => {
@@ -2099,7 +2369,7 @@
         html += `
           <div class="dropdown-item" onclick="selectSearchType('${t.name}')">
             <span>Tipe: <b>${t.name}</b> <span style="opacity:0.8; font-size:0.8rem;">(${t.idName})</span></span>
-            <span class="type-pill bg-${t.name.toLowerCase()}">${t.name}</span>
+            ${renderTypePillHtml(t.name)}
           </div>
         `;
       });
@@ -2126,8 +2396,8 @@
               </div>
             </div>
             <div style="display:flex; gap:4px;">
-              <span class="type-pill bg-${p.t1.toLowerCase()}" style="font-size:0.7rem; padding:2px 6px;">${p.t1}</span>
-              ${t2Tag}
+              ${renderTypePillHtml(p.t1)}
+              ${p.t2 ? renderTypePillHtml(p.t2) : ''}
             </div>
           </div>
         `;
@@ -2314,7 +2584,8 @@
     let cardsHtml = "";
     visibleItems.forEach(p => {
       const idFormatted = '#' + p.id.toString().padStart(4, '0');
-      const t2Pill = p.t2 ? `<span class="type-pill bg-${p.t2.toLowerCase()}" style="font-size:0.68rem; padding:2px 6px;">${p.t2}</span>` : "";
+      const t1Pill = renderTypePillHtml(p.t1);
+      const t2Pill = p.t2 ? renderTypePillHtml(p.t2) : "";
       const imgId = p.imgId || p.id;
       const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${imgId}.png`;
       const fallbackUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.id}.png`;
@@ -2331,7 +2602,7 @@
           </div>
           <div class="poke-card-name" title="${p.name}">${p.name}</div>
           <div class="poke-card-types">
-            <span class="type-pill bg-${p.t1.toLowerCase()}" style="font-size:0.68rem; padding:2px 6px;">${p.t1}</span>
+            ${t1Pill}
             ${t2Pill}
           </div>
         </div>
@@ -2370,7 +2641,36 @@
   }
 </script>
 
-<!-- FLOATING SCROLL TO TOP BUTTON -->
+
+  <!-- PWA INSTALL PROMPT BANNER -->
+  <div id="pwaInstallBanner" class="pwa-install-banner">
+    <div class="pwa-banner-header">
+      <div class="pwa-banner-icon">
+        <svg width="26" height="26" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="46" stroke="#ffffff" stroke-width="8" fill="#141f32"/>
+          <path d="M 4 50 A 46 46 0 0 1 96 50 Z" fill="#ef4444"/>
+          <path d="M 4 50 A 46 46 0 0 0 96 50 Z" fill="#ffffff"/>
+          <line x1="4" y1="50" x2="96" y2="50" stroke="#141f32" stroke-width="8"/>
+          <circle cx="50" cy="50" r="16" fill="#141f32"/>
+          <circle cx="50" cy="50" r="10" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="pwa-banner-text">
+        <span class="pwa-banner-title">Pasang di Layar Utama HP</span>
+        <span class="pwa-banner-desc" id="pwaBannerDesc">Akses cepat seperti aplikasi tanpa buka browser</span>
+      </div>
+    </div>
+    <div class="pwa-banner-actions">
+      <button class="pwa-install-btn" id="pwaInstallActionBtn" onclick="performPwaInstall()">
+        <span>📲 Pasang Sekarang</span>
+      </button>
+      <button class="pwa-dismiss-btn" onclick="dismissPwaBanner()">
+        Nanti
+      </button>
+    </div>
+  </div>
+
+  <!-- FLOATING SCROLL TO TOP BUTTON -->
 <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()" title="Kembali ke atas">
   ↑
 </button>
