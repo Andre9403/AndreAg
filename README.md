@@ -40,3 +40,4 @@ Cukup buka file `index.html` atau `pokemon_go_type_chart.html` menggunakan brows
 
 ## 👨‍💻 Author
 - **Andre** - [Andre9403](https://github.com/Andre9403)
+
