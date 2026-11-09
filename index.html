@@ -915,6 +915,590 @@
       transform: translateY(0);
     }
 
+  
+    /* ==================== EVOLUTION FEATURE STYLES ==================== */
+    /* Bottom nav adjustment for 6 tabs */
+    .nav-item .nav-label {
+      font-size: 0.63rem;
+      letter-spacing: 0.1px;
+    }
+
+    /* Defender Evolution Strip */
+    .defender-evo-strip {
+      margin-top: 14px;
+      background: rgba(11, 17, 30, 0.75);
+      border: 1px solid rgba(0, 210, 255, 0.25);
+      border-radius: 12px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .defender-evo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+    .defender-evo-track {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 4px 2px 8px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .defender-evo-node {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(20, 31, 50, 0.85);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 4px 10px 4px 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+      color: #cbd5e1;
+    }
+    .defender-evo-node:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 210, 255, 0.12);
+      color: #fff;
+    }
+    .defender-evo-node.active {
+      border-color: #ffd700;
+      background: rgba(255, 215, 0, 0.15);
+      color: #ffd700;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.35);
+    }
+    .defender-evo-img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+    .defender-evo-arrow {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    /* Evolution Tab Filter & Controls */
+    .evo-filter-scroll {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .evo-filter-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .evo-chip {
+      padding: 6px 12px;
+      background: rgba(30, 44, 68, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      color: #cbd5e1;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .evo-chip:hover {
+      background: rgba(0, 210, 255, 0.15);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+    .evo-chip.active {
+      background: linear-gradient(135deg, #0084ff 0%, #00d2ff 100%);
+      color: #0b111e;
+      border-color: transparent;
+      font-weight: 800;
+      box-shadow: 0 3px 12px rgba(0, 210, 255, 0.35);
+    }
+
+    .evo-gen-bar {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      scrollbar-width: none;
+    }
+    .evo-gen-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Evolution Families List */
+    .evo-families-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .evo-family-card {
+      background: rgba(20, 31, 50, 0.75);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: border-color 0.2s;
+    }
+    .evo-family-card:hover {
+      border-color: rgba(0, 210, 255, 0.4);
+    }
+    .evo-family-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .evo-family-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .evo-family-badges {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .evo-badge-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: rgba(0, 210, 255, 0.15);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      color: #38bdf8;
+    }
+
+    /* Evolution Flow Track (Horizontal Linear Flow) */
+    .evo-track-scroll {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 4px 12px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .evo-track-scroll::-webkit-scrollbar {
+      height: 4px;
+    }
+    .evo-track-scroll::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    /* Individual Pokemon Node Card inside Evolution Tree */
+    .evo-node-card {
+      background: rgba(11, 17, 30, 0.85);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+      max-width: 110px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .evo-node-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 6px 18px rgba(0, 210, 255, 0.25);
+    }
+    .evo-node-card:active {
+      transform: scale(0.96);
+    }
+    .evo-node-card.mega {
+      border-color: #c084fc;
+      box-shadow: 0 0 12px rgba(192, 132, 252, 0.25);
+    }
+    .evo-node-card.regional {
+      border-color: #38bdf8;
+    }
+    .evo-stage-pill {
+      font-size: 0.58rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .evo-node-img-wrap {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2px 0 6px;
+    }
+    .evo-node-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+      transition: transform 0.2s ease;
+    }
+    .evo-node-card:hover .evo-node-img {
+      transform: scale(1.08);
+    }
+    .evo-node-name {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      margin-bottom: 4px;
+    }
+    .evo-node-id {
+      font-size: 0.65rem;
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+    .evo-node-types {
+      display: flex;
+      gap: 3px;
+      justify-content: center;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+    .evo-node-types .type-pill {
+      font-size: 0.58rem;
+      padding: 1px 4px;
+    }
+    .evo-node-btn {
+      margin-top: 6px;
+      padding: 3px 6px;
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      border-radius: 6px;
+      color: #38bdf8;
+      font-size: 0.62rem;
+      font-weight: 800;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .evo-node-btn:hover {
+      background: var(--accent-cyan);
+      color: #0b111e;
+    }
+
+    /* Evolution Arrow & Candy Cost connector */
+    .evo-arrow-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      flex-shrink: 0;
+      min-width: 65px;
+      max-width: 95px;
+    }
+    .evo-arrow-glyph {
+      font-size: 1.15rem;
+      color: var(--accent-cyan);
+      line-height: 1;
+      filter: drop-shadow(0 0 4px rgba(0, 210, 255, 0.5));
+    }
+    .evo-cost-tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      border-radius: 8px;
+      padding: 2px 5px;
+      margin-top: 4px;
+      text-align: center;
+      line-height: 1.25;
+      white-space: normal;
+      max-width: 90px;
+      word-break: break-word;
+    }
+
+    /* Branching Family Layout (like Eevee, Ralts, Oddish, Poliwag) */
+    .evo-branch-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .evo-branch-root-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .evo-branches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+      padding-left: 12px;
+      border-left: 2px dashed rgba(0, 210, 255, 0.35);
+    }
+    .evo-branch-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(11, 17, 30, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 6px 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .evo-branch-item:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 210, 255, 0.1);
+      transform: translateX(2px);
+    }
+    .evo-branch-img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .evo-branch-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+      overflow: hidden;
+    }
+    .evo-branch-name {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .evo-branch-cost {
+      font-size: 0.62rem;
+      color: #7dd3fc;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* Poke Card Evo Quick Button in Pokédex Tab */
+    .poke-card-evo-btn {
+      margin-top: 6px;
+      padding: 3px 8px;
+      background: rgba(0, 210, 255, 0.15);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      border-radius: 12px;
+      color: #38bdf8;
+      font-size: 0.65rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      transition: all 0.15s;
+      width: 100%;
+    }
+    .poke-card-evo-btn:hover {
+      background: var(--accent-cyan);
+      color: #0b111e;
+    }
+
+    /* Evolution Modal Dialog */
+    .evo-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 10, 18, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+    .evo-modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .evo-modal-card {
+      width: 100%;
+      max-width: 440px;
+      background: #141f32;
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 210, 255, 0.2);
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .evo-modal-backdrop.open .evo-modal-card {
+      transform: translateY(0) scale(1);
+    }
+    .evo-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .evo-modal-close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.15s;
+    }
+    .evo-modal-close-btn:hover {
+      background: #ef4444;
+      border-color: #ef4444;
+    }
+    .evo-modal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .evo-modal-img-wrap {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .evo-modal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(0, 210, 255, 0.4));
+    }
+    .evo-modal-name {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .evo-modal-meta {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .evo-modal-pills {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .evo-modal-section {
+      width: 100%;
+      background: rgba(11, 17, 30, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+    .evo-modal-section-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .evo-modal-desc {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+    .evo-modal-actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .evo-modal-cta {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #0084ff 0%, #00d2ff 100%);
+      color: #0b111e;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 16px rgba(0, 210, 255, 0.4);
+      transition: all 0.2s;
+    }
+    .evo-modal-cta:active {
+      transform: scale(0.98);
+    }
+    .evo-modal-sec-btn {
+      width: 100%;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: #cbd5e1;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .evo-modal-sec-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
   </style>
 </head>
 <body>
@@ -998,6 +1582,11 @@
             ✕ Hapus Tipe 2 (Jadikan Single Type)
           </button>
         </div>
+      </div>
+
+      <!-- DYNAMIC DEFENDER EVOLUTION STRIP -->
+      <div class="defender-evo-strip" id="defenderEvoStrip">
+        <!-- Injected via JS -->
       </div>
 
       <!-- Type Button Grid -->
@@ -1150,7 +1739,75 @@
   </div>
 
   
-  <!-- TAB 6: COMPLETE POKEDEX -->
+
+  <!-- TAB: POKEMON EVOLUTION CHAINS (EVOLVE) -->
+  <div id="evolutionTab" class="tab-content" style="display: none;">
+    <div class="card">
+      <div class="card-title">
+        <span>🌱 Pohon & Rantai Evolusi Pokémon (Evolution Chains)</span>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 14px;">
+        Database rantai evolusi lengkap <b>Gen 1 - Gen 9</b>, syarat <b>Permen (Candy)</b>, item khusus (<b>Sinnoh/Unova Stone</b>), <b>Tugas Buddy</b>, dan <b>Mega Evolusi</b> di Pokémon GO. Klik Pokémon mana saja untuk langsung menganalisis kelemahan & kekuatannya!
+      </p>
+
+      <!-- Evolution Search Box -->
+      <div class="evo-search-box">
+        <div class="search-wrapper" style="margin-bottom: 10px;">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="evolutionSearchInput" class="search-input" placeholder="Cari nama Pokémon (misal: Charizard, Eevee, Ralts, Annihilape) atau #Dex..." autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Quick Filter Chips -->
+      <div class="evo-filter-scroll">
+        <button class="evo-chip active" onclick="setEvoFilter('all', this)">Semua (540 Keluarga)</button>
+        <button class="evo-chip" onclick="setEvoFilter('popular', this)">⭐ Populer & Starter</button>
+        <button class="evo-chip" onclick="setEvoFilter('stage3', this)">🌳 3 Tahap (Stage 3)</button>
+        <button class="evo-chip" onclick="setEvoFilter('branch', this)">🔀 Bercabang (Branching)</button>
+        <button class="evo-chip" onclick="setEvoFilter('item', this)">🪨 Pakai Item / Stone</button>
+        <button class="evo-chip" onclick="setEvoFilter('mega', this)">🧬 Mega Evolusi</button>
+        <button class="evo-chip" onclick="setEvoFilter('candy400', this)">🍬 400 Candy</button>
+        <button class="evo-chip" onclick="setEvoFilter('trade', this)">🔄 Gratis Trade</button>
+        <button class="evo-chip" onclick="setEvoFilter('baby', this)">👶 Baby Pokémon</button>
+        <button class="evo-chip" onclick="setEvoFilter('regional', this)">🌍 Bentuk Regional</button>
+      </div>
+
+      <!-- Gen selector bar -->
+      <div class="evo-gen-bar">
+        <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; margin-right: 2px;">GEN:</span>
+        <button class="gen-chip active" onclick="setEvoGenFilter(0, this)">Semua</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(1, this)">G1</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(2, this)">G2</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(3, this)">G3</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(4, this)">G4</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(5, this)">G5</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(6, this)">G6</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(7, this)">G7</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(8, this)">G8</button>
+        <button class="gen-chip" onclick="setEvoGenFilter(9, this)">G9</button>
+      </div>
+
+      <!-- Count label -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; margin-top:4px;">
+        <span id="evoCountLabel" style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">
+          Memuat rantai evolusi...
+        </span>
+      </div>
+
+      <!-- Evolution Families Container -->
+      <div id="evolutionListContainer" class="evo-families-container"></div>
+
+      <!-- Load More Button -->
+      <button id="evoLoadMoreBtn" class="load-more-btn" onclick="loadMoreEvoFamilies()" style="display:none; margin-top:16px;">
+        Muat Lebih Banyak Rantai Evolusi
+      </button>
+    </div>
+  </div>
+
+    <!-- TAB 6: COMPLETE POKEDEX -->
   <div id="pokedexTab" class="tab-content" style="display: none;">
     <div class="card">
       <div class="card-title">
@@ -1327,6 +1984,10 @@
     <button class="nav-item" id="nav-btn-attacker" onclick="switchTab('attackerTab', this)">
       <span class="nav-icon">⚔️</span>
       <span class="nav-label">Serang</span>
+    </button>
+    <button class="nav-item" id="nav-btn-evolution" onclick="switchTab('evolutionTab', this)">
+      <span class="nav-icon">🌱</span>
+      <span class="nav-label">Evolusi</span>
     </button>
     <button class="nav-item" id="nav-btn-pokedex" onclick="switchTab('pokedexTab', this)">
       <span class="nav-icon">📖</span>
@@ -1785,10 +2446,529 @@
     initWeatherCards();
     initRocketTable();
     initSearch();
+    initEvolutionFamilies();
+    initEvolutionTab();
     initPokedexTab();
     updateDefenderView();
     updateAttackerView();
+    updateDefenderEvoStrip();
   });
+
+
+  // ==================== EVOLUTION DATABASE & ENGINE ====================
+  const EVOLUTION_FAMILIES_RAW = [[1,"Bulbasaur",1,3,1,[[1,"Bulbasaur","Grass","Poison",1,1,"Dasar (Base)",null,null,0,0,0],[2,"Ivysaur","Grass","Poison",2,2,"Tahap 1","Bulbasaur","🍬 25 Permen",0,0,0],[3,"Venusaur","Grass","Poison",3,3,"Tahap 2 (Akhir)","Ivysaur","🍬 100 Permen",0,0,0],[3,"Mega Venusaur","Grass","Poison",10033,4,"Mega Evolusi","Venusaur","🧬 Mega Energy (100-300)",0,1,0]]],[2,"Charmander",1,3,1,[[4,"Charmander","Fire",null,4,1,"Dasar (Base)",null,null,0,0,0],[5,"Charmeleon","Fire",null,5,2,"Tahap 1","Charmander","🍬 25 Permen",0,0,0],[6,"Charizard","Fire","Flying",6,3,"Tahap 2 (Akhir)","Charmeleon","🍬 100 Permen",0,0,0],[6,"Mega Charizard X","Fire","Dragon",10034,4,"Mega Evolusi","Charizard","🧬 Mega Energy (100-300)",0,1,0],[6,"Mega Charizard Y","Fire","Flying",10035,4,"Mega Evolusi","Charizard","🧬 Mega Energy (100-300)",0,1,0]]],[3,"Squirtle",1,3,1,[[7,"Squirtle","Water",null,7,1,"Dasar (Base)",null,null,0,0,0],[8,"Wartortle","Water",null,8,2,"Tahap 1","Squirtle","🍬 25 Permen",0,0,0],[9,"Blastoise","Water",null,9,3,"Tahap 2 (Akhir)","Wartortle","🍬 100 Permen",0,0,0],[9,"Mega Blastoise","Water",null,10036,4,"Mega Evolusi","Blastoise","🧬 Mega Energy (100-300)",0,1,0]]],[4,"Caterpie",1,3,0,[[10,"Caterpie","Bug",null,10,1,"Dasar (Base)",null,"🍬 12 Permen",0,0,0],[11,"Metapod","Bug",null,11,2,"Tahap 1","Caterpie","🍬 50 Permen",0,0,0],[12,"Butterfree","Bug","Flying",12,3,"Tahap 2 (Akhir)","Metapod","🍬 100 Permen",0,0,0]]],[5,"Weedle",1,3,1,[[13,"Weedle","Bug","Poison",13,1,"Dasar (Base)",null,"🍬 12 Permen",0,0,0],[14,"Kakuna","Bug","Poison",14,2,"Tahap 1","Weedle","🍬 50 Permen",0,0,0],[15,"Beedrill","Bug","Poison",15,3,"Tahap 2 (Akhir)","Kakuna","🍬 100 Permen",0,0,0],[15,"Mega Beedrill","Bug","Poison",10090,4,"Mega Evolusi","Beedrill","🧬 Mega Energy (100-300)",0,1,0]]],[6,"Pidgey",1,3,1,[[16,"Pidgey","Normal","Flying",16,1,"Dasar (Base)",null,"🍬 12 Permen",0,0,0],[17,"Pidgeotto","Normal","Flying",17,2,"Tahap 1","Pidgey","🍬 50 Permen",0,0,0],[18,"Pidgeot","Normal","Flying",18,3,"Tahap 2 (Akhir)","Pidgeotto","🍬 100 Permen",0,0,0],[18,"Mega Pidgeot","Normal","Flying",10073,4,"Mega Evolusi","Pidgeot","🧬 Mega Energy (100-300)",0,1,0]]],[7,"Rattata",1,2,0,[[19,"Rattata","Normal",null,19,1,"Dasar (Base)",null,null,0,0,0],[20,"Raticate","Normal",null,20,2,"Evolusi Akhir","Rattata","🍬 50 Permen",0,0,0],[19,"Alolan Rattata","Dark","Normal",10091,1,"Bentuk Alola",null,null,0,0,1],[20,"Alolan Raticate","Dark","Normal",10092,2,"Bentuk Alola","Alolan Rattata","🍬 25 Permen",0,0,1]]],[8,"Spearow",1,2,0,[[21,"Spearow","Normal","Flying",21,1,"Dasar (Base)",null,null,0,0,0],[22,"Fearow","Normal","Flying",22,2,"Evolusi Akhir","Spearow","🍬 50 Permen",0,0,0]]],[9,"Ekans",1,2,0,[[23,"Ekans","Poison",null,23,1,"Dasar (Base)",null,null,0,0,0],[24,"Arbok","Poison",null,24,2,"Evolusi Akhir","Ekans","🍬 50 Permen",0,0,0]]],[10,"Pichu",2,3,0,[[25,"Pikachu","Electric",null,25,2,"Tahap 1","Pichu","🍬 25 Permen",0,0,0],[26,"Raichu","Electric",null,26,3,"Tahap 2 (Akhir)","Pikachu","🍬 100 Permen",0,0,0],[172,"Pichu","Electric",null,172,1,"Bayi (Baby)",null,null,1,0,0],[26,"Alolan Raichu","Electric","Psychic",10100,2,"Bentuk Alola","Pikachu","🍬 50 Permen",0,0,1]]],[11,"Sandshrew",1,2,0,[[27,"Sandshrew","Ground",null,27,1,"Dasar (Base)",null,null,0,0,0],[28,"Sandslash","Ground",null,28,2,"Evolusi Akhir","Sandshrew","🍬 50 Permen",0,0,0],[27,"Alolan Sandshrew","Ice","Steel",10101,1,"Bentuk Alola",null,null,0,0,1],[28,"Alolan Sandslash","Ice","Steel",10102,2,"Bentuk Alola","Alolan Sandshrew","🍬 50 Permen",0,0,1]]],[12,"Nidoran♀",1,3,0,[[29,"Nidoran♀","Poison",null,29,1,"Dasar (Base)",null,null,0,0,0],[30,"Nidorina","Poison",null,30,2,"Tahap 1","Nidoran♀","🍬 25 Permen",0,0,0],[31,"Nidoqueen","Poison","Ground",31,3,"Tahap 2 (Akhir)","Nidorina","🍬 100 Permen",0,0,0]]],[13,"Nidoran♂",1,3,0,[[32,"Nidoran♂","Poison",null,32,1,"Dasar (Base)",null,null,0,0,0],[33,"Nidorino","Poison",null,33,2,"Tahap 1","Nidoran♂","🍬 25 Permen",0,0,0],[34,"Nidoking","Poison","Ground",34,3,"Tahap 2 (Akhir)","Nidorino","🍬 100 Permen",0,0,0]]],[14,"Cleffa",2,3,0,[[35,"Clefairy","Fairy",null,35,2,"Tahap 1","Cleffa","🍬 25 Permen",0,0,0],[36,"Clefable","Fairy",null,36,3,"Tahap 2 (Akhir)","Clefairy","🍬 100 Permen",0,0,0],[173,"Cleffa","Fairy",null,173,1,"Bayi (Baby)",null,null,1,0,0]]],[15,"Vulpix",1,2,0,[[37,"Vulpix","Fire",null,37,1,"Dasar (Base)",null,null,0,0,0],[38,"Ninetales","Fire",null,38,2,"Evolusi Akhir","Vulpix","🍬 50 Permen",0,0,0],[37,"Alolan Vulpix","Ice",null,10103,1,"Bentuk Alola",null,null,0,0,1],[38,"Alolan Ninetales","Ice","Fairy",10104,2,"Bentuk Alola","Alolan Vulpix","🍬 50 Permen",0,0,1]]],[16,"Igglybuff",2,3,0,[[39,"Jigglypuff","Normal","Fairy",39,2,"Tahap 1","Igglybuff","🍬 25 Permen",0,0,0],[40,"Wigglytuff","Normal","Fairy",40,3,"Tahap 2 (Akhir)","Jigglypuff","🍬 100 Permen",0,0,0],[174,"Igglybuff","Normal","Fairy",174,1,"Bayi (Baby)",null,null,1,0,0]]],[17,"Zubat",1,3,0,[[41,"Zubat","Poison","Flying",41,1,"Dasar (Base)",null,null,0,0,0],[42,"Golbat","Poison","Flying",42,2,"Tahap 1","Zubat","🍬 25 Permen",0,0,0],[169,"Crobat","Poison","Flying",169,3,"Tahap 2 (Akhir)","Golbat","🍬 100 Permen",0,0,0]]],[18,"Oddish",1,3,1,[[43,"Oddish","Grass","Poison",43,1,"Dasar (Base)",null,null,0,0,0],[44,"Gloom","Grass","Poison",44,2,"Tahap 1","Oddish","🍬 25 Permen",0,0,0],[45,"Vileplume","Grass","Poison",45,3,"Tahap 2 (Akhir)","Gloom","🍬 100 Permen",0,0,0],[182,"Bellossom","Grass",null,182,3,"Tahap 2 (Akhir)","Gloom","🍬 100 Permen + ☀️ Sun Stone",0,0,0]]],[19,"Paras",1,2,0,[[46,"Paras","Bug","Grass",46,1,"Dasar (Base)",null,null,0,0,0],[47,"Parasect","Bug","Grass",47,2,"Evolusi Akhir","Paras","🍬 50 Permen",0,0,0]]],[20,"Venonat",1,2,0,[[48,"Venonat","Bug","Poison",48,1,"Dasar (Base)",null,null,0,0,0],[49,"Venomoth","Bug","Poison",49,2,"Evolusi Akhir","Venonat","🍬 50 Permen",0,0,0]]],[21,"Diglett",1,2,0,[[50,"Diglett","Ground",null,50,1,"Dasar (Base)",null,null,0,0,0],[51,"Dugtrio","Ground",null,51,2,"Evolusi Akhir","Diglett","🍬 50 Permen",0,0,0],[50,"Alolan Diglett","Ground","Steel",10105,1,"Bentuk Alola",null,null,0,0,1],[51,"Alolan Dugtrio","Ground","Steel",10106,2,"Bentuk Alola","Alolan Diglett","🍬 50 Permen",0,0,1]]],[22,"Meowth",1,2,1,[[52,"Meowth","Normal",null,52,1,"Dasar (Base)",null,null,0,0,0],[53,"Persian","Normal",null,53,2,"Evolusi Akhir","Meowth","🍬 50 Permen",0,0,0],[863,"Perrserker","Steel",null,863,2,"Evolusi Akhir","Meowth","🍬 50 Permen",0,0,0],[52,"Alolan Meowth","Dark",null,10107,1,"Bentuk Alola",null,null,0,0,1],[52,"Galarian Meowth","Steel",null,10161,1,"Bentuk Galar",null,null,0,0,1],[53,"Alolan Persian","Dark",null,10108,2,"Bentuk Alola","Alolan Meowth","🍬 50 Permen",0,0,1]]],[23,"Psyduck",1,2,0,[[54,"Psyduck","Water",null,54,1,"Dasar (Base)",null,null,0,0,0],[55,"Golduck","Water",null,55,2,"Evolusi Akhir","Psyduck","🍬 50 Permen",0,0,0]]],[24,"Mankey",1,3,0,[[56,"Mankey","Fighting",null,56,1,"Dasar (Base)",null,null,0,0,0],[57,"Primeape","Fighting",null,57,2,"Tahap 1","Mankey","🍬 25 Permen",0,0,0],[979,"Annihilape","Fighting","Ghost",979,3,"Tahap 2 (Akhir)","Primeape","🍬 100 Permen + ⚔️ Kalahkan 30 Ghost/Psychic",0,0,0]]],[25,"Growlithe",1,2,0,[[58,"Growlithe","Fire",null,58,1,"Dasar (Base)",null,null,0,0,0],[59,"Arcanine","Fire",null,59,2,"Evolusi Akhir","Growlithe","🍬 50 Permen",0,0,0],[58,"Hisuian Growlithe","Fire","Rock",10229,1,"Bentuk Hisui",null,null,0,0,1],[59,"Hisuian Arcanine","Fire","Rock",10230,2,"Bentuk Hisui","Hisuian Growlithe","🍬 50 Permen",0,0,1]]],[26,"Poliwag",1,3,1,[[60,"Poliwag","Water",null,60,1,"Dasar (Base)",null,null,0,0,0],[61,"Poliwhirl","Water",null,61,2,"Tahap 1","Poliwag","🍬 25 Permen",0,0,0],[62,"Poliwrath","Water","Fighting",62,3,"Tahap 2 (Akhir)","Poliwhirl","🍬 100 Permen",0,0,0],[186,"Politoed","Water",null,186,3,"Tahap 2 (Akhir)","Poliwhirl","🍬 100 Permen + 👑 King's Rock",0,0,0]]],[27,"Abra",1,3,1,[[63,"Abra","Psychic",null,63,1,"Dasar (Base)",null,null,0,0,0],[64,"Kadabra","Psychic",null,64,2,"Tahap 1","Abra","🍬 25 Permen",0,0,0],[65,"Alakazam","Psychic",null,65,3,"Tahap 2 (Akhir)","Kadabra","🍬 100 Permen (🔄 Gratis Trade)",0,0,0],[65,"Mega Alakazam","Psychic",null,10037,4,"Mega Evolusi","Alakazam","🧬 Mega Energy (100-300)",0,1,0]]],[28,"Machop",1,3,0,[[66,"Machop","Fighting",null,66,1,"Dasar (Base)",null,null,0,0,0],[67,"Machoke","Fighting",null,67,2,"Tahap 1","Machop","🍬 25 Permen",0,0,0],[68,"Machamp","Fighting",null,68,3,"Tahap 2 (Akhir)","Machoke","🍬 100 Permen (🔄 Gratis Trade)",0,0,0]]],[29,"Bellsprout",1,3,0,[[69,"Bellsprout","Grass","Poison",69,1,"Dasar (Base)",null,null,0,0,0],[70,"Weepinbell","Grass","Poison",70,2,"Tahap 1","Bellsprout","🍬 25 Permen",0,0,0],[71,"Victreebel","Grass","Poison",71,3,"Tahap 2 (Akhir)","Weepinbell","🍬 100 Permen",0,0,0]]],[30,"Tentacool",1,2,0,[[72,"Tentacool","Water","Poison",72,1,"Dasar (Base)",null,null,0,0,0],[73,"Tentacruel","Water","Poison",73,2,"Evolusi Akhir","Tentacool","🍬 50 Permen",0,0,0]]],[31,"Geodude",1,3,0,[[74,"Geodude","Rock","Ground",74,1,"Dasar (Base)",null,null,0,0,0],[75,"Graveler","Rock","Ground",75,2,"Tahap 1","Geodude","🍬 25 Permen",0,0,0],[76,"Golem","Rock","Ground",76,3,"Tahap 2 (Akhir)","Graveler","🍬 100 Permen (🔄 Gratis Trade)",0,0,0],[74,"Alolan Geodude","Rock","Electric",10109,1,"Bentuk Alola",null,null,0,0,1],[75,"Alolan Graveler","Rock","Electric",10110,2,"Bentuk Alola","Alolan Geodude","🍬 25 Permen",0,0,1],[76,"Alolan Golem","Rock","Electric",10111,3,"Bentuk Alola","Alolan Graveler","🍬 100 Permen (🔄 Gratis Trade)",0,0,1]]],[32,"Ponyta",1,2,0,[[77,"Ponyta","Fire",null,77,1,"Dasar (Base)",null,null,0,0,0],[78,"Rapidash","Fire",null,78,2,"Evolusi Akhir","Ponyta","🍬 50 Permen",0,0,0],[77,"Galarian Ponyta","Psychic",null,10162,1,"Bentuk Galar",null,null,0,0,1],[78,"Galarian Rapidash","Psychic","Fairy",10163,2,"Bentuk Galar","Galarian Ponyta","🍬 50 Permen",0,0,1]]],[33,"Slowpoke",1,2,1,[[79,"Slowpoke","Water","Psychic",79,1,"Dasar (Base)",null,null,0,0,0],[80,"Slowbro","Water","Psychic",80,2,"Evolusi Akhir","Slowpoke","🍬 50 Permen",0,0,0],[199,"Slowking","Water","Psychic",199,2,"Evolusi Akhir","Slowpoke","🍬 50 Permen + 👑 King's Rock",0,0,0],[80,"Mega Slowbro","Water","Psychic",10071,4,"Mega Evolusi","Slowbro","🧬 Mega Energy (100-300)",0,1,0],[79,"Galarian Slowpoke","Psychic",null,10164,1,"Bentuk Galar",null,null,0,0,1],[80,"Galarian Slowbro","Poison","Psychic",10165,2,"Bentuk Galar","Galarian Slowpoke","🍬 50 Permen + 🎯 30 Tipe Poison",0,0,1],[199,"Galarian Slowking","Poison","Psychic",10172,2,"Bentuk Galar","Galarian Slowpoke","🍬 50 Permen + 🎯 30 Tipe Psychic",0,0,1]]],[34,"Magnemite",1,3,0,[[81,"Magnemite","Electric","Steel",81,1,"Dasar (Base)",null,null,0,0,0],[82,"Magneton","Electric","Steel",82,2,"Tahap 1","Magnemite","🍬 25 Permen",0,0,0],[462,"Magnezone","Electric","Steel",462,3,"Tahap 2 (Akhir)","Magneton","🍬 100 Permen + ⚡ Magnetic Lure",0,0,0]]],[35,"Farfetch'd",1,2,0,[[83,"Farfetch'd","Normal","Flying",83,1,"Dasar (Base)",null,null,0,0,0],[865,"Sirfetch'd","Fighting",null,865,2,"Evolusi Akhir","Farfetch'd","🍬 50 Permen",0,0,0],[83,"Galarian Farfetch'd","Fighting",null,10166,1,"Bentuk Galar",null,null,0,0,1]]],[36,"Doduo",1,2,0,[[84,"Doduo","Normal","Flying",84,1,"Dasar (Base)",null,null,0,0,0],[85,"Dodrio","Normal","Flying",85,2,"Evolusi Akhir","Doduo","🍬 50 Permen",0,0,0]]],[37,"Seel",1,2,0,[[86,"Seel","Water",null,86,1,"Dasar (Base)",null,null,0,0,0],[87,"Dewgong","Water","Ice",87,2,"Evolusi Akhir","Seel","🍬 50 Permen",0,0,0]]],[38,"Grimer",1,2,0,[[88,"Grimer","Poison",null,88,1,"Dasar (Base)",null,null,0,0,0],[89,"Muk","Poison",null,89,2,"Evolusi Akhir","Grimer","🍬 50 Permen",0,0,0],[88,"Alolan Grimer","Poison","Dark",10112,1,"Bentuk Alola",null,null,0,0,1],[89,"Alolan Muk","Poison","Dark",10113,2,"Bentuk Alola","Alolan Grimer","🍬 50 Permen",0,0,1]]],[39,"Shellder",1,2,0,[[90,"Shellder","Water",null,90,1,"Dasar (Base)",null,null,0,0,0],[91,"Cloyster","Water","Ice",91,2,"Evolusi Akhir","Shellder","🍬 50 Permen",0,0,0]]],[40,"Gastly",1,3,1,[[92,"Gastly","Ghost","Poison",92,1,"Dasar (Base)",null,null,0,0,0],[93,"Haunter","Ghost","Poison",93,2,"Tahap 1","Gastly","🍬 25 Permen",0,0,0],[94,"Gengar","Ghost","Poison",94,3,"Tahap 2 (Akhir)","Haunter","🍬 100 Permen (🔄 Gratis Trade)",0,0,0],[94,"Mega Gengar","Ghost","Poison",10038,4,"Mega Evolusi","Gengar","🧬 Mega Energy (100-300)",0,1,0]]],[41,"Onix",1,2,1,[[95,"Onix","Rock","Ground",95,1,"Dasar (Base)",null,null,0,0,0],[208,"Steelix","Steel","Ground",208,2,"Evolusi Akhir","Onix","🍬 50 Permen + 🔩 Metal Coat",0,0,0],[208,"Mega Steelix","Steel","Ground",10072,4,"Mega Evolusi","Steelix","🧬 Mega Energy (100-300)",0,1,0]]],[42,"Drowzee",1,2,0,[[96,"Drowzee","Psychic",null,96,1,"Dasar (Base)",null,null,0,0,0],[97,"Hypno","Psychic",null,97,2,"Evolusi Akhir","Drowzee","🍬 50 Permen",0,0,0]]],[43,"Krabby",1,2,0,[[98,"Krabby","Water",null,98,1,"Dasar (Base)",null,null,0,0,0],[99,"Kingler","Water",null,99,2,"Evolusi Akhir","Krabby","🍬 50 Permen",0,0,0]]],[44,"Voltorb",1,2,0,[[100,"Voltorb","Electric",null,100,1,"Dasar (Base)",null,null,0,0,0],[101,"Electrode","Electric",null,101,2,"Evolusi Akhir","Voltorb","🍬 50 Permen",0,0,0],[100,"Hisuian Voltorb","Electric","Grass",10231,1,"Bentuk Hisui",null,null,0,0,1],[101,"Hisuian Electrode","Electric","Grass",10232,2,"Bentuk Hisui","Hisuian Voltorb","🍬 50 Permen",0,0,1]]],[45,"Exeggcute",1,2,0,[[102,"Exeggcute","Grass","Psychic",102,1,"Dasar (Base)",null,null,0,0,0],[103,"Exeggutor","Grass","Psychic",103,2,"Evolusi Akhir","Exeggcute","🍬 50 Permen",0,0,0],[103,"Alolan Exeggutor","Grass","Dragon",10114,2,"Bentuk Alola","Exeggcute","🍬 50 Permen",0,0,1]]],[46,"Cubone",1,2,0,[[104,"Cubone","Ground",null,104,1,"Dasar (Base)",null,null,0,0,0],[105,"Marowak","Ground",null,105,2,"Evolusi Akhir","Cubone","🍬 50 Permen",0,0,0],[105,"Alolan Marowak","Fire","Ghost",10115,2,"Bentuk Alola","Cubone","🍬 50 Permen",0,0,1]]],[47,"Tyrogue",2,2,1,[[106,"Hitmonlee","Fighting",null,106,2,"Evolusi Akhir","Tyrogue","🍬 25 Permen",0,0,0],[107,"Hitmonchan","Fighting",null,107,2,"Evolusi Akhir","Tyrogue","🍬 25 Permen",0,0,0],[236,"Tyrogue","Fighting",null,236,1,"Bayi (Baby)",null,null,1,0,0],[237,"Hitmontop","Fighting",null,237,2,"Evolusi Akhir","Tyrogue","🍬 25 Permen",0,0,0]]],[48,"Lickitung",1,2,0,[[108,"Lickitung","Normal",null,108,1,"Dasar (Base)",null,null,0,0,0],[463,"Lickilicky","Normal",null,463,2,"Evolusi Akhir","Lickitung","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[49,"Koffing",1,2,0,[[109,"Koffing","Poison",null,109,1,"Dasar (Base)",null,null,0,0,0],[110,"Weezing","Poison",null,110,2,"Evolusi Akhir","Koffing","🍬 50 Permen",0,0,0],[110,"Galarian Weezing","Poison","Fairy",10167,2,"Bentuk Galar","Koffing","🍬 50 Permen",0,0,1]]],[50,"Rhyhorn",1,3,0,[[111,"Rhyhorn","Ground","Rock",111,1,"Dasar (Base)",null,null,0,0,0],[112,"Rhydon","Ground","Rock",112,2,"Tahap 1","Rhyhorn","🍬 25 Permen",0,0,0],[464,"Rhyperior","Ground","Rock",464,3,"Tahap 2 (Akhir)","Rhydon","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[51,"Happiny",4,3,0,[[113,"Chansey","Normal",null,113,2,"Tahap 1","Happiny","🍬 25 Permen + 🚶 Jalan 15km sbg Buddy",0,0,0],[242,"Blissey","Normal",null,242,3,"Tahap 2 (Akhir)","Chansey","🍬 100 Permen",0,0,0],[440,"Happiny","Normal",null,440,1,"Bayi (Baby)",null,null,1,0,0]]],[52,"Tangela",1,2,0,[[114,"Tangela","Grass",null,114,1,"Dasar (Base)",null,null,0,0,0],[465,"Tangrowth","Grass",null,465,2,"Evolusi Akhir","Tangela","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[53,"Kangaskhan",1,1,1,[[115,"Kangaskhan","Normal",null,115,1,"Dasar (Base)",null,null,0,0,0],[115,"Mega Kangaskhan","Normal",null,10039,4,"Mega Evolusi","Kangaskhan","🧬 Mega Energy (100-300)",0,1,0]]],[54,"Horsea",1,3,0,[[116,"Horsea","Water",null,116,1,"Dasar (Base)",null,null,0,0,0],[117,"Seadra","Water",null,117,2,"Tahap 1","Horsea","🍬 25 Permen",0,0,0],[230,"Kingdra","Water","Dragon",230,3,"Tahap 2 (Akhir)","Seadra","🍬 100 Permen + 🐉 Dragon Scale",0,0,0]]],[55,"Goldeen",1,2,0,[[118,"Goldeen","Water",null,118,1,"Dasar (Base)",null,null,0,0,0],[119,"Seaking","Water",null,119,2,"Evolusi Akhir","Goldeen","🍬 50 Permen",0,0,0]]],[56,"Staryu",1,2,0,[[120,"Staryu","Water",null,120,1,"Dasar (Base)",null,null,0,0,0],[121,"Starmie","Water","Psychic",121,2,"Evolusi Akhir","Staryu","🍬 50 Permen",0,0,0]]],[57,"Mime Jr.",4,3,0,[[122,"Mr. Mime","Psychic","Fairy",122,2,"Tahap 1","Mime Jr.","🍬 50 Permen + 🚶 Jalan 15km sbg Buddy",0,0,0],[439,"Mime Jr.","Psychic","Fairy",439,1,"Bayi (Baby)",null,null,1,0,0],[866,"Mr. Rime","Ice","Psychic",866,3,"Tahap 2 (Akhir)","Mr. Mime","🍬 100 Permen",0,0,0],[122,"Galarian Mr. Mime","Ice","Psychic",10168,2,"Bentuk Galar","Mime Jr.","🍬 50 Permen + 🚶 Jalan 15km sbg Buddy",0,0,1]]],[58,"Scyther",1,2,1,[[123,"Scyther","Bug","Flying",123,1,"Dasar (Base)",null,null,0,0,0],[212,"Scizor","Bug","Steel",212,2,"Evolusi Akhir","Scyther","🍬 50 Permen + 🔩 Metal Coat",0,0,0],[900,"Kleavor","Bug","Rock",900,2,"Evolusi Akhir","Scyther","🍬 50 Permen",0,0,0],[212,"Mega Scizor","Bug","Steel",10046,4,"Mega Evolusi","Scizor","🧬 Mega Energy (100-300)",0,1,0]]],[59,"Smoochum",2,2,0,[[124,"Jynx","Ice","Psychic",124,2,"Evolusi Akhir","Smoochum","🍬 25 Permen",0,0,0],[238,"Smoochum","Ice","Psychic",238,1,"Bayi (Baby)",null,null,1,0,0]]],[60,"Elekid",2,3,0,[[125,"Electabuzz","Electric",null,125,2,"Tahap 1","Elekid","🍬 25 Permen",0,0,0],[239,"Elekid","Electric",null,239,1,"Bayi (Baby)",null,null,1,0,0],[466,"Electivire","Electric",null,466,3,"Tahap 2 (Akhir)","Electabuzz","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[61,"Magby",2,3,0,[[126,"Magmar","Fire",null,126,2,"Tahap 1","Magby","🍬 25 Permen",0,0,0],[240,"Magby","Fire",null,240,1,"Bayi (Baby)",null,null,1,0,0],[467,"Magmortar","Fire",null,467,3,"Tahap 2 (Akhir)","Magmar","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[62,"Pinsir",1,1,1,[[127,"Pinsir","Bug",null,127,1,"Dasar (Base)",null,null,0,0,0],[127,"Mega Pinsir","Bug","Flying",10040,4,"Mega Evolusi","Pinsir","🧬 Mega Energy (100-300)",0,1,0]]],[63,"Tauros",1,1,0,[[128,"Tauros","Normal",null,128,1,"Dasar (Base)",null,null,0,0,0],[128,"Paldean Tauros (Combat Breed)","Normal",null,128,1,"Bentuk Paldea",null,null,0,0,1],[128,"Paldean Tauros (Blaze Breed)","Normal",null,128,1,"Bentuk Paldea",null,null,0,0,1],[128,"Paldean Tauros (Aqua Breed)","Normal",null,128,1,"Bentuk Paldea",null,null,0,0,1]]],[64,"Magikarp",1,2,1,[[129,"Magikarp","Water",null,129,1,"Dasar (Base)",null,null,0,0,0],[130,"Gyarados","Water","Flying",130,2,"Evolusi Akhir","Magikarp","🍬 400 Permen",0,0,0],[130,"Mega Gyarados","Water","Dark",10041,4,"Mega Evolusi","Gyarados","🧬 Mega Energy (100-300)",0,1,0]]],[65,"Lapras",1,1,0,[[131,"Lapras","Water","Ice",131,1,"Dasar (Base)",null,null,0,0,0]]],[66,"Ditto",1,1,0,[[132,"Ditto","Normal",null,132,1,"Dasar (Base)",null,null,0,0,0]]],[67,"Eevee",1,2,1,[[133,"Eevee","Normal",null,133,1,"Dasar (Base)",null,null,0,0,0],[134,"Vaporeon","Water",null,134,2,"Evolusi Akhir","Eevee","🍬 25 Permen (Acak / Nama: Rainer)",0,0,0],[135,"Jolteon","Electric",null,135,2,"Evolusi Akhir","Eevee","🍬 25 Permen (Acak / Nama: Sparky)",0,0,0],[136,"Flareon","Fire",null,136,2,"Evolusi Akhir","Eevee","🍬 25 Permen (Acak / Nama: Pyro)",0,0,0],[196,"Espeon","Psychic",null,196,2,"Evolusi Akhir","Eevee","🍬 25 Permen + 🚶 10km Siang (Nama: Sakura)",0,0,0],[197,"Umbreon","Dark",null,197,2,"Evolusi Akhir","Eevee","🍬 25 Permen + 🚶 10km Malam (Nama: Tamao)",0,0,0],[470,"Leafeon","Grass",null,470,2,"Evolusi Akhir","Eevee","🍬 25 Permen + 🍃 Mossy Lure (Nama: Linnea)",0,0,0],[471,"Glaceon","Ice",null,471,2,"Evolusi Akhir","Eevee","🍬 25 Permen + ❄️ Glacial Lure (Nama: Rea)",0,0,0],[700,"Sylveon","Fairy",null,700,2,"Evolusi Akhir","Eevee","🍬 25 Permen + ❤️ 70 Hati Buddy (Nama: Kira)",0,0,0]]],[68,"Porygon",1,3,0,[[137,"Porygon","Normal",null,137,1,"Dasar (Base)",null,null,0,0,0],[233,"Porygon2","Normal",null,233,2,"Tahap 1","Porygon","🍬 25 Permen + 💾 Up-Grade",0,0,0],[474,"Porygon-Z","Normal",null,474,3,"Tahap 2 (Akhir)","Porygon2","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[69,"Omanyte",1,2,0,[[138,"Omanyte","Rock","Water",138,1,"Dasar (Base)",null,null,0,0,0],[139,"Omastar","Rock","Water",139,2,"Evolusi Akhir","Omanyte","🍬 50 Permen",0,0,0]]],[70,"Kabuto",1,2,0,[[140,"Kabuto","Rock","Water",140,1,"Dasar (Base)",null,null,0,0,0],[141,"Kabutops","Rock","Water",141,2,"Evolusi Akhir","Kabuto","🍬 50 Permen",0,0,0]]],[71,"Aerodactyl",1,1,1,[[142,"Aerodactyl","Rock","Flying",142,1,"Dasar (Base)",null,null,0,0,0],[142,"Mega Aerodactyl","Rock","Flying",10042,4,"Mega Evolusi","Aerodactyl","🧬 Mega Energy (100-300)",0,1,0]]],[72,"Munchlax",4,2,0,[[143,"Snorlax","Normal",null,143,2,"Evolusi Akhir","Munchlax","🍬 25 Permen",0,0,0],[446,"Munchlax","Normal",null,446,1,"Bayi (Baby)",null,null,1,0,0]]],[73,"Articuno",1,1,0,[[144,"Articuno","Ice","Flying",144,1,"Dasar (Base)",null,null,0,0,0],[144,"Galarian Articuno","Psychic","Flying",10169,1,"Bentuk Galar",null,null,0,0,1]]],[74,"Zapdos",1,1,0,[[145,"Zapdos","Electric","Flying",145,1,"Dasar (Base)",null,null,0,0,0],[145,"Galarian Zapdos","Fighting","Flying",10170,1,"Bentuk Galar",null,null,0,0,1]]],[75,"Moltres",1,1,0,[[146,"Moltres","Fire","Flying",146,1,"Dasar (Base)",null,null,0,0,0],[146,"Galarian Moltres","Dark","Flying",10171,1,"Bentuk Galar",null,null,0,0,1]]],[76,"Dratini",1,3,0,[[147,"Dratini","Dragon",null,147,1,"Dasar (Base)",null,null,0,0,0],[148,"Dragonair","Dragon",null,148,2,"Tahap 1","Dratini","🍬 25 Permen",0,0,0],[149,"Dragonite","Dragon","Flying",149,3,"Tahap 2 (Akhir)","Dragonair","🍬 100 Permen",0,0,0]]],[77,"Mewtwo",1,1,1,[[150,"Mewtwo","Psychic",null,150,1,"Dasar (Base)",null,null,0,0,0],[150,"Mega Mewtwo X","Psychic","Fighting",10043,4,"Mega Evolusi","Mewtwo","🧬 Mega Energy (100-300)",0,1,0],[150,"Mega Mewtwo Y","Psychic",null,10044,4,"Mega Evolusi","Mewtwo","🧬 Mega Energy (100-300)",0,1,0]]],[78,"Mew",1,1,0,[[151,"Mew","Psychic",null,151,1,"Dasar (Base)",null,null,0,0,0]]],[79,"Chikorita",2,3,0,[[152,"Chikorita","Grass",null,152,1,"Dasar (Base)",null,null,0,0,0],[153,"Bayleef","Grass",null,153,2,"Tahap 1","Chikorita","🍬 25 Permen",0,0,0],[154,"Meganium","Grass",null,154,3,"Tahap 2 (Akhir)","Bayleef","🍬 100 Permen",0,0,0]]],[80,"Cyndaquil",2,3,0,[[155,"Cyndaquil","Fire",null,155,1,"Dasar (Base)",null,null,0,0,0],[156,"Quilava","Fire",null,156,2,"Tahap 1","Cyndaquil","🍬 25 Permen",0,0,0],[157,"Typhlosion","Fire",null,157,3,"Tahap 2 (Akhir)","Quilava","🍬 100 Permen",0,0,0],[157,"Hisuian Typhlosion","Fire","Ghost",10233,3,"Bentuk Hisui","Quilava","🍬 100 Permen",0,0,1]]],[81,"Totodile",2,3,0,[[158,"Totodile","Water",null,158,1,"Dasar (Base)",null,null,0,0,0],[159,"Croconaw","Water",null,159,2,"Tahap 1","Totodile","🍬 25 Permen",0,0,0],[160,"Feraligatr","Water",null,160,3,"Tahap 2 (Akhir)","Croconaw","🍬 100 Permen",0,0,0]]],[82,"Sentret",2,2,0,[[161,"Sentret","Normal",null,161,1,"Dasar (Base)",null,null,0,0,0],[162,"Furret","Normal",null,162,2,"Evolusi Akhir","Sentret","🍬 50 Permen",0,0,0]]],[83,"Hoothoot",2,2,0,[[163,"Hoothoot","Normal","Flying",163,1,"Dasar (Base)",null,null,0,0,0],[164,"Noctowl","Normal","Flying",164,2,"Evolusi Akhir","Hoothoot","🍬 50 Permen",0,0,0]]],[84,"Ledyba",2,2,0,[[165,"Ledyba","Bug","Flying",165,1,"Dasar (Base)",null,null,0,0,0],[166,"Ledian","Bug","Flying",166,2,"Evolusi Akhir","Ledyba","🍬 50 Permen",0,0,0]]],[85,"Spinarak",2,2,0,[[167,"Spinarak","Bug","Poison",167,1,"Dasar (Base)",null,null,0,0,0],[168,"Ariados","Bug","Poison",168,2,"Evolusi Akhir","Spinarak","🍬 50 Permen",0,0,0]]],[86,"Chinchou",2,2,0,[[170,"Chinchou","Water","Electric",170,1,"Dasar (Base)",null,null,0,0,0],[171,"Lanturn","Water","Electric",171,2,"Evolusi Akhir","Chinchou","🍬 50 Permen",0,0,0]]],[87,"Togepi",2,3,0,[[175,"Togepi","Fairy",null,175,1,"Bayi (Baby)",null,null,1,0,0],[176,"Togetic","Fairy","Flying",176,2,"Tahap 1","Togepi","🍬 25 Permen",0,0,0],[468,"Togekiss","Fairy","Flying",468,3,"Tahap 2 (Akhir)","Togetic","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[88,"Natu",2,2,0,[[177,"Natu","Psychic","Flying",177,1,"Dasar (Base)",null,null,0,0,0],[178,"Xatu","Psychic","Flying",178,2,"Evolusi Akhir","Natu","🍬 50 Permen",0,0,0]]],[89,"Mareep",2,3,1,[[179,"Mareep","Electric",null,179,1,"Dasar (Base)",null,null,0,0,0],[180,"Flaaffy","Electric",null,180,2,"Tahap 1","Mareep","🍬 25 Permen",0,0,0],[181,"Ampharos","Electric",null,181,3,"Tahap 2 (Akhir)","Flaaffy","🍬 100 Permen",0,0,0],[181,"Mega Ampharos","Electric","Dragon",10045,4,"Mega Evolusi","Ampharos","🧬 Mega Energy (100-300)",0,1,0]]],[90,"Azurill",3,3,0,[[183,"Marill","Water","Fairy",183,2,"Tahap 1","Azurill","🍬 25 Permen",0,0,0],[184,"Azumarill","Water","Fairy",184,3,"Tahap 2 (Akhir)","Marill","🍬 100 Permen",0,0,0],[298,"Azurill","Normal","Fairy",298,1,"Bayi (Baby)",null,null,1,0,0]]],[91,"Bonsly",4,2,0,[[185,"Sudowoodo","Rock",null,185,2,"Evolusi Akhir","Bonsly","🍬 50 Permen + 🚶 Jalan 15km sbg Buddy",0,0,0],[438,"Bonsly","Rock",null,438,1,"Bayi (Baby)",null,null,1,0,0]]],[92,"Hoppip",2,3,0,[[187,"Hoppip","Grass","Flying",187,1,"Dasar (Base)",null,null,0,0,0],[188,"Skiploom","Grass","Flying",188,2,"Tahap 1","Hoppip","🍬 25 Permen",0,0,0],[189,"Jumpluff","Grass","Flying",189,3,"Tahap 2 (Akhir)","Skiploom","🍬 100 Permen",0,0,0]]],[93,"Aipom",2,2,0,[[190,"Aipom","Normal",null,190,1,"Dasar (Base)",null,null,0,0,0],[424,"Ambipom","Normal",null,424,2,"Evolusi Akhir","Aipom","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[94,"Sunkern",2,2,0,[[191,"Sunkern","Grass",null,191,1,"Dasar (Base)",null,null,0,0,0],[192,"Sunflora","Grass",null,192,2,"Evolusi Akhir","Sunkern","🍬 50 Permen + ☀️ Sun Stone",0,0,0]]],[95,"Yanma",2,2,0,[[193,"Yanma","Bug","Flying",193,1,"Dasar (Base)",null,null,0,0,0],[469,"Yanmega","Bug","Flying",469,2,"Evolusi Akhir","Yanma","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[96,"Wooper",2,2,1,[[194,"Wooper","Water","Ground",194,1,"Dasar (Base)",null,null,0,0,0],[195,"Quagsire","Water","Ground",195,2,"Evolusi Akhir","Wooper","🍬 50 Permen",0,0,0],[980,"Clodsire","Poison","Ground",980,2,"Evolusi Akhir","Wooper","🍬 50 Permen",0,0,0],[194,"Paldean Wooper","Poison","Ground",10253,1,"Bentuk Paldea",null,null,0,0,1]]],[97,"Murkrow",2,2,0,[[198,"Murkrow","Dark","Flying",198,1,"Dasar (Base)",null,null,0,0,0],[430,"Honchkrow","Dark","Flying",430,2,"Evolusi Akhir","Murkrow","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[98,"Misdreavus",2,2,0,[[200,"Misdreavus","Ghost",null,200,1,"Dasar (Base)",null,null,0,0,0],[429,"Mismagius","Ghost",null,429,2,"Evolusi Akhir","Misdreavus","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[99,"Unown",2,1,0,[[201,"Unown","Psychic",null,201,1,"Dasar (Base)",null,null,0,0,0]]],[100,"Wynaut",3,2,0,[[202,"Wobbuffet","Psychic",null,202,2,"Evolusi Akhir","Wynaut","🍬 25 Permen",0,0,0],[360,"Wynaut","Psychic",null,360,1,"Bayi (Baby)",null,null,1,0,0]]],[101,"Girafarig",2,2,0,[[203,"Girafarig","Normal","Psychic",203,1,"Dasar (Base)",null,null,0,0,0],[981,"Farigiraf","Normal","Psychic",981,2,"Evolusi Akhir","Girafarig","🍬 50 Permen",0,0,0]]],[102,"Pineco",2,2,0,[[204,"Pineco","Bug",null,204,1,"Dasar (Base)",null,null,0,0,0],[205,"Forretress","Bug","Steel",205,2,"Evolusi Akhir","Pineco","🍬 50 Permen",0,0,0]]],[103,"Dunsparce",2,2,0,[[206,"Dunsparce","Normal",null,206,1,"Dasar (Base)",null,null,0,0,0],[982,"Dudunsparce (Two-Segment Form)","Normal",null,982,2,"Evolusi Akhir","Dunsparce","🍬 50 Permen",0,0,0]]],[104,"Gligar",2,2,0,[[207,"Gligar","Ground","Flying",207,1,"Dasar (Base)",null,null,0,0,0],[472,"Gliscor","Ground","Flying",472,2,"Evolusi Akhir","Gligar","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[105,"Snubbull",2,2,0,[[209,"Snubbull","Fairy",null,209,1,"Dasar (Base)",null,null,0,0,0],[210,"Granbull","Fairy",null,210,2,"Evolusi Akhir","Snubbull","🍬 50 Permen",0,0,0]]],[106,"Qwilfish",2,2,0,[[211,"Qwilfish","Water","Poison",211,1,"Dasar (Base)",null,null,0,0,0],[904,"Overqwil","Dark","Poison",904,2,"Evolusi Akhir","Qwilfish","🍬 50 Permen",0,0,0],[211,"Hisuian Qwilfish","Dark","Poison",10234,1,"Bentuk Hisui",null,null,0,0,1]]],[107,"Shuckle",2,1,0,[[213,"Shuckle","Bug","Rock",213,1,"Dasar (Base)",null,null,0,0,0]]],[108,"Heracross",2,1,1,[[214,"Heracross","Bug","Fighting",214,1,"Dasar (Base)",null,null,0,0,0],[214,"Mega Heracross","Bug","Fighting",10047,4,"Mega Evolusi","Heracross","🧬 Mega Energy (100-300)",0,1,0]]],[109,"Sneasel",2,2,1,[[215,"Sneasel","Dark","Ice",215,1,"Dasar (Base)",null,null,0,0,0],[461,"Weavile","Dark","Ice",461,2,"Evolusi Akhir","Sneasel","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0],[903,"Sneasler","Fighting","Poison",903,2,"Evolusi Akhir","Sneasel","🍬 50 Permen",0,0,0],[215,"Hisuian Sneasel","Fighting","Poison",10235,1,"Bentuk Hisui",null,null,0,0,1]]],[110,"Teddiursa",2,3,0,[[216,"Teddiursa","Normal",null,216,1,"Dasar (Base)",null,null,0,0,0],[217,"Ursaring","Normal",null,217,2,"Tahap 1","Teddiursa","🍬 25 Permen",0,0,0],[901,"Ursaluna","Ground","Normal",901,3,"Tahap 2 (Akhir)","Ursaring","🍬 100 Permen",0,0,0]]],[111,"Slugma",2,2,0,[[218,"Slugma","Fire",null,218,1,"Dasar (Base)",null,null,0,0,0],[219,"Magcargo","Fire","Rock",219,2,"Evolusi Akhir","Slugma","🍬 50 Permen",0,0,0]]],[112,"Swinub",2,3,0,[[220,"Swinub","Ice","Ground",220,1,"Dasar (Base)",null,null,0,0,0],[221,"Piloswine","Ice","Ground",221,2,"Tahap 1","Swinub","🍬 25 Permen",0,0,0],[473,"Mamoswine","Ice","Ground",473,3,"Tahap 2 (Akhir)","Piloswine","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[113,"Corsola",2,2,0,[[222,"Corsola","Water","Rock",222,1,"Dasar (Base)",null,null,0,0,0],[864,"Cursola","Ghost",null,864,2,"Evolusi Akhir","Corsola","🍬 50 Permen",0,0,0],[222,"Galarian Corsola","Ghost",null,10173,1,"Bentuk Galar",null,null,0,0,1]]],[114,"Remoraid",2,2,0,[[223,"Remoraid","Water",null,223,1,"Dasar (Base)",null,null,0,0,0],[224,"Octillery","Water",null,224,2,"Evolusi Akhir","Remoraid","🍬 50 Permen",0,0,0]]],[115,"Delibird",2,1,0,[[225,"Delibird","Ice","Flying",225,1,"Dasar (Base)",null,null,0,0,0]]],[116,"Mantyke",4,2,0,[[226,"Mantine","Water","Flying",226,2,"Evolusi Akhir","Mantyke","🍬 25 Permen",0,0,0],[458,"Mantyke","Water","Flying",458,1,"Bayi (Baby)",null,null,1,0,0]]],[117,"Skarmory",2,1,0,[[227,"Skarmory","Steel","Flying",227,1,"Dasar (Base)",null,null,0,0,0]]],[118,"Houndour",2,2,1,[[228,"Houndour","Dark","Fire",228,1,"Dasar (Base)",null,null,0,0,0],[229,"Houndoom","Dark","Fire",229,2,"Evolusi Akhir","Houndour","🍬 50 Permen",0,0,0],[229,"Mega Houndoom","Dark","Fire",10048,4,"Mega Evolusi","Houndoom","🧬 Mega Energy (100-300)",0,1,0]]],[119,"Phanpy",2,2,0,[[231,"Phanpy","Ground",null,231,1,"Dasar (Base)",null,null,0,0,0],[232,"Donphan","Ground",null,232,2,"Evolusi Akhir","Phanpy","🍬 50 Permen",0,0,0]]],[120,"Stantler",2,2,0,[[234,"Stantler","Normal",null,234,1,"Dasar (Base)",null,null,0,0,0],[899,"Wyrdeer","Normal","Psychic",899,2,"Evolusi Akhir","Stantler","🍬 50 Permen",0,0,0]]],[121,"Smeargle",2,1,0,[[235,"Smeargle","Normal",null,235,1,"Dasar (Base)",null,null,0,0,0]]],[122,"Miltank",2,1,0,[[241,"Miltank","Normal",null,241,1,"Dasar (Base)",null,null,0,0,0]]],[123,"Raikou",2,1,0,[[243,"Raikou","Electric",null,243,1,"Dasar (Base)",null,null,0,0,0]]],[124,"Entei",2,1,0,[[244,"Entei","Fire",null,244,1,"Dasar (Base)",null,null,0,0,0]]],[125,"Suicune",2,1,0,[[245,"Suicune","Water",null,245,1,"Dasar (Base)",null,null,0,0,0]]],[126,"Larvitar",2,3,1,[[246,"Larvitar","Rock","Ground",246,1,"Dasar (Base)",null,null,0,0,0],[247,"Pupitar","Rock","Ground",247,2,"Tahap 1","Larvitar","🍬 25 Permen",0,0,0],[248,"Tyranitar","Rock","Dark",248,3,"Tahap 2 (Akhir)","Pupitar","🍬 100 Permen",0,0,0],[248,"Mega Tyranitar","Rock","Dark",10049,4,"Mega Evolusi","Tyranitar","🧬 Mega Energy (100-300)",0,1,0]]],[127,"Lugia",2,1,0,[[249,"Lugia","Psychic","Flying",249,1,"Dasar (Base)",null,null,0,0,0]]],[128,"Ho-Oh",2,1,0,[[250,"Ho-Oh","Fire","Flying",250,1,"Dasar (Base)",null,null,0,0,0]]],[129,"Celebi",2,1,0,[[251,"Celebi","Psychic","Grass",251,1,"Dasar (Base)",null,null,0,0,0]]],[130,"Treecko",3,3,1,[[252,"Treecko","Grass",null,252,1,"Dasar (Base)",null,null,0,0,0],[253,"Grovyle","Grass",null,253,2,"Tahap 1","Treecko","🍬 25 Permen",0,0,0],[254,"Sceptile","Grass",null,254,3,"Tahap 2 (Akhir)","Grovyle","🍬 100 Permen",0,0,0],[254,"Mega Sceptile","Grass","Dragon",10065,4,"Mega Evolusi","Sceptile","🧬 Mega Energy (100-300)",0,1,0]]],[131,"Torchic",3,3,1,[[255,"Torchic","Fire",null,255,1,"Dasar (Base)",null,null,0,0,0],[256,"Combusken","Fire","Fighting",256,2,"Tahap 1","Torchic","🍬 25 Permen",0,0,0],[257,"Blaziken","Fire","Fighting",257,3,"Tahap 2 (Akhir)","Combusken","🍬 100 Permen",0,0,0],[257,"Mega Blaziken","Fire","Fighting",10050,4,"Mega Evolusi","Blaziken","🧬 Mega Energy (100-300)",0,1,0]]],[132,"Mudkip",3,3,1,[[258,"Mudkip","Water",null,258,1,"Dasar (Base)",null,null,0,0,0],[259,"Marshtomp","Water","Ground",259,2,"Tahap 1","Mudkip","🍬 25 Permen",0,0,0],[260,"Swampert","Water","Ground",260,3,"Tahap 2 (Akhir)","Marshtomp","🍬 100 Permen",0,0,0],[260,"Mega Swampert","Water","Ground",10064,4,"Mega Evolusi","Swampert","🧬 Mega Energy (100-300)",0,1,0]]],[133,"Poochyena",3,2,0,[[261,"Poochyena","Dark",null,261,1,"Dasar (Base)",null,null,0,0,0],[262,"Mightyena","Dark",null,262,2,"Evolusi Akhir","Poochyena","🍬 50 Permen",0,0,0]]],[134,"Zigzagoon",3,3,0,[[263,"Zigzagoon","Normal",null,263,1,"Dasar (Base)",null,null,0,0,0],[264,"Linoone","Normal",null,264,2,"Tahap 1","Zigzagoon","🍬 25 Permen",0,0,0],[862,"Obstagoon","Dark","Normal",862,3,"Tahap 2 (Akhir)","Linoone","🍬 100 Permen",0,0,0],[263,"Galarian Zigzagoon","Dark","Normal",10174,1,"Bentuk Galar",null,null,0,0,1],[264,"Galarian Linoone","Dark","Normal",10175,2,"Bentuk Galar","Galarian Zigzagoon","🍬 25 Permen",0,0,1]]],[135,"Wurmple",3,3,1,[[265,"Wurmple","Bug",null,265,1,"Dasar (Base)",null,"🍬 12 Permen (Acak)",0,0,0],[266,"Silcoon","Bug",null,266,2,"Tahap 1","Wurmple","🍬 50 Permen",0,0,0],[267,"Beautifly","Bug","Flying",267,3,"Tahap 2 (Akhir)","Silcoon","🍬 100 Permen",0,0,0],[268,"Cascoon","Bug",null,268,2,"Tahap 1","Wurmple","🍬 50 Permen",0,0,0],[269,"Dustox","Bug","Poison",269,3,"Tahap 2 (Akhir)","Cascoon","🍬 100 Permen",0,0,0]]],[136,"Lotad",3,3,0,[[270,"Lotad","Water","Grass",270,1,"Dasar (Base)",null,null,0,0,0],[271,"Lombre","Water","Grass",271,2,"Tahap 1","Lotad","🍬 25 Permen",0,0,0],[272,"Ludicolo","Water","Grass",272,3,"Tahap 2 (Akhir)","Lombre","🍬 100 Permen",0,0,0]]],[137,"Seedot",3,3,0,[[273,"Seedot","Grass",null,273,1,"Dasar (Base)",null,null,0,0,0],[274,"Nuzleaf","Grass","Dark",274,2,"Tahap 1","Seedot","🍬 25 Permen",0,0,0],[275,"Shiftry","Grass","Dark",275,3,"Tahap 2 (Akhir)","Nuzleaf","🍬 100 Permen",0,0,0]]],[138,"Taillow",3,2,0,[[276,"Taillow","Normal","Flying",276,1,"Dasar (Base)",null,null,0,0,0],[277,"Swellow","Normal","Flying",277,2,"Evolusi Akhir","Taillow","🍬 50 Permen",0,0,0]]],[139,"Wingull",3,2,0,[[278,"Wingull","Water","Flying",278,1,"Dasar (Base)",null,null,0,0,0],[279,"Pelipper","Water","Flying",279,2,"Evolusi Akhir","Wingull","🍬 50 Permen",0,0,0]]],[140,"Ralts",3,3,1,[[280,"Ralts","Psychic","Fairy",280,1,"Dasar (Base)",null,null,0,0,0],[281,"Kirlia","Psychic","Fairy",281,2,"Tahap 1","Ralts","🍬 25 Permen",0,0,0],[282,"Gardevoir","Psychic","Fairy",282,3,"Tahap 2 (Akhir)","Kirlia","🍬 100 Permen",0,0,0],[475,"Gallade","Psychic","Fighting",475,3,"Tahap 2 (Akhir)","Kirlia","🍬 100 Permen + 🪨 Sinnoh Stone (♂)",0,0,0],[282,"Mega Gardevoir","Psychic","Fairy",10051,4,"Mega Evolusi","Gardevoir","🧬 Mega Energy (100-300)",0,1,0],[475,"Mega Gallade","Psychic","Fighting",10068,4,"Mega Evolusi","Gallade","🧬 Mega Energy (100-300)",0,1,0]]],[141,"Surskit",3,2,0,[[283,"Surskit","Bug","Water",283,1,"Dasar (Base)",null,null,0,0,0],[284,"Masquerain","Bug","Flying",284,2,"Evolusi Akhir","Surskit","🍬 50 Permen",0,0,0]]],[142,"Shroomish",3,2,0,[[285,"Shroomish","Grass",null,285,1,"Dasar (Base)",null,null,0,0,0],[286,"Breloom","Grass","Fighting",286,2,"Evolusi Akhir","Shroomish","🍬 50 Permen",0,0,0]]],[143,"Slakoth",3,3,0,[[287,"Slakoth","Normal",null,287,1,"Dasar (Base)",null,null,0,0,0],[288,"Vigoroth","Normal",null,288,2,"Tahap 1","Slakoth","🍬 25 Permen",0,0,0],[289,"Slaking","Normal",null,289,3,"Tahap 2 (Akhir)","Vigoroth","🍬 100 Permen",0,0,0]]],[144,"Nincada",3,2,1,[[290,"Nincada","Bug","Ground",290,1,"Dasar (Base)",null,null,0,0,0],[291,"Ninjask","Bug","Flying",291,2,"Evolusi Akhir","Nincada","🍬 50 Permen",0,0,0],[292,"Shedinja","Bug","Ghost",292,2,"Evolusi Akhir","Nincada","🍬 50 Permen",0,0,0]]],[145,"Whismur",3,3,0,[[293,"Whismur","Normal",null,293,1,"Dasar (Base)",null,"🍬 12 Permen",0,0,0],[294,"Loudred","Normal",null,294,2,"Tahap 1","Whismur","🍬 50 Permen",0,0,0],[295,"Exploud","Normal",null,295,3,"Tahap 2 (Akhir)","Loudred","🍬 100 Permen",0,0,0]]],[146,"Makuhita",3,2,0,[[296,"Makuhita","Fighting",null,296,1,"Dasar (Base)",null,null,0,0,0],[297,"Hariyama","Fighting",null,297,2,"Evolusi Akhir","Makuhita","🍬 50 Permen",0,0,0]]],[147,"Nosepass",3,2,0,[[299,"Nosepass","Rock",null,299,1,"Dasar (Base)",null,null,0,0,0],[476,"Probopass","Rock","Steel",476,2,"Evolusi Akhir","Nosepass","🍬 50 Permen + ⚡ Magnetic Lure",0,0,0]]],[148,"Skitty",3,2,0,[[300,"Skitty","Normal",null,300,1,"Dasar (Base)",null,null,0,0,0],[301,"Delcatty","Normal",null,301,2,"Evolusi Akhir","Skitty","🍬 50 Permen",0,0,0]]],[149,"Sableye",3,1,1,[[302,"Sableye","Dark","Ghost",302,1,"Dasar (Base)",null,null,0,0,0],[302,"Mega Sableye","Dark","Ghost",10066,4,"Mega Evolusi","Sableye","🧬 Mega Energy (100-300)",0,1,0]]],[150,"Mawile",3,1,1,[[303,"Mawile","Steel","Fairy",303,1,"Dasar (Base)",null,null,0,0,0],[303,"Mega Mawile","Steel","Fairy",10052,4,"Mega Evolusi","Mawile","🧬 Mega Energy (100-300)",0,1,0]]],[151,"Aron",3,3,1,[[304,"Aron","Steel","Rock",304,1,"Dasar (Base)",null,null,0,0,0],[305,"Lairon","Steel","Rock",305,2,"Tahap 1","Aron","🍬 25 Permen",0,0,0],[306,"Aggron","Steel","Rock",306,3,"Tahap 2 (Akhir)","Lairon","🍬 100 Permen",0,0,0],[306,"Mega Aggron","Steel",null,10053,4,"Mega Evolusi","Aggron","🧬 Mega Energy (100-300)",0,1,0]]],[152,"Meditite",3,2,1,[[307,"Meditite","Fighting","Psychic",307,1,"Dasar (Base)",null,null,0,0,0],[308,"Medicham","Fighting","Psychic",308,2,"Evolusi Akhir","Meditite","🍬 50 Permen",0,0,0],[308,"Mega Medicham","Fighting","Psychic",10054,4,"Mega Evolusi","Medicham","🧬 Mega Energy (100-300)",0,1,0]]],[153,"Electrike",3,2,1,[[309,"Electrike","Electric",null,309,1,"Dasar (Base)",null,null,0,0,0],[310,"Manectric","Electric",null,310,2,"Evolusi Akhir","Electrike","🍬 50 Permen",0,0,0],[310,"Mega Manectric","Electric",null,10055,4,"Mega Evolusi","Manectric","🧬 Mega Energy (100-300)",0,1,0]]],[154,"Plusle",3,1,0,[[311,"Plusle","Electric",null,311,1,"Dasar (Base)",null,null,0,0,0]]],[155,"Minun",3,1,0,[[312,"Minun","Electric",null,312,1,"Dasar (Base)",null,null,0,0,0]]],[156,"Volbeat",3,1,0,[[313,"Volbeat","Bug",null,313,1,"Dasar (Base)",null,null,0,0,0]]],[157,"Illumise",3,1,0,[[314,"Illumise","Bug",null,314,1,"Dasar (Base)",null,null,0,0,0]]],[158,"Budew",4,3,0,[[315,"Roselia","Grass","Poison",315,2,"Tahap 1","Budew","🍬 25 Permen",0,0,0],[406,"Budew","Grass","Poison",406,1,"Bayi (Baby)",null,null,1,0,0],[407,"Roserade","Grass","Poison",407,3,"Tahap 2 (Akhir)","Roselia","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[159,"Gulpin",3,2,0,[[316,"Gulpin","Poison",null,316,1,"Dasar (Base)",null,null,0,0,0],[317,"Swalot","Poison",null,317,2,"Evolusi Akhir","Gulpin","🍬 50 Permen",0,0,0]]],[160,"Carvanha",3,2,1,[[318,"Carvanha","Water","Dark",318,1,"Dasar (Base)",null,null,0,0,0],[319,"Sharpedo","Water","Dark",319,2,"Evolusi Akhir","Carvanha","🍬 50 Permen",0,0,0],[319,"Mega Sharpedo","Water","Dark",10070,4,"Mega Evolusi","Sharpedo","🧬 Mega Energy (100-300)",0,1,0]]],[161,"Wailmer",3,2,0,[[320,"Wailmer","Water",null,320,1,"Dasar (Base)",null,null,0,0,0],[321,"Wailord","Water",null,321,2,"Evolusi Akhir","Wailmer","🍬 400 Permen",0,0,0]]],[162,"Numel",3,2,1,[[322,"Numel","Fire","Ground",322,1,"Dasar (Base)",null,null,0,0,0],[323,"Camerupt","Fire","Ground",323,2,"Evolusi Akhir","Numel","🍬 50 Permen",0,0,0],[323,"Mega Camerupt","Fire","Ground",10087,4,"Mega Evolusi","Camerupt","🧬 Mega Energy (100-300)",0,1,0]]],[163,"Torkoal",3,1,0,[[324,"Torkoal","Fire",null,324,1,"Dasar (Base)",null,null,0,0,0]]],[164,"Spoink",3,2,0,[[325,"Spoink","Psychic",null,325,1,"Dasar (Base)",null,null,0,0,0],[326,"Grumpig","Psychic",null,326,2,"Evolusi Akhir","Spoink","🍬 50 Permen",0,0,0]]],[165,"Spinda",3,1,0,[[327,"Spinda","Normal",null,327,1,"Dasar (Base)",null,null,0,0,0]]],[166,"Trapinch",3,3,0,[[328,"Trapinch","Ground",null,328,1,"Dasar (Base)",null,null,0,0,0],[329,"Vibrava","Ground","Dragon",329,2,"Tahap 1","Trapinch","🍬 25 Permen",0,0,0],[330,"Flygon","Ground","Dragon",330,3,"Tahap 2 (Akhir)","Vibrava","🍬 100 Permen",0,0,0]]],[167,"Cacnea",3,2,0,[[331,"Cacnea","Grass",null,331,1,"Dasar (Base)",null,null,0,0,0],[332,"Cacturne","Grass","Dark",332,2,"Evolusi Akhir","Cacnea","🍬 50 Permen",0,0,0]]],[168,"Swablu",3,2,1,[[333,"Swablu","Normal","Flying",333,1,"Dasar (Base)",null,null,0,0,0],[334,"Altaria","Dragon","Flying",334,2,"Evolusi Akhir","Swablu","🍬 400 Permen",0,0,0],[334,"Mega Altaria","Dragon","Fairy",10067,4,"Mega Evolusi","Altaria","🧬 Mega Energy (100-300)",0,1,0]]],[169,"Zangoose",3,1,0,[[335,"Zangoose","Normal",null,335,1,"Dasar (Base)",null,null,0,0,0]]],[170,"Seviper",3,1,0,[[336,"Seviper","Poison",null,336,1,"Dasar (Base)",null,null,0,0,0]]],[171,"Lunatone",3,1,0,[[337,"Lunatone","Rock","Psychic",337,1,"Dasar (Base)",null,null,0,0,0]]],[172,"Solrock",3,1,0,[[338,"Solrock","Rock","Psychic",338,1,"Dasar (Base)",null,null,0,0,0]]],[173,"Barboach",3,2,0,[[339,"Barboach","Water","Ground",339,1,"Dasar (Base)",null,null,0,0,0],[340,"Whiscash","Water","Ground",340,2,"Evolusi Akhir","Barboach","🍬 50 Permen",0,0,0]]],[174,"Corphish",3,2,0,[[341,"Corphish","Water",null,341,1,"Dasar (Base)",null,null,0,0,0],[342,"Crawdaunt","Water","Dark",342,2,"Evolusi Akhir","Corphish","🍬 50 Permen",0,0,0]]],[175,"Baltoy",3,2,0,[[343,"Baltoy","Ground","Psychic",343,1,"Dasar (Base)",null,null,0,0,0],[344,"Claydol","Ground","Psychic",344,2,"Evolusi Akhir","Baltoy","🍬 50 Permen",0,0,0]]],[176,"Lileep",3,2,0,[[345,"Lileep","Rock","Grass",345,1,"Dasar (Base)",null,null,0,0,0],[346,"Cradily","Rock","Grass",346,2,"Evolusi Akhir","Lileep","🍬 50 Permen",0,0,0]]],[177,"Anorith",3,2,0,[[347,"Anorith","Rock","Bug",347,1,"Dasar (Base)",null,null,0,0,0],[348,"Armaldo","Rock","Bug",348,2,"Evolusi Akhir","Anorith","🍬 50 Permen",0,0,0]]],[178,"Feebas",3,2,0,[[349,"Feebas","Water",null,349,1,"Dasar (Base)",null,null,0,0,0],[350,"Milotic","Water",null,350,2,"Evolusi Akhir","Feebas","🍬 100 Permen + 🚶 Jalan 20km sbg Buddy",0,0,0]]],[179,"Castform (Normal)",3,1,0,[[351,"Castform (Normal)","Normal",null,351,1,"Dasar (Base)",null,null,0,0,0]]],[180,"Kecleon",3,1,0,[[352,"Kecleon","Normal",null,352,1,"Dasar (Base)",null,null,0,0,0]]],[181,"Shuppet",3,2,1,[[353,"Shuppet","Ghost",null,353,1,"Dasar (Base)",null,null,0,0,0],[354,"Banette","Ghost",null,354,2,"Evolusi Akhir","Shuppet","🍬 50 Permen",0,0,0],[354,"Mega Banette","Ghost",null,10056,4,"Mega Evolusi","Banette","🧬 Mega Energy (100-300)",0,1,0]]],[182,"Duskull",3,3,0,[[355,"Duskull","Ghost",null,355,1,"Dasar (Base)",null,null,0,0,0],[356,"Dusclops","Ghost",null,356,2,"Tahap 1","Duskull","🍬 25 Permen",0,0,0],[477,"Dusknoir","Ghost",null,477,3,"Tahap 2 (Akhir)","Dusclops","🍬 100 Permen + 🪨 Sinnoh Stone",0,0,0]]],[183,"Tropius",3,1,0,[[357,"Tropius","Grass","Flying",357,1,"Dasar (Base)",null,null,0,0,0]]],[184,"Chingling",4,2,0,[[358,"Chimecho","Psychic",null,358,2,"Evolusi Akhir","Chingling","🍬 25 Permen",0,0,0],[433,"Chingling","Psychic",null,433,1,"Bayi (Baby)",null,null,1,0,0]]],[185,"Absol",3,1,1,[[359,"Absol","Dark",null,359,1,"Dasar (Base)",null,null,0,0,0],[359,"Mega Absol","Dark",null,10057,4,"Mega Evolusi","Absol","🧬 Mega Energy (100-300)",0,1,0]]],[186,"Snorunt",3,2,1,[[361,"Snorunt","Ice",null,361,1,"Dasar (Base)",null,null,0,0,0],[362,"Glalie","Ice",null,362,2,"Evolusi Akhir","Snorunt","🍬 50 Permen",0,0,0],[478,"Froslass","Ice","Ghost",478,2,"Evolusi Akhir","Snorunt","🍬 100 Permen + 🪨 Sinnoh Stone (♀)",0,0,0],[362,"Mega Glalie","Ice",null,10074,4,"Mega Evolusi","Glalie","🧬 Mega Energy (100-300)",0,1,0]]],[187,"Spheal",3,3,0,[[363,"Spheal","Ice","Water",363,1,"Dasar (Base)",null,null,0,0,0],[364,"Sealeo","Ice","Water",364,2,"Tahap 1","Spheal","🍬 25 Permen",0,0,0],[365,"Walrein","Ice","Water",365,3,"Tahap 2 (Akhir)","Sealeo","🍬 100 Permen",0,0,0]]],[188,"Clamperl",3,2,1,[[366,"Clamperl","Water",null,366,1,"Dasar (Base)",null,null,0,0,0],[367,"Huntail","Water",null,367,2,"Evolusi Akhir","Clamperl","🍬 50 Permen",0,0,0],[368,"Gorebyss","Water",null,368,2,"Evolusi Akhir","Clamperl","🍬 50 Permen",0,0,0]]],[189,"Relicanth",3,1,0,[[369,"Relicanth","Water","Rock",369,1,"Dasar (Base)",null,null,0,0,0]]],[190,"Luvdisc",3,1,0,[[370,"Luvdisc","Water",null,370,1,"Dasar (Base)",null,null,0,0,0]]],[191,"Bagon",3,3,1,[[371,"Bagon","Dragon",null,371,1,"Dasar (Base)",null,null,0,0,0],[372,"Shelgon","Dragon",null,372,2,"Tahap 1","Bagon","🍬 25 Permen",0,0,0],[373,"Salamence","Dragon","Flying",373,3,"Tahap 2 (Akhir)","Shelgon","🍬 100 Permen",0,0,0],[373,"Mega Salamence","Dragon","Flying",10089,4,"Mega Evolusi","Salamence","🧬 Mega Energy (100-300)",0,1,0]]],[192,"Beldum",3,3,1,[[374,"Beldum","Steel","Psychic",374,1,"Dasar (Base)",null,null,0,0,0],[375,"Metang","Steel","Psychic",375,2,"Tahap 1","Beldum","🍬 25 Permen",0,0,0],[376,"Metagross","Steel","Psychic",376,3,"Tahap 2 (Akhir)","Metang","🍬 100 Permen",0,0,0],[376,"Mega Metagross","Steel","Psychic",10076,4,"Mega Evolusi","Metagross","🧬 Mega Energy (100-300)",0,1,0]]],[193,"Regirock",3,1,0,[[377,"Regirock","Rock",null,377,1,"Dasar (Base)",null,null,0,0,0]]],[194,"Regice",3,1,0,[[378,"Regice","Ice",null,378,1,"Dasar (Base)",null,null,0,0,0]]],[195,"Registeel",3,1,0,[[379,"Registeel","Steel",null,379,1,"Dasar (Base)",null,null,0,0,0]]],[196,"Latias",3,1,1,[[380,"Latias","Dragon","Psychic",380,1,"Dasar (Base)",null,null,0,0,0],[380,"Mega Latias","Dragon","Psychic",10062,4,"Mega Evolusi","Latias","🧬 Mega Energy (100-300)",0,1,0]]],[197,"Latios",3,1,1,[[381,"Latios","Dragon","Psychic",381,1,"Dasar (Base)",null,null,0,0,0],[381,"Mega Latios","Dragon","Psychic",10063,4,"Mega Evolusi","Latios","🧬 Mega Energy (100-300)",0,1,0]]],[198,"Kyogre",3,1,1,[[382,"Kyogre","Water",null,382,1,"Dasar (Base)",null,null,0,0,0],[382,"Primal Kyogre","Water",null,10077,4,"Primal Reversion","Kyogre","🌊 Primal Energy (400)",0,1,0]]],[199,"Groudon",3,1,1,[[383,"Groudon","Ground",null,383,1,"Dasar (Base)",null,null,0,0,0],[383,"Primal Groudon","Ground","Fire",10078,4,"Primal Reversion","Groudon","🌊 Primal Energy (400)",0,1,0]]],[200,"Rayquaza",3,1,1,[[384,"Rayquaza","Dragon","Flying",384,1,"Dasar (Base)",null,null,0,0,0],[384,"Mega Rayquaza","Dragon","Flying",10079,4,"Mega Evolusi","Rayquaza","🧬 Mega Energy (100-300)",0,1,0]]],[201,"Jirachi",3,1,0,[[385,"Jirachi","Steel","Psychic",385,1,"Dasar (Base)",null,null,0,0,0]]],[202,"Deoxys (Normal Forme)",3,1,0,[[386,"Deoxys (Normal Forme)","Psychic",null,386,1,"Dasar (Base)",null,null,0,0,0]]],[203,"Turtwig",4,3,0,[[387,"Turtwig","Grass",null,387,1,"Dasar (Base)",null,null,0,0,0],[388,"Grotle","Grass",null,388,2,"Tahap 1","Turtwig","🍬 25 Permen",0,0,0],[389,"Torterra","Grass","Ground",389,3,"Tahap 2 (Akhir)","Grotle","🍬 100 Permen",0,0,0]]],[204,"Chimchar",4,3,0,[[390,"Chimchar","Fire",null,390,1,"Dasar (Base)",null,null,0,0,0],[391,"Monferno","Fire","Fighting",391,2,"Tahap 1","Chimchar","🍬 25 Permen",0,0,0],[392,"Infernape","Fire","Fighting",392,3,"Tahap 2 (Akhir)","Monferno","🍬 100 Permen",0,0,0]]],[205,"Piplup",4,3,0,[[393,"Piplup","Water",null,393,1,"Dasar (Base)",null,null,0,0,0],[394,"Prinplup","Water",null,394,2,"Tahap 1","Piplup","🍬 25 Permen",0,0,0],[395,"Empoleon","Water","Steel",395,3,"Tahap 2 (Akhir)","Prinplup","🍬 100 Permen",0,0,0]]],[206,"Starly",4,3,0,[[396,"Starly","Normal","Flying",396,1,"Dasar (Base)",null,null,0,0,0],[397,"Staravia","Normal","Flying",397,2,"Tahap 1","Starly","🍬 25 Permen",0,0,0],[398,"Staraptor","Normal","Flying",398,3,"Tahap 2 (Akhir)","Staravia","🍬 100 Permen",0,0,0]]],[207,"Bidoof",4,2,0,[[399,"Bidoof","Normal",null,399,1,"Dasar (Base)",null,null,0,0,0],[400,"Bibarel","Normal","Water",400,2,"Evolusi Akhir","Bidoof","🍬 50 Permen",0,0,0]]],[208,"Kricketot",4,2,0,[[401,"Kricketot","Bug",null,401,1,"Dasar (Base)",null,null,0,0,0],[402,"Kricketune","Bug",null,402,2,"Evolusi Akhir","Kricketot","🍬 50 Permen",0,0,0]]],[209,"Shinx",4,3,0,[[403,"Shinx","Electric",null,403,1,"Dasar (Base)",null,null,0,0,0],[404,"Luxio","Electric",null,404,2,"Tahap 1","Shinx","🍬 25 Permen",0,0,0],[405,"Luxray","Electric",null,405,3,"Tahap 2 (Akhir)","Luxio","🍬 100 Permen",0,0,0]]],[211,"Cranidos",4,2,0,[[408,"Cranidos","Rock",null,408,1,"Dasar (Base)",null,null,0,0,0],[409,"Rampardos","Rock",null,409,2,"Evolusi Akhir","Cranidos","🍬 50 Permen",0,0,0]]],[212,"Shieldon",4,2,0,[[410,"Shieldon","Rock","Steel",410,1,"Dasar (Base)",null,null,0,0,0],[411,"Bastiodon","Rock","Steel",411,2,"Evolusi Akhir","Shieldon","🍬 50 Permen",0,0,0]]],[213,"Burmy (Plant Cloak)",4,2,1,[[412,"Burmy (Plant Cloak)","Bug",null,412,1,"Dasar (Base)",null,null,0,0,0],[413,"Wormadam (Plant Cloak)","Bug","Grass",413,2,"Evolusi Akhir","Burmy (Plant Cloak)","🍬 50 Permen",0,0,0],[414,"Mothim","Bug","Flying",414,2,"Evolusi Akhir","Burmy (Plant Cloak)","🍬 50 Permen",0,0,0]]],[214,"Combee",4,2,0,[[415,"Combee","Bug","Flying",415,1,"Dasar (Base)",null,null,0,0,0],[416,"Vespiquen","Bug","Flying",416,2,"Evolusi Akhir","Combee","🍬 50 Permen",0,0,0]]],[215,"Pachirisu",4,1,0,[[417,"Pachirisu","Electric",null,417,1,"Dasar (Base)",null,null,0,0,0]]],[216,"Buizel",4,2,0,[[418,"Buizel","Water",null,418,1,"Dasar (Base)",null,null,0,0,0],[419,"Floatzel","Water",null,419,2,"Evolusi Akhir","Buizel","🍬 50 Permen",0,0,0]]],[217,"Cherubi",4,2,0,[[420,"Cherubi","Grass",null,420,1,"Dasar (Base)",null,null,0,0,0],[421,"Cherrim (Overcast Form)","Grass",null,421,2,"Evolusi Akhir","Cherubi","🍬 50 Permen",0,0,0]]],[218,"Shellos",4,2,0,[[422,"Shellos","Water",null,422,1,"Dasar (Base)",null,null,0,0,0],[423,"Gastrodon","Water","Ground",423,2,"Evolusi Akhir","Shellos","🍬 50 Permen",0,0,0]]],[219,"Drifloon",4,2,0,[[425,"Drifloon","Ghost","Flying",425,1,"Dasar (Base)",null,null,0,0,0],[426,"Drifblim","Ghost","Flying",426,2,"Evolusi Akhir","Drifloon","🍬 50 Permen",0,0,0]]],[220,"Buneary",4,2,1,[[427,"Buneary","Normal",null,427,1,"Dasar (Base)",null,null,0,0,0],[428,"Lopunny","Normal",null,428,2,"Evolusi Akhir","Buneary","🍬 50 Permen",0,0,0],[428,"Mega Lopunny","Normal","Fighting",10088,4,"Mega Evolusi","Lopunny","🧬 Mega Energy (100-300)",0,1,0]]],[221,"Glameow",4,2,0,[[431,"Glameow","Normal",null,431,1,"Dasar (Base)",null,null,0,0,0],[432,"Purugly","Normal",null,432,2,"Evolusi Akhir","Glameow","🍬 50 Permen",0,0,0]]],[223,"Stunky",4,2,0,[[434,"Stunky","Poison","Dark",434,1,"Dasar (Base)",null,null,0,0,0],[435,"Skuntank","Poison","Dark",435,2,"Evolusi Akhir","Stunky","🍬 50 Permen",0,0,0]]],[224,"Bronzor",4,2,0,[[436,"Bronzor","Steel","Psychic",436,1,"Dasar (Base)",null,null,0,0,0],[437,"Bronzong","Steel","Psychic",437,2,"Evolusi Akhir","Bronzor","🍬 50 Permen",0,0,0]]],[228,"Chatot",4,1,0,[[441,"Chatot","Normal","Flying",441,1,"Dasar (Base)",null,null,0,0,0]]],[229,"Spiritomb",4,1,0,[[442,"Spiritomb","Ghost","Dark",442,1,"Dasar (Base)",null,null,0,0,0]]],[230,"Gible",4,3,1,[[443,"Gible","Dragon","Ground",443,1,"Dasar (Base)",null,null,0,0,0],[444,"Gabite","Dragon","Ground",444,2,"Tahap 1","Gible","🍬 25 Permen",0,0,0],[445,"Garchomp","Dragon","Ground",445,3,"Tahap 2 (Akhir)","Gabite","🍬 100 Permen",0,0,0],[445,"Mega Garchomp","Dragon","Ground",10058,4,"Mega Evolusi","Garchomp","🧬 Mega Energy (100-300)",0,1,0]]],[232,"Riolu",4,2,1,[[447,"Riolu","Fighting",null,447,1,"Bayi (Baby)",null,null,1,0,0],[448,"Lucario","Fighting","Steel",448,2,"Evolusi Akhir","Riolu","🍬 25 Permen",0,0,0],[448,"Mega Lucario","Fighting","Steel",10059,4,"Mega Evolusi","Lucario","🧬 Mega Energy (100-300)",0,1,0]]],[233,"Hippopotas (Male)",4,2,0,[[449,"Hippopotas (Male)","Ground",null,449,1,"Dasar (Base)",null,null,0,0,0],[450,"Hippowdon (Male)","Ground",null,450,2,"Evolusi Akhir","Hippopotas (Male)","🍬 50 Permen",0,0,0]]],[234,"Skorupi",4,2,0,[[451,"Skorupi","Poison","Bug",451,1,"Dasar (Base)",null,null,0,0,0],[452,"Drapion","Poison","Dark",452,2,"Evolusi Akhir","Skorupi","🍬 50 Permen",0,0,0]]],[235,"Croagunk",4,2,0,[[453,"Croagunk","Poison","Fighting",453,1,"Dasar (Base)",null,null,0,0,0],[454,"Toxicroak","Poison","Fighting",454,2,"Evolusi Akhir","Croagunk","🍬 50 Permen",0,0,0]]],[236,"Carnivine",4,1,0,[[455,"Carnivine","Grass",null,455,1,"Dasar (Base)",null,null,0,0,0]]],[237,"Finneon",4,2,0,[[456,"Finneon","Water",null,456,1,"Dasar (Base)",null,null,0,0,0],[457,"Lumineon","Water",null,457,2,"Evolusi Akhir","Finneon","🍬 50 Permen",0,0,0]]],[239,"Snover",4,2,1,[[459,"Snover","Grass","Ice",459,1,"Dasar (Base)",null,null,0,0,0],[460,"Abomasnow","Grass","Ice",460,2,"Evolusi Akhir","Snover","🍬 50 Permen",0,0,0],[460,"Mega Abomasnow","Grass","Ice",10060,4,"Mega Evolusi","Abomasnow","🧬 Mega Energy (100-300)",0,1,0]]],[240,"Rotom",4,1,0,[[479,"Rotom","Electric","Ghost",479,1,"Dasar (Base)",null,null,0,0,0]]],[241,"Uxie",4,1,0,[[480,"Uxie","Psychic",null,480,1,"Dasar (Base)",null,null,0,0,0]]],[242,"Mesprit",4,1,0,[[481,"Mesprit","Psychic",null,481,1,"Dasar (Base)",null,null,0,0,0]]],[243,"Azelf",4,1,0,[[482,"Azelf","Psychic",null,482,1,"Dasar (Base)",null,null,0,0,0]]],[244,"Dialga",4,1,0,[[483,"Dialga","Steel","Dragon",483,1,"Dasar (Base)",null,null,0,0,0]]],[245,"Palkia",4,1,0,[[484,"Palkia","Water","Dragon",484,1,"Dasar (Base)",null,null,0,0,0]]],[246,"Heatran",4,1,0,[[485,"Heatran","Fire","Steel",485,1,"Dasar (Base)",null,null,0,0,0]]],[247,"Regigigas",4,1,0,[[486,"Regigigas","Normal",null,486,1,"Dasar (Base)",null,null,0,0,0]]],[248,"Giratina (Altered Forme)",4,1,0,[[487,"Giratina (Altered Forme)","Ghost","Dragon",487,1,"Dasar (Base)",null,null,0,0,0]]],[249,"Cresselia",4,1,0,[[488,"Cresselia","Psychic",null,488,1,"Dasar (Base)",null,null,0,0,0]]],[250,"Phione",4,1,0,[[489,"Phione","Water",null,489,1,"Dasar (Base)",null,null,0,0,0],[490,"Manaphy","Water",null,490,1,"Dasar (Base)",null,null,0,0,0]]],[252,"Darkrai",4,1,0,[[491,"Darkrai","Dark",null,491,1,"Dasar (Base)",null,null,0,0,0]]],[253,"Shaymin (Land Forme)",4,1,0,[[492,"Shaymin (Land Forme)","Grass",null,492,1,"Dasar (Base)",null,null,0,0,0]]],[254,"Arceus",4,1,0,[[493,"Arceus","Normal",null,493,1,"Dasar (Base)",null,null,0,0,0]]],[255,"Victini",5,1,0,[[494,"Victini","Psychic","Fire",494,1,"Dasar (Base)",null,null,0,0,0]]],[256,"Snivy",5,3,0,[[495,"Snivy","Grass",null,495,1,"Dasar (Base)",null,null,0,0,0],[496,"Servine","Grass",null,496,2,"Tahap 1","Snivy","🍬 25 Permen",0,0,0],[497,"Serperior","Grass",null,497,3,"Tahap 2 (Akhir)","Servine","🍬 100 Permen",0,0,0]]],[257,"Tepig",5,3,0,[[498,"Tepig","Fire",null,498,1,"Dasar (Base)",null,null,0,0,0],[499,"Pignite","Fire","Fighting",499,2,"Tahap 1","Tepig","🍬 25 Permen",0,0,0],[500,"Emboar","Fire","Fighting",500,3,"Tahap 2 (Akhir)","Pignite","🍬 100 Permen",0,0,0]]],[258,"Oshawott",5,3,0,[[501,"Oshawott","Water",null,501,1,"Dasar (Base)",null,null,0,0,0],[502,"Dewott","Water",null,502,2,"Tahap 1","Oshawott","🍬 25 Permen",0,0,0],[503,"Samurott","Water",null,503,3,"Tahap 2 (Akhir)","Dewott","🍬 100 Permen",0,0,0],[503,"Hisuian Samurott","Water","Dark",10236,3,"Bentuk Hisui","Dewott","🍬 100 Permen",0,0,1]]],[259,"Patrat",5,2,0,[[504,"Patrat","Normal",null,504,1,"Dasar (Base)",null,null,0,0,0],[505,"Watchog","Normal",null,505,2,"Evolusi Akhir","Patrat","🍬 50 Permen",0,0,0]]],[260,"Lillipup",5,3,0,[[506,"Lillipup","Normal",null,506,1,"Dasar (Base)",null,null,0,0,0],[507,"Herdier","Normal",null,507,2,"Tahap 1","Lillipup","🍬 25 Permen",0,0,0],[508,"Stoutland","Normal",null,508,3,"Tahap 2 (Akhir)","Herdier","🍬 100 Permen",0,0,0]]],[261,"Purrloin",5,2,0,[[509,"Purrloin","Dark",null,509,1,"Dasar (Base)",null,null,0,0,0],[510,"Liepard","Dark",null,510,2,"Evolusi Akhir","Purrloin","🍬 50 Permen",0,0,0]]],[262,"Pansage",5,2,0,[[511,"Pansage","Grass",null,511,1,"Dasar (Base)",null,null,0,0,0],[512,"Simisage","Grass",null,512,2,"Evolusi Akhir","Pansage","🍬 50 Permen + 💎 Unova Stone",0,0,0]]],[263,"Pansear",5,2,0,[[513,"Pansear","Fire",null,513,1,"Dasar (Base)",null,null,0,0,0],[514,"Simisear","Fire",null,514,2,"Evolusi Akhir","Pansear","🍬 50 Permen + 💎 Unova Stone",0,0,0]]],[264,"Panpour",5,2,0,[[515,"Panpour","Water",null,515,1,"Dasar (Base)",null,null,0,0,0],[516,"Simipour","Water",null,516,2,"Evolusi Akhir","Panpour","🍬 50 Permen + 💎 Unova Stone",0,0,0]]],[265,"Munna",5,2,0,[[517,"Munna","Psychic",null,517,1,"Dasar (Base)",null,null,0,0,0],[518,"Musharna","Psychic",null,518,2,"Evolusi Akhir","Munna","🍬 50 Permen + 💎 Unova Stone",0,0,0]]],[266,"Pidove",5,3,0,[[519,"Pidove","Normal","Flying",519,1,"Dasar (Base)",null,"🍬 12 Permen",0,0,0],[520,"Tranquill","Normal","Flying",520,2,"Tahap 1","Pidove","🍬 50 Permen",0,0,0],[521,"Unfezant","Normal","Flying",521,3,"Tahap 2 (Akhir)","Tranquill","🍬 100 Permen",0,0,0]]],[267,"Blitzle",5,2,0,[[522,"Blitzle","Electric",null,522,1,"Dasar (Base)",null,null,0,0,0],[523,"Zebstrika","Electric",null,523,2,"Evolusi Akhir","Blitzle","🍬 50 Permen",0,0,0]]],[268,"Roggenrola",5,3,0,[[524,"Roggenrola","Rock",null,524,1,"Dasar (Base)",null,null,0,0,0],[525,"Boldore","Rock",null,525,2,"Tahap 1","Roggenrola","🍬 25 Permen",0,0,0],[526,"Gigalith","Rock",null,526,3,"Tahap 2 (Akhir)","Boldore","🍬 200 Permen (🔄 Gratis Trade)",0,0,0]]],[269,"Woobat",5,2,0,[[527,"Woobat","Psychic","Flying",527,1,"Dasar (Base)",null,null,0,0,0],[528,"Swoobat","Psychic","Flying",528,2,"Evolusi Akhir","Woobat","🍬 50 Permen + 🚶 Jalan 1km sbg Buddy",0,0,0]]],[270,"Drilbur",5,2,0,[[529,"Drilbur","Ground",null,529,1,"Dasar (Base)",null,null,0,0,0],[530,"Excadrill","Ground","Steel",530,2,"Evolusi Akhir","Drilbur","🍬 50 Permen",0,0,0]]],[271,"Audino",5,1,1,[[531,"Audino","Normal",null,531,1,"Dasar (Base)",null,null,0,0,0],[531,"Mega Audino","Normal","Fairy",10069,4,"Mega Evolusi","Audino","🧬 Mega Energy (100-300)",0,1,0]]],[272,"Timburr",5,3,0,[[532,"Timburr","Fighting",null,532,1,"Dasar (Base)",null,null,0,0,0],[533,"Gurdurr","Fighting",null,533,2,"Tahap 1","Timburr","🍬 25 Permen",0,0,0],[534,"Conkeldurr","Fighting",null,534,3,"Tahap 2 (Akhir)","Gurdurr","🍬 200 Permen (🔄 Gratis Trade)",0,0,0]]],[273,"Tympole",5,3,0,[[535,"Tympole","Water",null,535,1,"Dasar (Base)",null,null,0,0,0],[536,"Palpitoad","Water","Ground",536,2,"Tahap 1","Tympole","🍬 25 Permen",0,0,0],[537,"Seismitoad","Water","Ground",537,3,"Tahap 2 (Akhir)","Palpitoad","🍬 100 Permen",0,0,0]]],[274,"Throh",5,1,0,[[538,"Throh","Fighting",null,538,1,"Dasar (Base)",null,null,0,0,0]]],[275,"Sawk",5,1,0,[[539,"Sawk","Fighting",null,539,1,"Dasar (Base)",null,null,0,0,0]]],[276,"Sewaddle",5,3,0,[[540,"Sewaddle","Bug","Grass",540,1,"Dasar (Base)",null,"🍬 12 Permen",0,0,0],[541,"Swadloon","Bug","Grass",541,2,"Tahap 1","Sewaddle","🍬 50 Permen",0,0,0],[542,"Leavanny","Bug","Grass",542,3,"Tahap 2 (Akhir)","Swadloon","🍬 100 Permen",0,0,0]]],[277,"Venipede",5,3,0,[[543,"Venipede","Bug","Poison",543,1,"Dasar (Base)",null,null,0,0,0],[544,"Whirlipede","Bug","Poison",544,2,"Tahap 1","Venipede","🍬 25 Permen",0,0,0],[545,"Scolipede","Bug","Poison",545,3,"Tahap 2 (Akhir)","Whirlipede","🍬 100 Permen",0,0,0]]],[278,"Cottonee",5,2,0,[[546,"Cottonee","Grass","Fairy",546,1,"Dasar (Base)",null,null,0,0,0],[547,"Whimsicott","Grass","Fairy",547,2,"Evolusi Akhir","Cottonee","🍬 50 Permen + ☀️ Sun Stone",0,0,0]]],[279,"Petilil",5,2,0,[[548,"Petilil","Grass",null,548,1,"Dasar (Base)",null,null,0,0,0],[549,"Lilligant","Grass",null,549,2,"Evolusi Akhir","Petilil","🍬 50 Permen + ☀️ Sun Stone",0,0,0],[549,"Hisuian Lilligant","Grass","Fighting",10237,2,"Bentuk Hisui","Petilil","🍬 50 Permen + ☀️ Sun Stone",0,0,1]]],[280,"Basculin (Red-Striped Form)",5,2,0,[[550,"Basculin (Red-Striped Form)","Water",null,550,1,"Dasar (Base)",null,null,0,0,0],[902,"Basculegion","Water","Ghost",902,2,"Evolusi Akhir","Basculin (Red-Striped Form)","🍬 50 Permen",0,0,0]]],[281,"Sandile",5,3,0,[[551,"Sandile","Ground","Dark",551,1,"Dasar (Base)",null,null,0,0,0],[552,"Krokorok","Ground","Dark",552,2,"Tahap 1","Sandile","🍬 25 Permen",0,0,0],[553,"Krookodile","Ground","Dark",553,3,"Tahap 2 (Akhir)","Krokorok","🍬 100 Permen",0,0,0]]],[282,"Darumaka",5,2,0,[[554,"Darumaka","Fire",null,554,1,"Dasar (Base)",null,null,0,0,0],[555,"Darmanitan (Standard Mode)","Fire",null,555,2,"Evolusi Akhir","Darumaka","🍬 50 Permen",0,0,0],[554,"Galarian Darumaka","Ice",null,10176,1,"Bentuk Galar",null,null,0,0,1],[555,"Darmanitan (Galarian Standard Mode)","Ice",null,555,2,"Bentuk Galar","Darumaka","🍬 50 Permen",0,0,1],[555,"Darmanitan (Galarian Zen Mode)","Ice","Fire",555,2,"Bentuk Galar","Darumaka","🍬 50 Permen",0,0,1]]],[283,"Maractus",5,1,0,[[556,"Maractus","Grass",null,556,1,"Dasar (Base)",null,null,0,0,0]]],[284,"Dwebble",5,2,0,[[557,"Dwebble","Bug","Rock",557,1,"Dasar (Base)",null,null,0,0,0],[558,"Crustle","Bug","Rock",558,2,"Evolusi Akhir","Dwebble","🍬 50 Permen",0,0,0]]],[285,"Scraggy",5,2,0,[[559,"Scraggy","Dark","Fighting",559,1,"Dasar (Base)",null,null,0,0,0],[560,"Scrafty","Dark","Fighting",560,2,"Evolusi Akhir","Scraggy","🍬 50 Permen",0,0,0]]],[286,"Sigilyph",5,1,0,[[561,"Sigilyph","Psychic","Flying",561,1,"Dasar (Base)",null,null,0,0,0]]],[287,"Yamask",5,2,1,[[562,"Yamask","Ghost",null,562,1,"Dasar (Base)",null,null,0,0,0],[563,"Cofagrigus","Ghost",null,563,2,"Evolusi Akhir","Yamask","🍬 50 Permen",0,0,0],[867,"Runerigus","Ground","Ghost",867,2,"Evolusi Akhir","Yamask","🍬 50 Permen",0,0,0],[562,"Galarian Yamask","Ground","Ghost",10179,1,"Bentuk Galar",null,null,0,0,1]]],[288,"Tirtouga",5,2,0,[[564,"Tirtouga","Water","Rock",564,1,"Dasar (Base)",null,null,0,0,0],[565,"Carracosta","Water","Rock",565,2,"Evolusi Akhir","Tirtouga","🍬 50 Permen",0,0,0]]],[289,"Archen",5,2,0,[[566,"Archen","Rock","Flying",566,1,"Dasar (Base)",null,null,0,0,0],[567,"Archeops","Rock","Flying",567,2,"Evolusi Akhir","Archen","🍬 50 Permen",0,0,0]]],[290,"Trubbish",5,2,0,[[568,"Trubbish","Poison",null,568,1,"Dasar (Base)",null,null,0,0,0],[569,"Garbodor","Poison",null,569,2,"Evolusi Akhir","Trubbish","🍬 50 Permen",0,0,0]]],[291,"Zorua",5,2,0,[[570,"Zorua","Dark",null,570,1,"Dasar (Base)",null,null,0,0,0],[571,"Zoroark","Dark",null,571,2,"Evolusi Akhir","Zorua","🍬 50 Permen",0,0,0],[570,"Hisuian Zorua","Normal","Ghost",10238,1,"Bentuk Hisui",null,null,0,0,1],[571,"Hisuian Zoroark","Normal","Ghost",10239,2,"Bentuk Hisui","Hisuian Zorua","🍬 50 Permen",0,0,1]]],[292,"Minccino",5,2,0,[[572,"Minccino","Normal",null,572,1,"Dasar (Base)",null,null,0,0,0],[573,"Cinccino","Normal",null,573,2,"Evolusi Akhir","Minccino","🍬 50 Permen + 💎 Unova Stone",0,0,0]]],[293,"Gothita",5,3,0,[[574,"Gothita","Psychic",null,574,1,"Dasar (Base)",null,null,0,0,0],[575,"Gothorita","Psychic",null,575,2,"Tahap 1","Gothita","🍬 25 Permen",0,0,0],[576,"Gothitelle","Psychic",null,576,3,"Tahap 2 (Akhir)","Gothorita","🍬 100 Permen",0,0,0]]],[294,"Solosis",5,3,0,[[577,"Solosis","Psychic",null,577,1,"Dasar (Base)",null,null,0,0,0],[578,"Duosion","Psychic",null,578,2,"Tahap 1","Solosis","🍬 25 Permen",0,0,0],[579,"Reuniclus","Psychic",null,579,3,"Tahap 2 (Akhir)","Duosion","🍬 100 Permen",0,0,0]]],[295,"Ducklett",5,2,0,[[580,"Ducklett","Water","Flying",580,1,"Dasar (Base)",null,null,0,0,0],[581,"Swanna","Water","Flying",581,2,"Evolusi Akhir","Ducklett","🍬 50 Permen",0,0,0]]],[296,"Vanillite",5,3,0,[[582,"Vanillite","Ice",null,582,1,"Dasar (Base)",null,null,0,0,0],[583,"Vanillish","Ice",null,583,2,"Tahap 1","Vanillite","🍬 25 Permen",0,0,0],[584,"Vanilluxe","Ice",null,584,3,"Tahap 2 (Akhir)","Vanillish","🍬 100 Permen",0,0,0]]],[297,"Deerling (Spring Form)",5,2,0,[[585,"Deerling (Spring Form)","Normal","Grass",585,1,"Dasar (Base)",null,null,0,0,0],[586,"Sawsbuck (Spring Form)","Normal","Grass",586,2,"Evolusi Akhir","Deerling (Spring Form)","🍬 50 Permen",0,0,0]]],[298,"Emolga",5,1,0,[[587,"Emolga","Electric","Flying",587,1,"Dasar (Base)",null,null,0,0,0]]],[299,"Karrablast",5,2,0,[[588,"Karrablast","Bug",null,588,1,"Dasar (Base)",null,null,0,0,0],[589,"Escavalier","Bug","Steel",589,2,"Evolusi Akhir","Karrablast","🍬 200 Permen (🔄 Gratis Trade)",0,0,0]]],[300,"Foongus",5,2,0,[[590,"Foongus","Grass","Poison",590,1,"Dasar (Base)",null,null,0,0,0],[591,"Amoonguss","Grass","Poison",591,2,"Evolusi Akhir","Foongus","🍬 50 Permen",0,0,0]]],[301,"Frillish",5,2,0,[[592,"Frillish","Water","Ghost",592,1,"Dasar (Base)",null,null,0,0,0],[593,"Jellicent","Water","Ghost",593,2,"Evolusi Akhir","Frillish","🍬 50 Permen",0,0,0]]],[302,"Alomomola",5,1,0,[[594,"Alomomola","Water",null,594,1,"Dasar (Base)",null,null,0,0,0]]],[303,"Joltik",5,2,0,[[595,"Joltik","Bug","Electric",595,1,"Dasar (Base)",null,null,0,0,0],[596,"Galvantula","Bug","Electric",596,2,"Evolusi Akhir","Joltik","🍬 50 Permen",0,0,0]]],[304,"Ferroseed",5,2,0,[[597,"Ferroseed","Grass","Steel",597,1,"Dasar (Base)",null,null,0,0,0],[598,"Ferrothorn","Grass","Steel",598,2,"Evolusi Akhir","Ferroseed","🍬 50 Permen",0,0,0]]],[305,"Klink",5,3,0,[[599,"Klink","Steel",null,599,1,"Dasar (Base)",null,null,0,0,0],[600,"Klang","Steel",null,600,2,"Tahap 1","Klink","🍬 25 Permen",0,0,0],[601,"Klinklang","Steel",null,601,3,"Tahap 2 (Akhir)","Klang","🍬 100 Permen",0,0,0]]],[306,"Tynamo",5,3,0,[[602,"Tynamo","Electric",null,602,1,"Dasar (Base)",null,null,0,0,0],[603,"Eelektrik","Electric",null,603,2,"Tahap 1","Tynamo","🍬 25 Permen",0,0,0],[604,"Eelektross","Electric",null,604,3,"Tahap 2 (Akhir)","Eelektrik","🍬 100 Permen + 💎 Unova Stone",0,0,0]]],[307,"Elgyem",5,2,0,[[605,"Elgyem","Psychic",null,605,1,"Dasar (Base)",null,null,0,0,0],[606,"Beheeyem","Psychic",null,606,2,"Evolusi Akhir","Elgyem","🍬 50 Permen",0,0,0]]],[308,"Litwick",5,3,0,[[607,"Litwick","Ghost","Fire",607,1,"Dasar (Base)",null,null,0,0,0],[608,"Lampent","Ghost","Fire",608,2,"Tahap 1","Litwick","🍬 25 Permen",0,0,0],[609,"Chandelure","Ghost","Fire",609,3,"Tahap 2 (Akhir)","Lampent","🍬 100 Permen + 💎 Unova Stone",0,0,0]]],[309,"Axew",5,3,0,[[610,"Axew","Dragon",null,610,1,"Dasar (Base)",null,null,0,0,0],[611,"Fraxure","Dragon",null,611,2,"Tahap 1","Axew","🍬 25 Permen",0,0,0],[612,"Haxorus","Dragon",null,612,3,"Tahap 2 (Akhir)","Fraxure","🍬 100 Permen",0,0,0]]],[310,"Cubchoo",5,2,0,[[613,"Cubchoo","Ice",null,613,1,"Dasar (Base)",null,null,0,0,0],[614,"Beartic","Ice",null,614,2,"Evolusi Akhir","Cubchoo","🍬 50 Permen",0,0,0]]],[311,"Cryogonal",5,1,0,[[615,"Cryogonal","Ice",null,615,1,"Dasar (Base)",null,null,0,0,0]]],[312,"Shelmet",5,2,0,[[616,"Shelmet","Bug",null,616,1,"Dasar (Base)",null,null,0,0,0],[617,"Accelgor","Bug",null,617,2,"Evolusi Akhir","Shelmet","🍬 200 Permen (🔄 Gratis Trade)",0,0,0]]],[313,"Stunfisk",5,1,0,[[618,"Stunfisk","Ground","Electric",618,1,"Dasar (Base)",null,null,0,0,0],[618,"Galarian Stunfisk","Ground","Steel",10180,1,"Bentuk Galar",null,null,0,0,1]]],[314,"Mienfoo",5,2,0,[[619,"Mienfoo","Fighting",null,619,1,"Dasar (Base)",null,null,0,0,0],[620,"Mienshao","Fighting",null,620,2,"Evolusi Akhir","Mienfoo","🍬 50 Permen",0,0,0]]],[315,"Druddigon",5,1,0,[[621,"Druddigon","Dragon",null,621,1,"Dasar (Base)",null,null,0,0,0]]],[316,"Golett",5,2,0,[[622,"Golett","Ground","Ghost",622,1,"Dasar (Base)",null,null,0,0,0],[623,"Golurk","Ground","Ghost",623,2,"Evolusi Akhir","Golett","🍬 50 Permen",0,0,0]]],[317,"Pawniard",5,3,0,[[624,"Pawniard","Dark","Steel",624,1,"Dasar (Base)",null,null,0,0,0],[625,"Bisharp","Dark","Steel",625,2,"Tahap 1","Pawniard","🍬 25 Permen",0,0,0],[983,"Kingambit","Dark","Steel",983,3,"Tahap 2 (Akhir)","Bisharp","🍬 100 Permen + ⚔️ Kalahkan 3 Leader",0,0,0]]],[318,"Bouffalant",5,1,0,[[626,"Bouffalant","Normal",null,626,1,"Dasar (Base)",null,null,0,0,0]]],[319,"Rufflet",5,2,0,[[627,"Rufflet","Normal","Flying",627,1,"Dasar (Base)",null,null,0,0,0],[628,"Braviary","Normal","Flying",628,2,"Evolusi Akhir","Rufflet","🍬 50 Permen",0,0,0],[628,"Hisuian Braviary","Psychic","Flying",10240,2,"Bentuk Hisui","Rufflet","🍬 50 Permen",0,0,1]]],[320,"Vullaby",5,2,0,[[629,"Vullaby","Dark","Flying",629,1,"Dasar (Base)",null,null,0,0,0],[630,"Mandibuzz","Dark","Flying",630,2,"Evolusi Akhir","Vullaby","🍬 50 Permen",0,0,0]]],[321,"Heatmor",5,1,0,[[631,"Heatmor","Fire",null,631,1,"Dasar (Base)",null,null,0,0,0]]],[322,"Durant",5,1,0,[[632,"Durant","Bug","Steel",632,1,"Dasar (Base)",null,null,0,0,0]]],[323,"Deino",5,3,0,[[633,"Deino","Dark","Dragon",633,1,"Dasar (Base)",null,null,0,0,0],[634,"Zweilous","Dark","Dragon",634,2,"Tahap 1","Deino","🍬 25 Permen",0,0,0],[635,"Hydreigon","Dark","Dragon",635,3,"Tahap 2 (Akhir)","Zweilous","🍬 100 Permen",0,0,0]]],[324,"Larvesta",5,2,0,[[636,"Larvesta","Bug","Fire",636,1,"Dasar (Base)",null,null,0,0,0],[637,"Volcarona","Bug","Fire",637,2,"Evolusi Akhir","Larvesta","🍬 400 Permen",0,0,0]]],[325,"Cobalion",5,1,0,[[638,"Cobalion","Steel","Fighting",638,1,"Dasar (Base)",null,null,0,0,0]]],[326,"Terrakion",5,1,0,[[639,"Terrakion","Rock","Fighting",639,1,"Dasar (Base)",null,null,0,0,0]]],[327,"Virizion",5,1,0,[[640,"Virizion","Grass","Fighting",640,1,"Dasar (Base)",null,null,0,0,0]]],[328,"Tornadus (Incarnate Forme)",5,1,0,[[641,"Tornadus (Incarnate Forme)","Flying",null,641,1,"Dasar (Base)",null,null,0,0,0]]],[329,"Thundurus (Incarnate Forme)",5,1,0,[[642,"Thundurus (Incarnate Forme)","Electric","Flying",642,1,"Dasar (Base)",null,null,0,0,0]]],[330,"Reshiram",5,1,0,[[643,"Reshiram","Dragon","Fire",643,1,"Dasar (Base)",null,null,0,0,0]]],[331,"Zekrom",5,1,0,[[644,"Zekrom","Dragon","Electric",644,1,"Dasar (Base)",null,null,0,0,0]]],[332,"Landorus (Incarnate Forme)",5,1,0,[[645,"Landorus (Incarnate Forme)","Ground","Flying",645,1,"Dasar (Base)",null,null,0,0,0]]],[333,"Kyurem",5,1,0,[[646,"Kyurem","Dragon","Ice",646,1,"Dasar (Base)",null,null,0,0,0]]],[334,"Keldeo (Ordinary Form)",5,1,0,[[647,"Keldeo (Ordinary Form)","Water","Fighting",647,1,"Dasar (Base)",null,null,0,0,0]]],[335,"Meloetta (Aria Forme)",5,1,0,[[648,"Meloetta (Aria Forme)","Normal","Psychic",648,1,"Dasar (Base)",null,null,0,0,0]]],[336,"Genesect",5,1,0,[[649,"Genesect","Bug","Steel",649,1,"Dasar (Base)",null,null,0,0,0]]],[337,"Chespin",6,3,0,[[650,"Chespin","Grass",null,650,1,"Dasar (Base)",null,null,0,0,0],[651,"Quilladin","Grass",null,651,2,"Tahap 1","Chespin","🍬 25 Permen",0,0,0],[652,"Chesnaught","Grass","Fighting",652,3,"Tahap 2 (Akhir)","Quilladin","🍬 100 Permen",0,0,0]]],[338,"Fennekin",6,3,0,[[653,"Fennekin","Fire",null,653,1,"Dasar (Base)",null,null,0,0,0],[654,"Braixen","Fire",null,654,2,"Tahap 1","Fennekin","🍬 25 Permen",0,0,0],[655,"Delphox","Fire","Psychic",655,3,"Tahap 2 (Akhir)","Braixen","🍬 100 Permen",0,0,0]]],[339,"Froakie",6,3,0,[[656,"Froakie","Water",null,656,1,"Dasar (Base)",null,null,0,0,0],[657,"Frogadier","Water",null,657,2,"Tahap 1","Froakie","🍬 25 Permen",0,0,0],[658,"Greninja","Water","Dark",658,3,"Tahap 2 (Akhir)","Frogadier","🍬 100 Permen",0,0,0]]],[340,"Bunnelby",6,2,0,[[659,"Bunnelby","Normal",null,659,1,"Dasar (Base)",null,null,0,0,0],[660,"Diggersby","Normal","Ground",660,2,"Evolusi Akhir","Bunnelby","🍬 50 Permen",0,0,0]]],[341,"Fletchling",6,3,0,[[661,"Fletchling","Normal","Flying",661,1,"Dasar (Base)",null,"🍬 12 Permen",0,0,0],[662,"Fletchinder","Fire","Flying",662,2,"Tahap 1","Fletchling","🍬 50 Permen",0,0,0],[663,"Talonflame","Fire","Flying",663,3,"Tahap 2 (Akhir)","Fletchinder","🍬 100 Permen",0,0,0]]],[342,"Scatterbug",6,3,0,[[664,"Scatterbug","Bug",null,664,1,"Dasar (Base)",null,null,0,0,0],[665,"Spewpa","Bug",null,665,2,"Tahap 1","Scatterbug","🍬 25 Permen",0,0,0],[666,"Vivillon","Bug","Flying",666,3,"Tahap 2 (Akhir)","Spewpa","🍬 100 Permen",0,0,0]]],[343,"Litleo",6,2,0,[[667,"Litleo","Fire","Normal",667,1,"Dasar (Base)",null,null,0,0,0],[668,"Pyroar","Fire","Normal",668,2,"Evolusi Akhir","Litleo","🍬 50 Permen",0,0,0]]],[344,"Flabébé (Red Flower)",6,3,0,[[669,"Flabébé (Red Flower)","Fairy",null,669,1,"Dasar (Base)",null,null,0,0,0],[670,"Floette (Red Flower)","Fairy",null,670,2,"Tahap 1","Flabébé (Red Flower)","🍬 25 Permen",0,0,0],[671,"Florges (Red Flower)","Fairy",null,671,3,"Tahap 2 (Akhir)","Floette (Red Flower)","🍬 100 Permen + ❤️ Dapatkan 20 Hati Buddy",0,0,0]]],[345,"Skiddo",6,2,0,[[672,"Skiddo","Grass",null,672,1,"Dasar (Base)",null,null,0,0,0],[673,"Gogoat","Grass",null,673,2,"Evolusi Akhir","Skiddo","🍬 50 Permen",0,0,0]]],[346,"Pancham",6,2,0,[[674,"Pancham","Fighting",null,674,1,"Dasar (Base)",null,null,0,0,0],[675,"Pangoro","Fighting","Dark",675,2,"Evolusi Akhir","Pancham","🍬 50 Permen + 🎯 Tangkap 32 Dark sbg Buddy",0,0,0]]],[347,"Furfrou",6,1,0,[[676,"Furfrou","Normal",null,676,1,"Dasar (Base)",null,null,0,0,0]]],[348,"Espurr",6,2,0,[[677,"Espurr","Psychic",null,677,1,"Dasar (Base)",null,null,0,0,0],[678,"Meowstic","Psychic",null,678,2,"Evolusi Akhir","Espurr","🍬 50 Permen",0,0,0]]],[349,"Honedge",6,3,0,[[679,"Honedge","Steel","Ghost",679,1,"Dasar (Base)",null,null,0,0,0],[680,"Doublade","Steel","Ghost",680,2,"Tahap 1","Honedge","🍬 25 Permen",0,0,0],[681,"Aegislash (Shield Forme)","Steel","Ghost",681,3,"Tahap 2 (Akhir)","Doublade","🍬 100 Permen",0,0,0]]],[350,"Spritzee",6,2,0,[[682,"Spritzee","Fairy",null,682,1,"Dasar (Base)",null,null,0,0,0],[683,"Aromatisse","Fairy",null,683,2,"Evolusi Akhir","Spritzee","🍬 50 Permen",0,0,0]]],[351,"Swirlix",6,2,0,[[684,"Swirlix","Fairy",null,684,1,"Dasar (Base)",null,null,0,0,0],[685,"Slurpuff","Fairy",null,685,2,"Evolusi Akhir","Swirlix","🍬 50 Permen",0,0,0]]],[352,"Inkay",6,2,0,[[686,"Inkay","Dark","Psychic",686,1,"Dasar (Base)",null,null,0,0,0],[687,"Malamar","Dark","Psychic",687,2,"Evolusi Akhir","Inkay","🍬 50 Permen + 🔄 Balikkan Layar HP",0,0,0]]],[353,"Binacle",6,2,0,[[688,"Binacle","Rock","Water",688,1,"Dasar (Base)",null,null,0,0,0],[689,"Barbaracle","Rock","Water",689,2,"Evolusi Akhir","Binacle","🍬 50 Permen",0,0,0]]],[354,"Skrelp",6,2,0,[[690,"Skrelp","Poison","Water",690,1,"Dasar (Base)",null,null,0,0,0],[691,"Dragalge","Poison","Dragon",691,2,"Evolusi Akhir","Skrelp","🍬 50 Permen",0,0,0]]],[355,"Clauncher",6,2,0,[[692,"Clauncher","Water",null,692,1,"Dasar (Base)",null,null,0,0,0],[693,"Clawitzer","Water",null,693,2,"Evolusi Akhir","Clauncher","🍬 50 Permen",0,0,0]]],[356,"Helioptile",6,2,0,[[694,"Helioptile","Electric","Normal",694,1,"Dasar (Base)",null,null,0,0,0],[695,"Heliolisk","Electric","Normal",695,2,"Evolusi Akhir","Helioptile","🍬 50 Permen + ☀️ Sun Stone",0,0,0]]],[357,"Tyrunt",6,2,0,[[696,"Tyrunt","Rock","Dragon",696,1,"Dasar (Base)",null,null,0,0,0],[697,"Tyrantrum","Rock","Dragon",697,2,"Evolusi Akhir","Tyrunt","🍬 50 Permen",0,0,0]]],[358,"Amaura",6,2,0,[[698,"Amaura","Rock","Ice",698,1,"Dasar (Base)",null,null,0,0,0],[699,"Aurorus","Rock","Ice",699,2,"Evolusi Akhir","Amaura","🍬 50 Permen",0,0,0]]],[359,"Hawlucha",6,1,0,[[701,"Hawlucha","Fighting","Flying",701,1,"Dasar (Base)",null,null,0,0,0]]],[360,"Dedenne",6,1,0,[[702,"Dedenne","Electric","Fairy",702,1,"Dasar (Base)",null,null,0,0,0]]],[361,"Carbink",6,1,0,[[703,"Carbink","Rock","Fairy",703,1,"Dasar (Base)",null,null,0,0,0]]],[362,"Goomy",6,3,0,[[704,"Goomy","Dragon",null,704,1,"Dasar (Base)",null,null,0,0,0],[705,"Sliggoo","Dragon",null,705,2,"Tahap 1","Goomy","🍬 25 Permen",0,0,0],[706,"Goodra","Dragon",null,706,3,"Tahap 2 (Akhir)","Sliggoo","🍬 100 Permen + 🌧️ Hujan / Rainy Lure",0,0,0],[705,"Hisuian Sliggoo","Steel","Dragon",10241,2,"Bentuk Hisui","Goomy","🍬 50 Permen",0,0,1],[706,"Hisuian Goodra","Steel","Dragon",10242,3,"Bentuk Hisui","Hisuian Sliggoo","🍬 100 Permen + 🌧️ Hujan / Rainy Lure",0,0,1]]],[363,"Klefki",6,1,0,[[707,"Klefki","Steel","Fairy",707,1,"Dasar (Base)",null,null,0,0,0]]],[364,"Phantump",6,2,0,[[708,"Phantump","Ghost","Grass",708,1,"Dasar (Base)",null,null,0,0,0],[709,"Trevenant","Ghost","Grass",709,2,"Evolusi Akhir","Phantump","🍬 200 Permen (🔄 Gratis Trade)",0,0,0]]],[365,"Pumpkaboo",6,2,0,[[710,"Pumpkaboo","Ghost","Grass",710,1,"Dasar (Base)",null,null,0,0,0],[711,"Gourgeist","Ghost","Grass",711,2,"Evolusi Akhir","Pumpkaboo","🍬 200 Permen (🔄 Gratis Trade)",0,0,0]]],[366,"Bergmite",6,2,0,[[712,"Bergmite","Ice",null,712,1,"Dasar (Base)",null,null,0,0,0],[713,"Avalugg","Ice",null,713,2,"Evolusi Akhir","Bergmite","🍬 50 Permen",0,0,0],[713,"Hisuian Avalugg","Ice","Rock",10243,2,"Bentuk Hisui","Bergmite","🍬 50 Permen",0,0,1]]],[367,"Noibat",6,2,0,[[714,"Noibat","Flying","Dragon",714,1,"Dasar (Base)",null,null,0,0,0],[715,"Noivern","Flying","Dragon",715,2,"Evolusi Akhir","Noibat","🍬 400 Permen",0,0,0]]],[368,"Xerneas (Active Mode)",6,1,0,[[716,"Xerneas (Active Mode)","Fairy",null,716,1,"Dasar (Base)",null,null,0,0,0]]],[369,"Yveltal",6,1,0,[[717,"Yveltal","Dark","Flying",717,1,"Dasar (Base)",null,null,0,0,0]]],[370,"Zygarde (50% Forme)",6,1,0,[[718,"Zygarde (50% Forme)","Dragon","Ground",718,1,"Dasar (Base)",null,null,0,0,0]]],[371,"Diancie",6,1,1,[[719,"Diancie","Rock","Fairy",719,1,"Dasar (Base)",null,null,0,0,0],[719,"Mega Diancie","Rock","Fairy",10075,4,"Mega Evolusi","Diancie","🧬 Mega Energy (100-300)",0,1,0]]],[372,"Hoopa Confined",6,1,0,[[720,"Hoopa Confined","Psychic","Ghost",720,1,"Dasar (Base)",null,null,0,0,0]]],[373,"Volcanion",6,1,0,[[721,"Volcanion","Fire","Water",721,1,"Dasar (Base)",null,null,0,0,0]]],[374,"Rowlet",7,3,0,[[722,"Rowlet","Grass","Flying",722,1,"Dasar (Base)",null,null,0,0,0],[723,"Dartrix","Grass","Flying",723,2,"Tahap 1","Rowlet","🍬 25 Permen",0,0,0],[724,"Decidueye","Grass","Ghost",724,3,"Tahap 2 (Akhir)","Dartrix","🍬 100 Permen",0,0,0],[724,"Hisuian Decidueye","Grass","Fighting",10244,3,"Bentuk Hisui","Dartrix","🍬 100 Permen",0,0,1]]],[375,"Litten",7,3,0,[[725,"Litten","Fire",null,725,1,"Dasar (Base)",null,null,0,0,0],[726,"Torracat","Fire",null,726,2,"Tahap 1","Litten","🍬 25 Permen",0,0,0],[727,"Incineroar","Fire","Dark",727,3,"Tahap 2 (Akhir)","Torracat","🍬 100 Permen",0,0,0]]],[376,"Popplio",7,3,0,[[728,"Popplio","Water",null,728,1,"Dasar (Base)",null,null,0,0,0],[729,"Brionne","Water",null,729,2,"Tahap 1","Popplio","🍬 25 Permen",0,0,0],[730,"Primarina","Water","Fairy",730,3,"Tahap 2 (Akhir)","Brionne","🍬 100 Permen",0,0,0]]],[377,"Pikipek",7,3,0,[[731,"Pikipek","Normal","Flying",731,1,"Dasar (Base)",null,null,0,0,0],[732,"Trumbeak","Normal","Flying",732,2,"Tahap 1","Pikipek","🍬 25 Permen",0,0,0],[733,"Toucannon","Normal","Flying",733,3,"Tahap 2 (Akhir)","Trumbeak","🍬 100 Permen",0,0,0]]],[378,"Yungoos",7,2,0,[[734,"Yungoos","Normal",null,734,1,"Dasar (Base)",null,null,0,0,0],[735,"Gumshoos","Normal",null,735,2,"Evolusi Akhir","Yungoos","🍬 50 Permen",0,0,0]]],[379,"Grubbin",7,3,0,[[736,"Grubbin","Bug",null,736,1,"Dasar (Base)",null,null,0,0,0],[737,"Charjabug","Bug","Electric",737,2,"Tahap 1","Grubbin","🍬 25 Permen",0,0,0],[738,"Vikavolt","Bug","Electric",738,3,"Tahap 2 (Akhir)","Charjabug","🍬 100 Permen + ⚡ Magnetic Lure",0,0,0]]],[380,"Crabrawler",7,2,0,[[739,"Crabrawler","Fighting",null,739,1,"Dasar (Base)",null,null,0,0,0],[740,"Crabominable","Fighting","Ice",740,2,"Evolusi Akhir","Crabrawler","🍬 50 Permen",0,0,0]]],[381,"Oricorio (Baile Style)",7,1,0,[[741,"Oricorio (Baile Style)","Fire","Flying",741,1,"Dasar (Base)",null,null,0,0,0]]],[382,"Cutiefly",7,2,0,[[742,"Cutiefly","Bug","Fairy",742,1,"Dasar (Base)",null,null,0,0,0],[743,"Ribombee","Bug","Fairy",743,2,"Evolusi Akhir","Cutiefly","🍬 50 Permen",0,0,0]]],[383,"Rockruff",7,2,0,[[744,"Rockruff","Rock",null,744,1,"Dasar (Base)",null,null,0,0,0],[745,"Lycanroc (Midday Form)","Rock",null,745,2,"Evolusi Akhir","Rockruff","🍬 50 Permen",0,0,0]]],[384,"Wishiwashi (Solo Form)",7,1,0,[[746,"Wishiwashi (Solo Form)","Water",null,746,1,"Dasar (Base)",null,null,0,0,0]]],[385,"Mareanie",7,2,0,[[747,"Mareanie","Poison","Water",747,1,"Dasar (Base)",null,null,0,0,0],[748,"Toxapex","Poison","Water",748,2,"Evolusi Akhir","Mareanie","🍬 50 Permen",0,0,0]]],[386,"Mudbray",7,2,0,[[749,"Mudbray","Ground",null,749,1,"Dasar (Base)",null,null,0,0,0],[750,"Mudsdale","Ground",null,750,2,"Evolusi Akhir","Mudbray","🍬 50 Permen",0,0,0]]],[387,"Dewpider",7,2,0,[[751,"Dewpider","Water","Bug",751,1,"Dasar (Base)",null,null,0,0,0],[752,"Araquanid","Water","Bug",752,2,"Evolusi Akhir","Dewpider","🍬 50 Permen",0,0,0]]],[388,"Fomantis",7,2,0,[[753,"Fomantis","Grass",null,753,1,"Dasar (Base)",null,null,0,0,0],[754,"Lurantis","Grass",null,754,2,"Evolusi Akhir","Fomantis","🍬 50 Permen",0,0,0]]],[389,"Morelull",7,2,0,[[755,"Morelull","Grass","Fairy",755,1,"Dasar (Base)",null,null,0,0,0],[756,"Shiinotic","Grass","Fairy",756,2,"Evolusi Akhir","Morelull","🍬 50 Permen",0,0,0]]],[390,"Salandit",7,2,0,[[757,"Salandit","Poison","Fire",757,1,"Dasar (Base)",null,null,0,0,0],[758,"Salazzle","Poison","Fire",758,2,"Evolusi Akhir","Salandit","🍬 50 Permen",0,0,0]]],[391,"Stufful",7,2,0,[[759,"Stufful","Normal","Fighting",759,1,"Dasar (Base)",null,null,0,0,0],[760,"Bewear","Normal","Fighting",760,2,"Evolusi Akhir","Stufful","🍬 400 Permen",0,0,0]]],[392,"Bounsweet",7,3,0,[[761,"Bounsweet","Grass",null,761,1,"Dasar (Base)",null,null,0,0,0],[762,"Steenee","Grass",null,762,2,"Tahap 1","Bounsweet","🍬 25 Permen",0,0,0],[763,"Tsareena","Grass",null,763,3,"Tahap 2 (Akhir)","Steenee","🍬 100 Permen",0,0,0]]],[393,"Comfey",7,1,0,[[764,"Comfey","Fairy",null,764,1,"Dasar (Base)",null,null,0,0,0]]],[394,"Oranguru",7,1,0,[[765,"Oranguru","Normal","Psychic",765,1,"Dasar (Base)",null,null,0,0,0]]],[395,"Passimian",7,1,0,[[766,"Passimian","Fighting",null,766,1,"Dasar (Base)",null,null,0,0,0]]],[396,"Wimpod",7,2,0,[[767,"Wimpod","Bug","Water",767,1,"Dasar (Base)",null,null,0,0,0],[768,"Golisopod","Bug","Water",768,2,"Evolusi Akhir","Wimpod","🍬 400 Permen",0,0,0]]],[397,"Sandygast",7,2,0,[[769,"Sandygast","Ghost","Ground",769,1,"Dasar (Base)",null,null,0,0,0],[770,"Palossand","Ghost","Ground",770,2,"Evolusi Akhir","Sandygast","🍬 50 Permen",0,0,0]]],[398,"Pyukumuku",7,1,0,[[771,"Pyukumuku","Water",null,771,1,"Dasar (Base)",null,null,0,0,0]]],[399,"Type: Null",7,2,0,[[772,"Type: Null","Normal",null,772,1,"Dasar (Base)",null,null,0,0,0],[773,"Silvally","Normal",null,773,2,"Evolusi Akhir","Type: Null","🍬 50 Permen",0,0,0]]],[400,"Minior (Meteor Form)",7,1,0,[[774,"Minior (Meteor Form)","Rock","Flying",774,1,"Dasar (Base)",null,null,0,0,0]]],[401,"Komala",7,1,0,[[775,"Komala","Normal",null,775,1,"Dasar (Base)",null,null,0,0,0]]],[402,"Turtonator",7,1,0,[[776,"Turtonator","Fire","Dragon",776,1,"Dasar (Base)",null,null,0,0,0]]],[403,"Togedemaru",7,1,0,[[777,"Togedemaru","Electric","Steel",777,1,"Dasar (Base)",null,null,0,0,0]]],[404,"Mimikyu (Disguised Form)",7,1,0,[[778,"Mimikyu (Disguised Form)","Ghost","Fairy",778,1,"Dasar (Base)",null,null,0,0,0]]],[405,"Bruxish",7,1,0,[[779,"Bruxish","Water","Psychic",779,1,"Dasar (Base)",null,null,0,0,0]]],[406,"Drampa",7,1,0,[[780,"Drampa","Normal","Dragon",780,1,"Dasar (Base)",null,null,0,0,0]]],[407,"Dhelmise",7,1,0,[[781,"Dhelmise","Ghost","Grass",781,1,"Dasar (Base)",null,null,0,0,0]]],[408,"Jangmo-o",7,3,0,[[782,"Jangmo-o","Dragon",null,782,1,"Dasar (Base)",null,null,0,0,0],[783,"Hakamo-o","Dragon","Fighting",783,2,"Tahap 1","Jangmo-o","🍬 25 Permen",0,0,0],[784,"Kommo-o","Dragon","Fighting",784,3,"Tahap 2 (Akhir)","Hakamo-o","🍬 100 Permen",0,0,0]]],[409,"Tapu Koko",7,1,0,[[785,"Tapu Koko","Electric","Fairy",785,1,"Dasar (Base)",null,null,0,0,0]]],[410,"Tapu Lele",7,1,0,[[786,"Tapu Lele","Psychic","Fairy",786,1,"Dasar (Base)",null,null,0,0,0]]],[411,"Tapu Bulu",7,1,0,[[787,"Tapu Bulu","Grass","Fairy",787,1,"Dasar (Base)",null,null,0,0,0]]],[412,"Tapu Fini",7,1,0,[[788,"Tapu Fini","Water","Fairy",788,1,"Dasar (Base)",null,null,0,0,0]]],[413,"Cosmog",7,3,1,[[789,"Cosmog","Psychic",null,789,1,"Dasar (Base)",null,null,0,0,0],[790,"Cosmoem","Psychic",null,790,2,"Tahap 1","Cosmog","🍬 25 Permen",0,0,0],[791,"Solgaleo","Psychic","Steel",791,3,"Tahap 2 (Akhir)","Cosmoem","🍬 100 Permen",0,0,0],[792,"Lunala","Psychic","Ghost",792,3,"Tahap 2 (Akhir)","Cosmoem","🍬 100 Permen",0,0,0]]],[414,"Nihilego",7,1,0,[[793,"Nihilego","Rock","Poison",793,1,"Dasar (Base)",null,null,0,0,0]]],[415,"Buzzwole",7,1,0,[[794,"Buzzwole","Bug","Fighting",794,1,"Dasar (Base)",null,null,0,0,0]]],[416,"Pheromosa",7,1,0,[[795,"Pheromosa","Bug","Fighting",795,1,"Dasar (Base)",null,null,0,0,0]]],[417,"Xurkitree",7,1,0,[[796,"Xurkitree","Electric",null,796,1,"Dasar (Base)",null,null,0,0,0]]],[418,"Celesteela",7,1,0,[[797,"Celesteela","Steel","Flying",797,1,"Dasar (Base)",null,null,0,0,0]]],[419,"Kartana",7,1,0,[[798,"Kartana","Grass","Steel",798,1,"Dasar (Base)",null,null,0,0,0]]],[420,"Guzzlord",7,1,0,[[799,"Guzzlord","Dark","Dragon",799,1,"Dasar (Base)",null,null,0,0,0]]],[421,"Necrozma",7,1,0,[[800,"Necrozma","Psychic",null,800,1,"Dasar (Base)",null,null,0,0,0]]],[422,"Magearna",7,1,0,[[801,"Magearna","Steel","Fairy",801,1,"Dasar (Base)",null,null,0,0,0]]],[423,"Marshadow",7,1,0,[[802,"Marshadow","Fighting","Ghost",802,1,"Dasar (Base)",null,null,0,0,0]]],[424,"Poipole",7,2,0,[[803,"Poipole","Poison",null,803,1,"Dasar (Base)",null,null,0,0,0],[804,"Naganadel","Poison","Dragon",804,2,"Evolusi Akhir","Poipole","🍬 50 Permen",0,0,0]]],[425,"Stakataka",7,1,0,[[805,"Stakataka","Rock","Steel",805,1,"Dasar (Base)",null,null,0,0,0]]],[426,"Blacephalon",7,1,0,[[806,"Blacephalon","Fire","Ghost",806,1,"Dasar (Base)",null,null,0,0,0]]],[427,"Zeraora",7,1,0,[[807,"Zeraora","Electric",null,807,1,"Dasar (Base)",null,null,0,0,0]]],[428,"Meltan",7,2,0,[[808,"Meltan","Steel",null,808,1,"Dasar (Base)",null,null,0,0,0],[809,"Melmetal","Steel",null,809,2,"Evolusi Akhir","Meltan","🍬 400 Permen",0,0,0]]],[430,"Grookey",8,3,0,[[810,"Grookey","Grass",null,810,1,"Dasar (Base)",null,null,0,0,0],[811,"Thwackey","Grass",null,811,2,"Tahap 1","Grookey","🍬 25 Permen",0,0,0],[812,"Rillaboom","Grass",null,812,3,"Tahap 2 (Akhir)","Thwackey","🍬 100 Permen",0,0,0]]],[431,"Scorbunny",8,3,0,[[813,"Scorbunny","Fire",null,813,1,"Dasar (Base)",null,null,0,0,0],[814,"Raboot","Fire",null,814,2,"Tahap 1","Scorbunny","🍬 25 Permen",0,0,0],[815,"Cinderace","Fire",null,815,3,"Tahap 2 (Akhir)","Raboot","🍬 100 Permen",0,0,0]]],[432,"Sobble",8,3,0,[[816,"Sobble","Water",null,816,1,"Dasar (Base)",null,null,0,0,0],[817,"Drizzile","Water",null,817,2,"Tahap 1","Sobble","🍬 25 Permen",0,0,0],[818,"Inteleon","Water",null,818,3,"Tahap 2 (Akhir)","Drizzile","🍬 100 Permen",0,0,0]]],[433,"Skwovet",8,2,0,[[819,"Skwovet","Normal",null,819,1,"Dasar (Base)",null,null,0,0,0],[820,"Greedent","Normal",null,820,2,"Evolusi Akhir","Skwovet","🍬 50 Permen",0,0,0]]],[434,"Rookidee",8,3,0,[[821,"Rookidee","Flying",null,821,1,"Dasar (Base)",null,null,0,0,0],[822,"Corvisquire","Flying",null,822,2,"Tahap 1","Rookidee","🍬 25 Permen",0,0,0],[823,"Corviknight","Flying","Steel",823,3,"Tahap 2 (Akhir)","Corvisquire","🍬 100 Permen",0,0,0]]],[435,"Blipbug",8,3,0,[[824,"Blipbug","Bug",null,824,1,"Dasar (Base)",null,null,0,0,0],[825,"Dottler","Bug","Psychic",825,2,"Tahap 1","Blipbug","🍬 25 Permen",0,0,0],[826,"Orbeetle","Bug","Psychic",826,3,"Tahap 2 (Akhir)","Dottler","🍬 100 Permen",0,0,0]]],[436,"Nickit",8,2,0,[[827,"Nickit","Dark",null,827,1,"Dasar (Base)",null,null,0,0,0],[828,"Thievul","Dark",null,828,2,"Evolusi Akhir","Nickit","🍬 50 Permen",0,0,0]]],[437,"Gossifleur",8,2,0,[[829,"Gossifleur","Grass",null,829,1,"Dasar (Base)",null,null,0,0,0],[830,"Eldegoss","Grass",null,830,2,"Evolusi Akhir","Gossifleur","🍬 50 Permen",0,0,0]]],[438,"Wooloo",8,2,0,[[831,"Wooloo","Normal",null,831,1,"Dasar (Base)",null,null,0,0,0],[832,"Dubwool","Normal",null,832,2,"Evolusi Akhir","Wooloo","🍬 50 Permen",0,0,0]]],[439,"Chewtle",8,2,0,[[833,"Chewtle","Water",null,833,1,"Dasar (Base)",null,null,0,0,0],[834,"Drednaw","Water","Rock",834,2,"Evolusi Akhir","Chewtle","🍬 50 Permen",0,0,0]]],[440,"Yamper",8,2,0,[[835,"Yamper","Electric",null,835,1,"Dasar (Base)",null,null,0,0,0],[836,"Boltund","Electric",null,836,2,"Evolusi Akhir","Yamper","🍬 50 Permen",0,0,0]]],[441,"Rolycoly",8,3,0,[[837,"Rolycoly","Rock",null,837,1,"Dasar (Base)",null,null,0,0,0],[838,"Carkol","Rock","Fire",838,2,"Tahap 1","Rolycoly","🍬 25 Permen",0,0,0],[839,"Coalossal","Rock","Fire",839,3,"Tahap 2 (Akhir)","Carkol","🍬 100 Permen",0,0,0]]],[442,"Applin",8,3,1,[[840,"Applin","Grass","Dragon",840,1,"Dasar (Base)",null,null,0,0,0],[841,"Flapple","Grass","Dragon",841,2,"Tahap 1","Applin","🍬 25 Permen",0,0,0],[842,"Appletun","Grass","Dragon",842,2,"Tahap 1","Applin","🍬 25 Permen",0,0,0],[1011,"Dipplin","Grass","Dragon",1011,2,"Tahap 1","Applin","🍬 25 Permen",0,0,0],[1019,"Hydrapple","Grass","Dragon",1019,3,"Tahap 2 (Akhir)","Dipplin","🍬 100 Permen + 🪨 TM Syarat Khusus",0,0,0]]],[443,"Silicobra",8,2,0,[[843,"Silicobra","Ground",null,843,1,"Dasar (Base)",null,null,0,0,0],[844,"Sandaconda","Ground",null,844,2,"Evolusi Akhir","Silicobra","🍬 50 Permen",0,0,0]]],[444,"Cramorant",8,1,0,[[845,"Cramorant","Flying","Water",845,1,"Dasar (Base)",null,null,0,0,0]]],[445,"Arrokuda",8,2,0,[[846,"Arrokuda","Water",null,846,1,"Dasar (Base)",null,null,0,0,0],[847,"Barraskewda","Water",null,847,2,"Evolusi Akhir","Arrokuda","🍬 50 Permen",0,0,0]]],[446,"Toxel",8,2,0,[[848,"Toxel","Electric","Poison",848,1,"Bayi (Baby)",null,null,1,0,0],[849,"Toxtricity (Amped Form)","Electric","Poison",849,2,"Evolusi Akhir","Toxel","🍬 25 Permen",0,0,0]]],[447,"Sizzlipede",8,2,0,[[850,"Sizzlipede","Fire","Bug",850,1,"Dasar (Base)",null,null,0,0,0],[851,"Centiskorch","Fire","Bug",851,2,"Evolusi Akhir","Sizzlipede","🍬 50 Permen",0,0,0]]],[448,"Clobbopus",8,2,0,[[852,"Clobbopus","Fighting",null,852,1,"Dasar (Base)",null,null,0,0,0],[853,"Grapploct","Fighting",null,853,2,"Evolusi Akhir","Clobbopus","🍬 50 Permen",0,0,0]]],[449,"Sinistea",8,2,0,[[854,"Sinistea","Ghost",null,854,1,"Dasar (Base)",null,null,0,0,0],[855,"Polteageist","Ghost",null,855,2,"Evolusi Akhir","Sinistea","🍬 50 Permen",0,0,0]]],[450,"Hatenna",8,3,0,[[856,"Hatenna","Psychic",null,856,1,"Dasar (Base)",null,null,0,0,0],[857,"Hattrem","Psychic",null,857,2,"Tahap 1","Hatenna","🍬 25 Permen",0,0,0],[858,"Hatterene","Psychic","Fairy",858,3,"Tahap 2 (Akhir)","Hattrem","🍬 100 Permen",0,0,0]]],[451,"Impidimp",8,3,0,[[859,"Impidimp","Dark","Fairy",859,1,"Dasar (Base)",null,null,0,0,0],[860,"Morgrem","Dark","Fairy",860,2,"Tahap 1","Impidimp","🍬 25 Permen",0,0,0],[861,"Grimmsnarl","Dark","Fairy",861,3,"Tahap 2 (Akhir)","Morgrem","🍬 100 Permen",0,0,0]]],[452,"Milcery",8,2,0,[[868,"Milcery","Fairy",null,868,1,"Dasar (Base)",null,null,0,0,0],[869,"Alcremie","Fairy",null,869,2,"Evolusi Akhir","Milcery","🍬 50 Permen",0,0,0]]],[453,"Falinks",8,1,0,[[870,"Falinks","Fighting",null,870,1,"Dasar (Base)",null,null,0,0,0]]],[454,"Pincurchin",8,1,0,[[871,"Pincurchin","Electric",null,871,1,"Dasar (Base)",null,null,0,0,0]]],[455,"Snom",8,2,0,[[872,"Snom","Ice","Bug",872,1,"Dasar (Base)",null,null,0,0,0],[873,"Frosmoth","Ice","Bug",873,2,"Evolusi Akhir","Snom","🍬 50 Permen",0,0,0]]],[456,"Stonjourner",8,1,0,[[874,"Stonjourner","Rock",null,874,1,"Dasar (Base)",null,null,0,0,0]]],[457,"Eiscue (Ice Face)",8,1,0,[[875,"Eiscue (Ice Face)","Ice",null,875,1,"Dasar (Base)",null,null,0,0,0]]],[458,"Indeedee",8,1,0,[[876,"Indeedee","Psychic","Normal",876,1,"Dasar (Base)",null,null,0,0,0]]],[459,"Morpeko (Full Belly Mode)",8,1,0,[[877,"Morpeko (Full Belly Mode)","Electric","Dark",877,1,"Dasar (Base)",null,null,0,0,0]]],[460,"Cufant",8,2,0,[[878,"Cufant","Steel",null,878,1,"Dasar (Base)",null,null,0,0,0],[879,"Copperajah","Steel",null,879,2,"Evolusi Akhir","Cufant","🍬 50 Permen",0,0,0]]],[461,"Dracozolt",8,1,0,[[880,"Dracozolt","Electric","Dragon",880,1,"Dasar (Base)",null,null,0,0,0]]],[462,"Arctozolt",8,1,0,[[881,"Arctozolt","Electric","Ice",881,1,"Dasar (Base)",null,null,0,0,0]]],[463,"Dracovish",8,1,0,[[882,"Dracovish","Water","Dragon",882,1,"Dasar (Base)",null,null,0,0,0]]],[464,"Arctovish",8,1,0,[[883,"Arctovish","Water","Ice",883,1,"Dasar (Base)",null,null,0,0,0]]],[465,"Duraludon",8,2,0,[[884,"Duraludon","Steel","Dragon",884,1,"Dasar (Base)",null,null,0,0,0],[1018,"Archaludon","Steel","Dragon",1018,2,"Evolusi Akhir","Duraludon","🍬 100 Permen + ⚡ Metal Alloy",0,0,0]]],[466,"Dreepy",8,3,0,[[885,"Dreepy","Dragon","Ghost",885,1,"Dasar (Base)",null,null,0,0,0],[886,"Drakloak","Dragon","Ghost",886,2,"Tahap 1","Dreepy","🍬 25 Permen",0,0,0],[887,"Dragapult","Dragon","Ghost",887,3,"Tahap 2 (Akhir)","Drakloak","🍬 100 Permen",0,0,0]]],[467,"Zacian (Hero of Many Battles)",8,1,0,[[888,"Zacian (Hero of Many Battles)","Fairy",null,888,1,"Dasar (Base)",null,null,0,0,0]]],[468,"Zamazenta (Hero of Many Battles)",8,1,0,[[889,"Zamazenta (Hero of Many Battles)","Fighting",null,889,1,"Dasar (Base)",null,null,0,0,0]]],[469,"Eternatus",8,1,0,[[890,"Eternatus","Poison","Dragon",890,1,"Dasar (Base)",null,null,0,0,0]]],[470,"Kubfu",8,2,0,[[891,"Kubfu","Fighting",null,891,1,"Dasar (Base)",null,null,0,0,0],[892,"Urshifu (Single Strike Style)","Fighting","Dark",892,2,"Evolusi Akhir","Kubfu","🍬 50 Permen",0,0,0]]],[471,"Zarude",8,1,0,[[893,"Zarude","Dark","Grass",893,1,"Dasar (Base)",null,null,0,0,0]]],[472,"Regieleki",8,1,0,[[894,"Regieleki","Electric",null,894,1,"Dasar (Base)",null,null,0,0,0]]],[473,"Regidrago",8,1,0,[[895,"Regidrago","Dragon",null,895,1,"Dasar (Base)",null,null,0,0,0]]],[474,"Glastrier",8,1,0,[[896,"Glastrier","Ice",null,896,1,"Dasar (Base)",null,null,0,0,0]]],[475,"Spectrier",8,1,0,[[897,"Spectrier","Ghost",null,897,1,"Dasar (Base)",null,null,0,0,0]]],[476,"Calyrex",8,1,0,[[898,"Calyrex","Psychic","Grass",898,1,"Dasar (Base)",null,null,0,0,0]]],[477,"Enamorus (Incarnate Forme)",8,1,0,[[905,"Enamorus (Incarnate Forme)","Fairy","Flying",905,1,"Dasar (Base)",null,null,0,0,0]]],[478,"Sprigatito",9,3,0,[[906,"Sprigatito","Grass",null,906,1,"Dasar (Base)",null,null,0,0,0],[907,"Floragato","Grass",null,907,2,"Tahap 1","Sprigatito","🍬 25 Permen",0,0,0],[908,"Meowscarada","Grass","Dark",908,3,"Tahap 2 (Akhir)","Floragato","🍬 100 Permen",0,0,0]]],[479,"Fuecoco",9,3,0,[[909,"Fuecoco","Fire",null,909,1,"Dasar (Base)",null,null,0,0,0],[910,"Crocalor","Fire",null,910,2,"Tahap 1","Fuecoco","🍬 25 Permen",0,0,0],[911,"Skeledirge","Fire","Ghost",911,3,"Tahap 2 (Akhir)","Crocalor","🍬 100 Permen",0,0,0]]],[480,"Quaxly",9,3,0,[[912,"Quaxly","Water",null,912,1,"Dasar (Base)",null,null,0,0,0],[913,"Quaxwell","Water",null,913,2,"Tahap 1","Quaxly","🍬 25 Permen",0,0,0],[914,"Quaquaval","Water","Fighting",914,3,"Tahap 2 (Akhir)","Quaxwell","🍬 100 Permen",0,0,0]]],[481,"Lechonk",9,2,0,[[915,"Lechonk","Normal",null,915,1,"Dasar (Base)",null,null,0,0,0],[916,"Oinkologne","Normal",null,916,2,"Evolusi Akhir","Lechonk","🍬 50 Permen",0,0,0]]],[482,"Tarountula",9,2,0,[[917,"Tarountula","Bug",null,917,1,"Dasar (Base)",null,null,0,0,0],[918,"Spidops","Bug",null,918,2,"Evolusi Akhir","Tarountula","🍬 50 Permen",0,0,0]]],[483,"Nymble",9,2,0,[[919,"Nymble","Bug",null,919,1,"Dasar (Base)",null,null,0,0,0],[920,"Lokix","Bug","Dark",920,2,"Evolusi Akhir","Nymble","🍬 50 Permen",0,0,0]]],[484,"Pawmi",9,3,0,[[921,"Pawmi","Electric",null,921,1,"Dasar (Base)",null,null,0,0,0],[922,"Pawmo","Electric","Fighting",922,2,"Tahap 1","Pawmi","🍬 25 Permen",0,0,0],[923,"Pawmot","Electric","Fighting",923,3,"Tahap 2 (Akhir)","Pawmo","🍬 100 Permen + 🚶 Jalan 25km sbg Buddy",0,0,0]]],[485,"Tandemaus",9,2,0,[[924,"Tandemaus","Normal",null,924,1,"Dasar (Base)",null,null,0,0,0],[925,"Maushold (Family of Four)","Normal",null,925,2,"Evolusi Akhir","Tandemaus","🍬 50 Permen",0,0,0]]],[486,"Fidough",9,2,0,[[926,"Fidough","Fairy",null,926,1,"Dasar (Base)",null,null,0,0,0],[927,"Dachsbun","Fairy",null,927,2,"Evolusi Akhir","Fidough","🍬 50 Permen",0,0,0]]],[487,"Smoliv",9,3,0,[[928,"Smoliv","Grass","Normal",928,1,"Dasar (Base)",null,null,0,0,0],[929,"Dolliv","Grass","Normal",929,2,"Tahap 1","Smoliv","🍬 25 Permen",0,0,0],[930,"Arboliva","Grass","Normal",930,3,"Tahap 2 (Akhir)","Dolliv","🍬 100 Permen",0,0,0]]],[488,"Squawkabilly (Green Plumage)",9,1,0,[[931,"Squawkabilly (Green Plumage)","Normal","Flying",931,1,"Dasar (Base)",null,null,0,0,0]]],[489,"Nacli",9,3,0,[[932,"Nacli","Rock",null,932,1,"Dasar (Base)",null,null,0,0,0],[933,"Naclstack","Rock",null,933,2,"Tahap 1","Nacli","🍬 25 Permen",0,0,0],[934,"Garganacl","Rock",null,934,3,"Tahap 2 (Akhir)","Naclstack","🍬 100 Permen",0,0,0]]],[490,"Charcadet",9,2,1,[[935,"Charcadet","Fire",null,935,1,"Dasar (Base)",null,null,0,0,0],[936,"Armarouge","Fire","Psychic",936,2,"Evolusi Akhir","Charcadet","🍬 50 Permen",0,0,0],[937,"Ceruledge","Fire","Ghost",937,2,"Evolusi Akhir","Charcadet","🍬 50 Permen",0,0,0]]],[491,"Tadbulb",9,2,0,[[938,"Tadbulb","Electric",null,938,1,"Dasar (Base)",null,null,0,0,0],[939,"Bellibolt","Electric",null,939,2,"Evolusi Akhir","Tadbulb","🍬 50 Permen",0,0,0]]],[492,"Wattrel",9,2,0,[[940,"Wattrel","Electric","Flying",940,1,"Dasar (Base)",null,null,0,0,0],[941,"Kilowattrel","Electric","Flying",941,2,"Evolusi Akhir","Wattrel","🍬 50 Permen",0,0,0]]],[493,"Maschiff",9,2,0,[[942,"Maschiff","Dark",null,942,1,"Dasar (Base)",null,null,0,0,0],[943,"Mabosstiff","Dark",null,943,2,"Evolusi Akhir","Maschiff","🍬 50 Permen",0,0,0]]],[494,"Shroodle",9,2,0,[[944,"Shroodle","Poison","Normal",944,1,"Dasar (Base)",null,null,0,0,0],[945,"Grafaiai","Poison","Normal",945,2,"Evolusi Akhir","Shroodle","🍬 50 Permen",0,0,0]]],[495,"Bramblin",9,2,0,[[946,"Bramblin","Grass","Ghost",946,1,"Dasar (Base)",null,null,0,0,0],[947,"Brambleghast","Grass","Ghost",947,2,"Evolusi Akhir","Bramblin","🍬 50 Permen + 🚶 Jalan 25km sbg Buddy",0,0,0]]],[496,"Toedscool",9,2,0,[[948,"Toedscool","Ground","Grass",948,1,"Dasar (Base)",null,null,0,0,0],[949,"Toedscruel","Ground","Grass",949,2,"Evolusi Akhir","Toedscool","🍬 50 Permen",0,0,0]]],[497,"Klawf",9,1,0,[[950,"Klawf","Rock",null,950,1,"Dasar (Base)",null,null,0,0,0]]],[498,"Capsakid",9,2,0,[[951,"Capsakid","Grass",null,951,1,"Dasar (Base)",null,null,0,0,0],[952,"Scovillain","Grass","Fire",952,2,"Evolusi Akhir","Capsakid","🍬 50 Permen",0,0,0]]],[499,"Rellor",9,2,0,[[953,"Rellor","Bug",null,953,1,"Dasar (Base)",null,null,0,0,0],[954,"Rabsca","Bug","Psychic",954,2,"Evolusi Akhir","Rellor","🍬 50 Permen + 🚶 Jalan 25km sbg Buddy",0,0,0]]],[500,"Flittle",9,2,0,[[955,"Flittle","Psychic",null,955,1,"Dasar (Base)",null,null,0,0,0],[956,"Espathra","Psychic",null,956,2,"Evolusi Akhir","Flittle","🍬 50 Permen",0,0,0]]],[501,"Tinkatink",9,3,0,[[957,"Tinkatink","Fairy","Steel",957,1,"Dasar (Base)",null,null,0,0,0],[958,"Tinkatuff","Fairy","Steel",958,2,"Tahap 1","Tinkatink","🍬 25 Permen",0,0,0],[959,"Tinkaton","Fairy","Steel",959,3,"Tahap 2 (Akhir)","Tinkatuff","🍬 100 Permen",0,0,0]]],[502,"Wiglett",9,2,0,[[960,"Wiglett","Water",null,960,1,"Dasar (Base)",null,null,0,0,0],[961,"Wugtrio","Water",null,961,2,"Evolusi Akhir","Wiglett","🍬 50 Permen",0,0,0]]],[503,"Bombirdier",9,1,0,[[962,"Bombirdier","Flying","Dark",962,1,"Dasar (Base)",null,null,0,0,0]]],[504,"Finizen",9,2,0,[[963,"Finizen","Water",null,963,1,"Dasar (Base)",null,null,0,0,0],[964,"Palafin (Zero Form)","Water",null,964,2,"Evolusi Akhir","Finizen","🍬 50 Permen",0,0,0]]],[505,"Varoom",9,2,0,[[965,"Varoom","Steel","Poison",965,1,"Dasar (Base)",null,null,0,0,0],[966,"Revavroom","Steel","Poison",966,2,"Evolusi Akhir","Varoom","🍬 50 Permen",0,0,0]]],[506,"Cyclizar",9,1,0,[[967,"Cyclizar","Dragon","Normal",967,1,"Dasar (Base)",null,null,0,0,0]]],[507,"Orthworm",9,1,0,[[968,"Orthworm","Steel",null,968,1,"Dasar (Base)",null,null,0,0,0]]],[508,"Glimmet",9,2,0,[[969,"Glimmet","Rock","Poison",969,1,"Dasar (Base)",null,null,0,0,0],[970,"Glimmora","Rock","Poison",970,2,"Evolusi Akhir","Glimmet","🍬 50 Permen",0,0,0]]],[509,"Greavard",9,2,0,[[971,"Greavard","Ghost",null,971,1,"Dasar (Base)",null,null,0,0,0],[972,"Houndstone","Ghost",null,972,2,"Evolusi Akhir","Greavard","🍬 50 Permen",0,0,0]]],[510,"Flamigo",9,1,0,[[973,"Flamigo","Flying","Fighting",973,1,"Dasar (Base)",null,null,0,0,0]]],[511,"Cetoddle",9,2,0,[[974,"Cetoddle","Ice",null,974,1,"Dasar (Base)",null,null,0,0,0],[975,"Cetitan","Ice",null,975,2,"Evolusi Akhir","Cetoddle","🍬 50 Permen",0,0,0]]],[512,"Veluza",9,1,0,[[976,"Veluza","Water","Psychic",976,1,"Dasar (Base)",null,null,0,0,0]]],[513,"Dondozo",9,1,0,[[977,"Dondozo","Water",null,977,1,"Dasar (Base)",null,null,0,0,0]]],[514,"Tatsugiri (Curly Form)",9,1,0,[[978,"Tatsugiri (Curly Form)","Dragon","Water",978,1,"Dasar (Base)",null,null,0,0,0]]],[515,"Great Tusk",9,1,0,[[984,"Great Tusk","Ground","Fighting",984,1,"Dasar (Base)",null,null,0,0,0]]],[516,"Scream Tail",9,1,0,[[985,"Scream Tail","Fairy","Psychic",985,1,"Dasar (Base)",null,null,0,0,0]]],[517,"Brute Bonnet",9,1,0,[[986,"Brute Bonnet","Grass","Dark",986,1,"Dasar (Base)",null,null,0,0,0]]],[518,"Flutter Mane",9,1,0,[[987,"Flutter Mane","Ghost","Fairy",987,1,"Dasar (Base)",null,null,0,0,0]]],[519,"Slither Wing",9,1,0,[[988,"Slither Wing","Bug","Fighting",988,1,"Dasar (Base)",null,null,0,0,0]]],[520,"Sandy Shocks",9,1,0,[[989,"Sandy Shocks","Electric","Ground",989,1,"Dasar (Base)",null,null,0,0,0]]],[521,"Iron Treads",9,1,0,[[990,"Iron Treads","Ground","Steel",990,1,"Dasar (Base)",null,null,0,0,0]]],[522,"Iron Bundle",9,1,0,[[991,"Iron Bundle","Ice","Water",991,1,"Dasar (Base)",null,null,0,0,0]]],[523,"Iron Hands",9,1,0,[[992,"Iron Hands","Fighting","Electric",992,1,"Dasar (Base)",null,null,0,0,0]]],[524,"Iron Jugulis",9,1,0,[[993,"Iron Jugulis","Dark","Flying",993,1,"Dasar (Base)",null,null,0,0,0]]],[525,"Iron Moth",9,1,0,[[994,"Iron Moth","Fire","Poison",994,1,"Dasar (Base)",null,null,0,0,0]]],[526,"Iron Thorns",9,1,0,[[995,"Iron Thorns","Rock","Electric",995,1,"Dasar (Base)",null,null,0,0,0]]],[527,"Frigibax",9,3,0,[[996,"Frigibax","Dragon","Ice",996,1,"Dasar (Base)",null,null,0,0,0],[997,"Arctibax","Dragon","Ice",997,2,"Tahap 1","Frigibax","🍬 25 Permen",0,0,0],[998,"Baxcalibur","Dragon","Ice",998,3,"Tahap 2 (Akhir)","Arctibax","🍬 100 Permen",0,0,0]]],[528,"Gimmighoul (Chest Form)",9,2,0,[[999,"Gimmighoul (Chest Form)","Ghost",null,999,1,"Dasar (Base)",null,null,0,0,0],[1000,"Gholdengo","Steel","Ghost",1000,2,"Evolusi Akhir","Gimmighoul (Chest Form)","🪙 999 Koin Gimmighoul",0,0,0]]],[529,"Wo-Chien",9,1,0,[[1001,"Wo-Chien","Dark","Grass",1001,1,"Dasar (Base)",null,null,0,0,0]]],[530,"Chien-Pao",9,1,0,[[1002,"Chien-Pao","Dark","Ice",1002,1,"Dasar (Base)",null,null,0,0,0]]],[531,"Ting-Lu",9,1,0,[[1003,"Ting-Lu","Dark","Ground",1003,1,"Dasar (Base)",null,null,0,0,0]]],[532,"Chi-Yu",9,1,0,[[1004,"Chi-Yu","Dark","Fire",1004,1,"Dasar (Base)",null,null,0,0,0]]],[533,"Roaring Moon",9,1,0,[[1005,"Roaring Moon","Dragon","Dark",1005,1,"Dasar (Base)",null,null,0,0,0]]],[534,"Iron Valiant",9,1,0,[[1006,"Iron Valiant","Fairy","Fighting",1006,1,"Dasar (Base)",null,null,0,0,0]]],[535,"Koraidon",9,1,0,[[1007,"Koraidon","Fighting","Dragon",1007,1,"Dasar (Base)",null,null,0,0,0]]],[536,"Miraidon",9,1,0,[[1008,"Miraidon","Electric","Dragon",1008,1,"Dasar (Base)",null,null,0,0,0]]],[537,"Walking Wake",9,1,0,[[1009,"Walking Wake","Water","Dragon",1009,1,"Dasar (Base)",null,null,0,0,0]]],[538,"Iron Leaves",9,1,0,[[1010,"Iron Leaves","Grass","Psychic",1010,1,"Dasar (Base)",null,null,0,0,0]]],[539,"Poltchageist",9,2,0,[[1012,"Poltchageist","Grass","Ghost",1012,1,"Dasar (Base)",null,null,0,0,0],[1013,"Sinistcha","Grass","Ghost",1013,2,"Evolusi Akhir","Poltchageist","🍬 50 Permen",0,0,0]]],[540,"Okidogi",9,1,0,[[1014,"Okidogi","Poison","Fighting",1014,1,"Dasar (Base)",null,null,0,0,0]]],[541,"Munkidori",9,1,0,[[1015,"Munkidori","Poison","Psychic",1015,1,"Dasar (Base)",null,null,0,0,0]]],[542,"Fezandipiti",9,1,0,[[1016,"Fezandipiti","Poison","Fairy",1016,1,"Dasar (Base)",null,null,0,0,0]]],[543,"Ogerpon (Teal Mask)",9,1,0,[[1017,"Ogerpon (Teal Mask)","Grass",null,1017,1,"Dasar (Base)",null,null,0,0,0]]],[544,"Gouging Fire",9,1,0,[[1020,"Gouging Fire","Fire","Dragon",1020,1,"Dasar (Base)",null,null,0,0,0]]],[545,"Raging Bolt",9,1,0,[[1021,"Raging Bolt","Electric","Dragon",1021,1,"Dasar (Base)",null,null,0,0,0]]],[547,"Iron Boulder",9,1,0,[[1022,"Iron Boulder","Rock","Psychic",1022,1,"Dasar (Base)",null,null,0,0,0]]],[546,"Iron Crown",9,1,0,[[1023,"Iron Crown","Steel","Psychic",1023,1,"Dasar (Base)",null,null,0,0,0]]],[548,"Terapagos (Normal Form)",9,1,0,[[1024,"Terapagos (Normal Form)","Normal",null,1024,1,"Dasar (Base)",null,null,0,0,0]]],[549,"Pecharunt",9,1,0,[[1025,"Pecharunt","Poison","Ghost",1025,1,"Dasar (Base)",null,null,0,0,0]]]];
+
+  let EVOLUTION_FAMILIES = [];
+  let POKEMON_TO_FAMILY = {};
+
+  function initEvolutionFamilies() {
+    EVOLUTION_FAMILIES = EVOLUTION_FAMILIES_RAW.map(f => ({
+      cid: f[0],
+      family: f[1],
+      gen: f[2],
+      maxStage: f[3],
+      hasBranch: f[4] === 1,
+      members: f[5].map(m => ({
+        id: m[0],
+        name: m[1],
+        t1: m[2],
+        t2: m[3],
+        imgId: m[4] || m[0],
+        stage: m[5],
+        stageLbl: m[6],
+        from: m[7],
+        cost: m[8],
+        isBaby: m[9] === 1,
+        isMega: m[10] === 1,
+        isRegional: m[11] === 1
+      }))
+    }));
+
+    POKEMON_TO_FAMILY = {};
+    EVOLUTION_FAMILIES.forEach(fam => {
+      fam.members.forEach(m => {
+        POKEMON_TO_FAMILY[m.name.toLowerCase()] = fam;
+        if (!POKEMON_TO_FAMILY['#' + m.id]) {
+          POKEMON_TO_FAMILY['#' + m.id] = fam;
+        }
+      });
+      // Also map family name
+      POKEMON_TO_FAMILY[fam.family.toLowerCase()] = fam;
+    });
+  }
+
+  // EVOLUTION TAB STATE & FILTERING
+  let evoCurrentFilter = 'all';
+  let evoCurrentGen = 0; // 0 = all
+  let evoPage = 1;
+  const EVO_PAGE_SIZE = 25;
+  let filteredEvoFamilies = [];
+
+  const POPULAR_STARTERS_AND_DRAGONS = [
+    "bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard",
+    "squirtle", "wartortle", "blastoise", "caterpie", "weedle", "pidgey",
+    "pikachu", "raichu", "eevee", "vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon",
+    "gastly", "haunter", "gengar", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp",
+    "dratini", "dragonair", "dragonite", "larvitar", "pupitar", "tyranitar",
+    "treecko", "grovyle", "sceptile", "torchic", "combusken", "blaziken", "mudkip", "marshtomp", "swampert",
+    "ralts", "kirlia", "gardevoir", "gallade", "bagon", "shelgon", "salamence", "beldum", "metang", "metagross",
+    "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon",
+    "gible", "gabite", "garchomp", "riolu", "lucario",
+    "snivy", "servine", "serperior", "tepig", "pignite", "emboar", "oshawott", "dewott", "samurott",
+    "deino", "zweilous", "hydreigon", "litwick", "lampent", "chandelure",
+    "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja",
+    "goomy", "sliggoo", "goodra",
+    "rowlet", "dartrix", "decidueye", "litten", "torracat", "incineroar", "popplio", "brionne", "primarina",
+    "jangmo-o", "hakamo-o", "kommo-o",
+    "grookey", "thwackey", "rillaboom", "scorbunny", "raboot", "cinderace", "sobble", "drizzile", "inteleon",
+    "dreepy", "drakloak", "dragapult",
+    "sprigatito", "floragato", "meowscarada", "fuecoco", "crocalor", "skeledirge", "quaxly", "quaxwell", "quaquaval",
+    "frigibax", "arctibax", "baxcalibur", "charcadet", "armarouge", "ceruledge", "mankey", "primeape", "annihilape"
+  ];
+
+  function initEvolutionTab() {
+    const input = document.getElementById("evolutionSearchInput");
+    if (input) {
+      input.addEventListener("input", () => {
+        applyEvolutionFilters();
+      });
+    }
+    applyEvolutionFilters();
+  }
+
+  function setEvoFilter(filterType, btn) {
+    evoCurrentFilter = filterType;
+    document.querySelectorAll(".evo-chip").forEach(c => c.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+    applyEvolutionFilters();
+  }
+
+  function setEvoGenFilter(gen, btn) {
+    evoCurrentGen = gen;
+    document.querySelectorAll(".evo-gen-bar .gen-chip").forEach(c => c.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+    applyEvolutionFilters();
+  }
+
+  function applyEvolutionFilters() {
+    const q = (document.getElementById("evolutionSearchInput")?.value || "").trim().toLowerCase();
+    const numMatch = q.replace('#', '');
+    const isNum = !isNaN(numMatch) && numMatch.length > 0;
+    const targetId = isNum ? parseInt(numMatch, 10) : -1;
+
+    filteredEvoFamilies = EVOLUTION_FAMILIES.filter(fam => {
+      // 1. Generation filter
+      if (evoCurrentGen !== 0 && fam.gen !== evoCurrentGen) {
+        return false;
+      }
+
+      // 2. Category filter
+      if (evoCurrentFilter === 'popular') {
+        const matchesPop = fam.members.some(m => POPULAR_STARTERS_AND_DRAGONS.includes(m.name.toLowerCase()));
+        if (!matchesPop) return false;
+      } else if (evoCurrentFilter === 'stage3') {
+        if (fam.maxStage < 3) return false;
+      } else if (evoCurrentFilter === 'branch') {
+        if (!fam.hasBranch) return false;
+      } else if (evoCurrentFilter === 'item') {
+        const hasItem = fam.members.some(m => m.cost && (m.cost.includes('Stone') || m.cost.includes('Lure') || m.cost.includes('Rock') || m.cost.includes('Coat') || m.cost.includes('Scale') || m.cost.includes('Up-Grade') || m.cost.includes('Koin')));
+        if (!hasItem) return false;
+      } else if (evoCurrentFilter === 'mega') {
+        const hasMega = fam.members.some(m => m.isMega);
+        if (!hasMega) return false;
+      } else if (evoCurrentFilter === 'candy400') {
+        const has400 = fam.members.some(m => m.cost && m.cost.includes('400 Permen'));
+        if (!has400) return false;
+      } else if (evoCurrentFilter === 'trade') {
+        const hasTrade = fam.members.some(m => m.cost && m.cost.includes('Gratis Trade'));
+        if (!hasTrade) return false;
+      } else if (evoCurrentFilter === 'baby') {
+        const hasBaby = fam.members.some(m => m.isBaby);
+        if (!hasBaby) return false;
+      } else if (evoCurrentFilter === 'regional') {
+        const hasReg = fam.members.some(m => m.isRegional || m.name.includes('Alolan') || m.name.includes('Galarian') || m.name.includes('Hisuian') || m.name.includes('Paldean') || m.stageLbl.includes('Galar') || m.stageLbl.includes('Hisui') || m.stageLbl.includes('Alola') || m.stageLbl.includes('Paldea'));
+        if (!hasReg) return false;
+      }
+
+      // 3. Search query
+      if (q) {
+        if (isNum) {
+          return fam.members.some(m => m.id === targetId);
+        }
+        const matchFam = fam.family.toLowerCase().includes(q);
+        const matchMem = fam.members.some(m => 
+          m.name.toLowerCase().includes(q) ||
+          m.t1.toLowerCase().includes(q) ||
+          (m.t2 && m.t2.toLowerCase().includes(q))
+        );
+        return matchFam || matchMem;
+      }
+
+      return true;
+    });
+
+    evoPage = 1;
+    renderEvolutionList();
+  }
+
+  function renderEvolutionList() {
+    const container = document.getElementById("evolutionListContainer");
+    const countLabel = document.getElementById("evoCountLabel");
+    const loadMoreBtn = document.getElementById("evoLoadMoreBtn");
+    if (!container) return;
+
+    const total = filteredEvoFamilies.length;
+    const end = Math.min(evoPage * EVO_PAGE_SIZE, total);
+    const visible = filteredEvoFamilies.slice(0, end);
+
+    countLabel.innerText = `Menampilkan ${end} dari ${total.toLocaleString()} keluarga rantai evolusi`;
+
+    if (total === 0) {
+      container.innerHTML = `<div style="padding: 30px; text-align: center; color: var(--text-muted); background:rgba(20,31,50,0.5); border-radius:12px;">Tidak ditemukan evolusi Pokémon yang cocok dengan pencarian / filter ini.</div>`;
+      if (loadMoreBtn) loadMoreBtn.style.display = "none";
+      return;
+    }
+
+    let html = "";
+    visible.forEach(fam => {
+      const hasMega = fam.members.some(m => m.isMega);
+      const isSingle = fam.members.length === 1;
+
+      html += `
+        <div class="evo-family-card">
+          <div class="evo-family-header">
+            <div class="evo-family-title">
+              <span>🌱 Keluarga ${fam.family}</span>
+            </div>
+            <div class="evo-family-badges">
+              <span class="evo-badge-tag">Gen ${fam.gen}</span>
+              <span class="evo-badge-tag">${fam.maxStage > 1 ? fam.maxStage + ' Tingkat' : (isSingle ? 'Tidak Berevolusi' : '1 Tingkat + Form')}</span>
+              ${fam.hasBranch ? '<span class="evo-badge-tag" style="color:#ffd700; border-color:rgba(255,215,0,0.3); background:rgba(255,215,0,0.1);">🔀 Bercabang</span>' : ''}
+              ${hasMega ? '<span class="evo-badge-tag" style="color:#c084fc; border-color:rgba(192,132,252,0.3); background:rgba(192,132,252,0.1);">🧬 Mega</span>' : ''}
+            </div>
+          </div>
+      `;
+
+      if (fam.hasBranch && fam.members.length > 3) {
+        // Branching layout (e.g. Eevee, Ralts, Poliwag, Slowpoke, Applin, Tyrogue)
+        html += renderBranchingFamilyHtml(fam);
+      } else {
+        // Linear layout
+        html += renderLinearFamilyHtml(fam);
+      }
+
+      html += `</div>`;
+    });
+
+    container.innerHTML = html;
+
+    if (loadMoreBtn) {
+      if (end < total) {
+        loadMoreBtn.style.display = "block";
+        loadMoreBtn.innerText = `Muat Lebih Banyak Rantai Evolusi (${total - end} Tersisa)`;
+      } else {
+        loadMoreBtn.style.display = "none";
+      }
+    }
+  }
+
+  function loadMoreEvoFamilies() {
+    evoPage++;
+    renderEvolutionList();
+  }
+
+  function renderLinearFamilyHtml(fam) {
+    let html = `<div class="evo-track-scroll">`;
+    fam.members.forEach((m, idx) => {
+      if (idx > 0) {
+        const costText = m.cost || "Evolusi";
+        html += `
+          <div class="evo-arrow-cell" title="${costText}">
+            <span class="evo-arrow-glyph">➔</span>
+            <span class="evo-cost-tag">${costText}</span>
+          </div>
+        `;
+      }
+
+      html += renderEvoNodeCardHtml(m);
+    });
+    html += `</div>`;
+    return html;
+  }
+
+  function renderBranchingFamilyHtml(fam) {
+    // Root species (stage 1)
+    const roots = fam.members.filter(m => m.stage === 1 && !m.from);
+    const nonRoots = fam.members.filter(m => m.stage > 1 || m.from);
+
+    let html = `<div class="evo-branch-wrap">`;
+    
+    html += `<div class="evo-branch-root-row">`;
+    roots.forEach(r => {
+      html += renderEvoNodeCardHtml(r);
+    });
+    html += `
+      <div style="font-size:0.78rem; color:var(--accent-cyan); font-weight:800; display:flex; align-items:center; gap:4px;">
+        <span>➔ Bercabang Menjadi (${nonRoots.length} Pilihan Evolusi):</span>
+      </div>
+    </div>`;
+
+    html += `<div class="evo-branches-grid">`;
+    nonRoots.forEach(m => {
+      const idFormatted = '#' + m.id.toString().padStart(4, '0');
+      const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${m.imgId}.png`;
+      const fallbackUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${m.id}.png`;
+      const costBadge = m.cost ? `<span class="evo-branch-cost">${m.cost}</span>` : '';
+
+      html += `
+        <div class="evo-branch-item" onclick="openEvolutionDetailModal('${m.name.replace(/'/g, "\\\'")}')">
+          <img class="evo-branch-img" src="${imgUrl}" alt="${m.name}" loading="lazy"
+               onerror="this.onerror=null; this.src='${fallbackUrl}'; this.onerror=function(){this.style.display='none';};">
+          <div class="evo-branch-info">
+            <span style="font-size:0.62rem; color:var(--accent-cyan); font-weight:700;">${idFormatted}</span>
+            <span class="evo-branch-name">${m.name}</span>
+            <div style="display:flex; gap:2px; margin-top:2px;">
+              ${renderTypePillHtml(m.t1)}
+              ${m.t2 ? renderTypePillHtml(m.t2) : ''}
+            </div>
+            ${costBadge}
+          </div>
+        </div>
+      `;
+    });
+    html += `</div></div>`;
+    return html;
+  }
+
+  function renderEvoNodeCardHtml(m) {
+    const idFormatted = '#' + m.id.toString().padStart(4, '0');
+    const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${m.imgId}.png`;
+    const fallbackUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${m.id}.png`;
+    const extraCls = m.isMega ? 'mega' : (m.isRegional ? 'regional' : '');
+
+    return `
+      <div class="evo-node-card ${extraCls}" onclick="openEvolutionDetailModal('${m.name.replace(/'/g, "\\\'")}')">
+        <span class="evo-stage-pill">${m.stageLbl || 'Tahap ' + m.stage}</span>
+        <div class="evo-node-img-wrap">
+          <img class="evo-node-img" src="${imgUrl}" alt="${m.name}" loading="lazy"
+               onerror="this.onerror=null; this.src='${fallbackUrl}'; this.onerror=function(){this.style.display='none';};">
+        </div>
+        <span class="evo-node-id">${idFormatted}</span>
+        <div class="evo-node-name" title="${m.name}">${m.name}</div>
+        <div class="evo-node-types">
+          ${renderTypePillHtml(m.t1)}
+          ${m.t2 ? renderTypePillHtml(m.t2) : ''}
+        </div>
+        <button class="evo-node-btn" onclick="event.stopPropagation(); selectSearchPokemon('${m.name.replace(/'/g, "\\\'")}', '${m.t1}', ${m.t2 ? `'${m.t2}'` : 'null'}, ${m.imgId})" title="Cek Counter di Tab Lawan">
+          🛡️ Counter
+        </button>
+      </div>
+    `;
+  }
+
+  // DYNAMIC DEFENDER EVOLUTION STRIP
+  function updateDefenderEvoStrip() {
+    const strip = document.getElementById("defenderEvoStrip");
+    if (!strip) return;
+
+    if (!currentPokemonTarget || !currentPokemonTarget.name || currentPokemonTarget.name.includes("Custom")) {
+      strip.style.display = "none";
+      return;
+    }
+
+    const targetName = currentPokemonTarget.name.toLowerCase();
+    const fam = POKEMON_TO_FAMILY[targetName] || POKEMON_TO_FAMILY['#' + currentPokemonTarget.id];
+
+    if (!fam) {
+      strip.style.display = "none";
+      return;
+    }
+
+    strip.style.display = "flex";
+
+    let trackHtml = "";
+    fam.members.forEach((m, idx) => {
+      if (idx > 0) {
+        trackHtml += `<span class="defender-evo-arrow">➔</span>`;
+      }
+      const isActive = m.name.toLowerCase() === targetName;
+      const actCls = isActive ? "active" : "";
+      const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${m.imgId}.png`;
+      const fallbackUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${m.id}.png`;
+
+      trackHtml += `
+        <div class="defender-evo-node ${actCls}" onclick="selectSearchPokemon('${m.name.replace(/'/g, "\\\'")}', '${m.t1}', ${m.t2 ? `'${m.t2}'` : 'null'}, ${m.imgId})">
+          <img class="defender-evo-img" src="${imgUrl}" alt="${m.name}" loading="lazy"
+               onerror="this.onerror=null; this.src='${fallbackUrl}'; this.onerror=function(){this.style.display='none';};">
+          <span>${m.name}</span>
+          ${isActive ? '<span style="font-size:0.6rem; background:#ffd700; color:#000; padding:1px 4px; border-radius:10px;">Dipilih</span>' : ''}
+        </div>
+      `;
+    });
+
+    strip.innerHTML = `
+      <div class="defender-evo-header">
+        <span>🌱 Rantai Evolusi: <b>${fam.family}</b></span>
+        <button class="action-btn" onclick="openEvoForPokemon('${currentPokemonTarget.name.replace(/'/g, "\\\'")}')" style="font-size:0.7rem; padding:2px 8px; color:var(--accent-cyan); border-color:rgba(0,210,255,0.4);">
+          Lihat Pohon Lengkap →
+        </button>
+      </div>
+      <div class="defender-evo-track">
+        ${trackHtml}
+      </div>
+    `;
+  }
+
+  // DIRECT EVOLUTION SEARCH JUMP
+  function openEvoForPokemon(pokemonName) {
+    const evoBtn = document.getElementById("nav-btn-evolution");
+    if (evoBtn) {
+      switchTab('evolutionTab', evoBtn);
+    } else {
+      switchTab('evolutionTab', null);
+    }
+
+    const input = document.getElementById("evolutionSearchInput");
+    if (input) {
+      input.value = pokemonName;
+    }
+    evoCurrentFilter = 'all';
+    evoCurrentGen = 0;
+    document.querySelectorAll(".evo-chip").forEach(c => c.classList.remove("active"));
+    document.querySelectorAll(".evo-gen-bar .gen-chip").forEach(c => c.classList.remove("active"));
+    const firstChip = document.querySelector(".evo-chip");
+    if (firstChip) firstChip.classList.add("active");
+    const firstGenChip = document.querySelector(".evo-gen-bar .gen-chip");
+    if (firstGenChip) firstGenChip.classList.add("active");
+
+    applyEvolutionFilters();
+  }
+
+  // EVOLUTION DETAIL MODAL
+  let currentModalTarget = null;
+
+  function openEvolutionDetailModal(pokemonName) {
+    const nameLow = pokemonName.toLowerCase();
+    const found = ALL_POKEMON.find(p => p.name.toLowerCase() === nameLow);
+    const fam = POKEMON_TO_FAMILY[nameLow] || (found ? POKEMON_TO_FAMILY['#' + found.id] : null);
+    const member = fam ? fam.members.find(m => m.name.toLowerCase() === nameLow) : null;
+
+    if (!member && !found) return;
+
+    currentModalTarget = {
+      id: member ? member.id : found.id,
+      name: member ? member.name : found.name,
+      t1: member ? member.t1 : found.t1,
+      t2: member ? member.t2 : found.t2,
+      imgId: member ? member.imgId : (found.imgId || found.id),
+      stageLbl: member ? member.stageLbl : "Dasar (Base)",
+      from: member ? member.from : null,
+      cost: member ? member.cost : null
+    };
+
+    const idFormatted = '#' + currentModalTarget.id.toString().padStart(4, '0');
+    const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${currentModalTarget.imgId}.png`;
+    const fallbackUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${currentModalTarget.id}.png`;
+
+    const imgEl = document.getElementById("evoModalImg");
+    imgEl.src = imgUrl;
+    imgEl.alt = currentModalTarget.name;
+    imgEl.onerror = function() {
+      this.onerror = null;
+      this.src = fallbackUrl;
+      this.onerror = function() { this.style.display = 'none'; };
+    };
+
+    document.getElementById("evoModalId").innerText = `${idFormatted} • Generasi ${fam ? fam.gen : (found ? found.gen : 1)}`;
+    document.getElementById("evoModalName").innerText = currentModalTarget.name;
+    document.getElementById("evoModalStageBadge").innerText = currentModalTarget.stageLbl;
+
+    const pillsEl = document.getElementById("evoModalTypes");
+    pillsEl.innerHTML = renderTypePillHtml(currentModalTarget.t1, 'lg') + (currentModalTarget.t2 ? renderTypePillHtml(currentModalTarget.t2, 'lg') : '');
+
+    // Evolution Guide Description
+    let costHtml = "";
+    if (currentModalTarget.from) {
+      costHtml += `<p style="margin-bottom:6px;">Berevolusi dari: <b>${currentModalTarget.from}</b></p>`;
+    }
+    if (currentModalTarget.cost) {
+      costHtml += `<p style="color:#00d2ff; font-weight:800; font-size:0.92rem; margin-bottom:6px;">${currentModalTarget.cost}</p>`;
+    } else if (!currentModalTarget.from) {
+      costHtml += `<p style="color:#34d399; font-weight:700;">🌱 Bentuk dasar (Tahap awal / Root). Tidak membutuhkan permen untuk didapatkan.</p>`;
+    }
+
+    // Add extra tips for specific Pokemon
+    const n = currentModalTarget.name.toLowerCase();
+    if (n.includes('eevee') || ['vaporeon', 'jolteon', 'flareon', 'espeon', 'umbreon', 'leafeon', 'glaceon', 'sylveon'].includes(n)) {
+      costHtml += `<div style="margin-top:6px; font-size:0.75rem; color:var(--text-muted); border-top:1px dashed rgba(255,255,255,0.1); padding-top:6px;">
+        💡 <b>Trik Nama Eevee (Sekali Pakai):</b><br>
+        Rainer (Vaporeon), Sparky (Jolteon), Pyro (Flareon), Sakura (Espeon), Tamao (Umbreon), Linnea (Leafeon), Rea (Glaceon), Kira (Sylveon).
+      </div>`;
+    } else if (currentModalTarget.cost && currentModalTarget.cost.includes('Gratis Trade')) {
+      costHtml += `<div style="margin-top:6px; font-size:0.75rem; color:#6ee7b7; border-top:1px dashed rgba(255,255,255,0.1); padding-top:6px;">
+        💡 <b>Bonus Trade Evolution:</b> Jika Pokémon ini didapatkan dari hasil Trade (Tukar Tambah) dengan teman, biaya permen menjadi <b>0 (Gratis)!</b>
+      </div>`;
+    } else if (currentModalTarget.cost && currentModalTarget.cost.includes('Sinnoh Stone')) {
+      costHtml += `<div style="margin-top:6px; font-size:0.75rem; color:#93c5fd; border-top:1px dashed rgba(255,255,255,0.1); padding-top:6px;">
+        🪨 <b>Cara Dapat Sinnoh Stone:</b> Hadiah PvP Trainer Battle (3x sehari), lawan Team Leader (Candela/Blanche/Spark 1x sehari), atau Research Breakthrough 7 hari.
+      </div>`;
+    }
+
+    document.getElementById("evoModalCostDesc").innerHTML = costHtml;
+
+    // Type Analysis Quick Overview
+    const weaks = [];
+    const resists = [];
+    TYPES.forEach(atk => {
+      const m1 = getSingleEffectiveness(atk, currentModalTarget.t1);
+      const m2 = currentModalTarget.t2 ? getSingleEffectiveness(atk, currentModalTarget.t2) : 1.0;
+      const tot = m1 * m2;
+      if (tot >= 1.5) weaks.push(atk);
+      else if (tot <= 0.7) resists.push(atk);
+    });
+
+    let typeAnalysisHtml = `
+      <div style="margin-bottom:6px;">
+        <span style="color:#ff763b; font-weight:700;">💥 Kelemahan:</span>
+        <div class="pill-list" style="margin-top:4px;">
+          ${weaks.length ? weaks.map(t => renderTypePillHtml(t)).join('') : '<span class="empty-state">Tidak ada kelemahan</span>'}
+        </div>
+      </div>
+      <div>
+        <span style="color:#10b981; font-weight:700;">🛡️ Tahan Serangan:</span>
+        <div class="pill-list" style="margin-top:4px;">
+          ${resists.length ? resists.map(t => renderTypePillHtml(t)).join('') : '<span class="empty-state">Tidak ada resistensi</span>'}
+        </div>
+      </div>
+    `;
+    document.getElementById("evoModalTypeAnalysis").innerHTML = typeAnalysisHtml;
+
+    // Open modal
+    const modal = document.getElementById("evoModalBackdrop");
+    if (modal) modal.classList.add("open");
+  }
+
+  function closeEvolutionDetailModal() {
+    const modal = document.getElementById("evoModalBackdrop");
+    if (modal) modal.classList.remove("open");
+  }
+
+  function onModalAnalyzeTarget() {
+    if (!currentModalTarget) return;
+    closeEvolutionDetailModal();
+    selectSearchPokemon(currentModalTarget.name, currentModalTarget.t1, currentModalTarget.t2, currentModalTarget.imgId);
+  }
+
+  function onModalOpenPokedex() {
+    if (!currentModalTarget) return;
+    closeEvolutionDetailModal();
+    openFullPokedexTab();
+    const pInput = document.getElementById("pokedexFilterInput");
+    if (pInput) {
+      pInput.value = currentModalTarget.name;
+      applyPokedexFilters();
+    }
+  }
 
   // TAB SWITCHING
   function switchTab(tabId, btn) {
@@ -1807,6 +2987,7 @@
       const idMap = {
         'defenderTab': 'nav-btn-defender',
         'attackerTab': 'nav-btn-attacker',
+        'evolutionTab': 'nav-btn-evolution',
         'pokedexTab': 'nav-btn-pokedex',
         'matrixTab': 'nav-btn-matrix',
         'rocketTab': 'nav-btn-rocket'
@@ -1979,6 +3160,7 @@
     renderPills("pillsDoubleResist", results.doubleResist, "cardDoubleResist");
     renderPills("pillsTripleResist", results.tripleResist, "cardTripleResist", true);
     renderPills("pillsNeutral", results.neutral, "cardNeutral");
+    updateDefenderEvoStrip();
   }
 
   function renderPills(containerId, list, cardId, autoHideIfEmpty = false) {
@@ -2269,9 +3451,10 @@
                 <span><b>${p.name}</b></span>
               </div>
             </div>
-            <div style="display:flex; gap:4px;">
+            <div style="display:flex; gap:4px; align-items:center;">
               ${renderTypePillHtml(p.t1)}
               ${p.t2 ? renderTypePillHtml(p.t2) : ''}
+              <button class="action-btn" style="padding:2px 6px; font-size:0.68rem; color:#38bdf8; border-color:rgba(0,210,255,0.3); margin-left:4px;" onclick="event.stopPropagation(); openEvoForPokemon('${p.name.replace(/'/g, "\\'")}')" title="Lihat Evolusi">🌱</button>
             </div>
           </div>
         `;
@@ -2507,6 +3690,9 @@
             ${t1Pill}
             ${t2Pill}
           </div>
+          <button class="poke-card-evo-btn" onclick="event.stopPropagation(); openEvoForPokemon('${p.name.replace(/'/g, "\\'")}')" title="Lihat Rantai Evolusi">
+            🌱 Evolusi
+          </button>
         </div>
       `;
     });
@@ -2548,6 +3734,52 @@
 <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()" title="Kembali ke atas">
   ↑
 </button>
+
+
+  <!-- EVOLUTION DETAIL MODAL DIALOG -->
+  <div id="evoModalBackdrop" class="evo-modal-backdrop" onclick="if(event.target===this) closeEvolutionDetailModal()">
+    <div class="evo-modal-card">
+      <div class="evo-modal-header">
+        <span class="evo-badge-tag" id="evoModalStageBadge">Dasar (Base)</span>
+        <button class="evo-modal-close-btn" onclick="closeEvolutionDetailModal()" title="Tutup">✕</button>
+      </div>
+      <div class="evo-modal-body">
+        <div class="evo-modal-img-wrap">
+          <img id="evoModalImg" class="evo-modal-img" src="" alt="">
+        </div>
+        <div id="evoModalId" class="evo-modal-meta">#0001 • Gen 1</div>
+        <div id="evoModalName" class="evo-modal-name">Bulbasaur</div>
+        <div id="evoModalTypes" class="evo-modal-pills"></div>
+
+        <div class="evo-modal-section">
+          <div class="evo-modal-section-title">
+            <span>🍬 Syarat Evolusi di Pokémon GO</span>
+          </div>
+          <div id="evoModalCostDesc" class="evo-modal-desc">
+            -
+          </div>
+        </div>
+
+        <div class="evo-modal-section">
+          <div class="evo-modal-section-title">
+            <span>🛡️ Kelemahan & Kekuatan Tipe</span>
+          </div>
+          <div id="evoModalTypeAnalysis" class="evo-modal-desc" style="font-size:0.78rem;">
+            -
+          </div>
+        </div>
+
+        <div class="evo-modal-actions">
+          <button id="evoModalCtaBtn" class="evo-modal-cta" onclick="onModalAnalyzeTarget()">
+            <span>🛡️ Analisis Kelemahan di Tab Lawan</span>
+          </button>
+          <button class="evo-modal-sec-btn" onclick="onModalOpenPokedex()">
+            <span>📖 Buka Detail di Pokédex</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

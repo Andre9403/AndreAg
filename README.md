@@ -12,6 +12,7 @@ Panduan interaktif & kalkulator efektivitas tipe/elemen Pokémon GO lengkap untu
   - 🛑 **0.391x** (Double Resistance / Immunity Tier)
   - ⛔ **0.244x** (Triple Resistance)
 - **⚔️ Kalkulator Attacker (Serangan)**: Mengetahui efektivitas jurus Anda terhadap tipe lawan beserta bonus cuaca (*Weather Boost* +20% damage).
+- **🌱 Pohon & Rantai Evolusi Lengkap (540 Keluarga Pokémon)**: Cari pohon keluarga evolusi Pokémon, percabangan (Eevee, Ralts, Slowpoke, Tyrogue, Applin, dll.), syarat Permen (Candy 12/25/50/100/400), item khusus (Sinnoh/Unova Stone, Sun Stone, King's Rock, Metal Coat, Dragon Scale, Up-Grade, Lure Module), diskon Trade gratis (0 Candy), tugas Buddy/Adventure, dan Mega Evolusi langsung dengan visualisasi flow interaktif.
 - **📖 Pokédex Lengkap (1.279 Pokémon)**: Database lengkap dari Gen 1 hingga Gen 9 (#0001 Bulbasaur s/d #1025 Pecharunt), termasuk bentuk Alolan, Galarian, Hisuian, Paldean, dan Mega Evolution.
 - **🖼️ Gambar HD Resmi (*Official Artwork*)**: Dilengkapi gambar HD transparan dan thumbnail di dropdown pencarian.
 - **🚀 Cheat Sheet Dialog Team GO Rocket**: Temukan tipe Pokémon Grunt dan counter terbaiknya hanya dari kalimat dialog mereka.

@@ -1,5 +1,5 @@
 // Service Worker for Pokémon GO Type Guide PWA
-const CACHE_NAME = 'pogo-guide-v1';
+const CACHE_NAME = 'pogo-guide-v2';
 const ASSETS = [
   './',
   './index.html',
