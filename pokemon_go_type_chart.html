@@ -2387,11 +2387,26 @@
   // PWA & INSTALL TO HOME SCREEN SYSTEM
   let deferredInstallPrompt = null;
 
-  // Register Service Worker
+  // Register Service Worker with Auto-Update detection
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js')
-        .then((reg) => console.log('Service Worker registered:', reg.scope))
+        .then((reg) => {
+          console.log('Service Worker registered:', reg.scope);
+          // Check for fresh updates on every visit
+          reg.update().catch(() => {});
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            if (!newWorker) return;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // Instantly reload to activate the new version
+                console.log('New app version detected, reloading...');
+                window.location.reload();
+              }
+            });
+          });
+        })
         .catch((err) => console.warn('Service Worker registration skipped:', err));
     });
   }

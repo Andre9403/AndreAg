@@ -1,5 +1,5 @@
 // Service Worker for Pokémon GO Type Guide PWA
-const CACHE_NAME = 'pogo-guide-v2';
+const CACHE_NAME = 'pogo-guide-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -32,13 +32,31 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Stale-while-revalidate for local assets, network-first for external images
   if (event.request.method !== 'GET') return;
-  
+
+  // 1. Network-First for HTML/page navigation so fresh deployments appear immediately
+  const isNav = event.request.mode === 'navigate' || (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'));
+  if (isNav) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const copy = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          return caches.match(event.request).then((res) => res || caches.match('./index.html') || caches.match('./'));
+        })
+    );
+    return;
+  }
+
+  // 2. Stale-while-revalidate for local static assets (icons, manifest)
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // Fetch in background to update cache
         fetch(event.request).then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
@@ -50,4 +68,3 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
-
